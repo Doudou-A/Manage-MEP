@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerQK3ZOk0;
+namespace ContainerUJcAlxe;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -806,7 +806,7 @@ class srcApp_KernelDevDebugContainer extends Container
         ]));
         $d->addEventListener([0 => 'loadClassMetadata'], 'doctrine.orm.default_listeners.attach_entity_listeners');
 
-        return $this->services['doctrine.dbal.default_connection'] = (new \Doctrine\Bundle\DoctrineBundle\ConnectionFactory([]))->createConnection(['url' => $this->getEnv('resolve:DATABASE_URL'), 'host' => 'localhost', 'port' => NULL, 'user' => 'root', 'password' => NULL, 'driver' => 'pdo_mysql', 'driverOptions' => [], 'defaultTableOptions' => []], $a, $d, []);
+        return $this->services['doctrine.dbal.default_connection'] = (new \Doctrine\Bundle\DoctrineBundle\ConnectionFactory([]))->createConnection(['driver' => 'pdo_mysql', 'charset' => 'utf8mb4', 'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock', 'url' => $this->getEnv('DATABASE_URL'), 'host' => 'localhost', 'port' => NULL, 'user' => 'root', 'password' => NULL, 'driverOptions' => [], 'serverVersion' => '5.7', 'defaultTableOptions' => ['charset' => 'utf8mb4', 'collate' => 'utf8mb4_unicode_ci']], $a, $d, []);
     }
 
     /**
@@ -834,7 +834,19 @@ class srcApp_KernelDevDebugContainer extends Container
         $a->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy(0, true));
         $a->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
         $a->setEntityListenerResolver(new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver($this));
-        $a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(($this->privates['.service_locator.I3K77mT'] ?? ($this->privates['.service_locator.I3K77mT'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [], [])))));
+        $a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Repository\\FolderRepository' => ['privates', 'App\\Repository\\FolderRepository', 'getFolderRepositoryService', false],
+            'App\\Repository\\ServerRepository' => ['privates', 'App\\Repository\\ServerRepository', 'getServerRepositoryService', false],
+            'App\\Repository\\SubFolderRepository' => ['privates', 'App\\Repository\\SubFolderRepository', 'getSubFolderRepositoryService', false],
+            'App\\Repository\\TransfertRepository' => ['privates', 'App\\Repository\\TransfertRepository', 'getTransfertRepositoryService', false],
+            'App\\Repository\\UserRepository' => ['privates', 'App\\Repository\\UserRepository', 'getUserRepositoryService', false],
+        ], [
+            'App\\Repository\\FolderRepository' => '?',
+            'App\\Repository\\ServerRepository' => '?',
+            'App\\Repository\\SubFolderRepository' => '?',
+            'App\\Repository\\TransfertRepository' => '?',
+            'App\\Repository\\UserRepository' => '?',
+        ])));
 
         $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create(($this->services['doctrine.dbal.default_connection'] ?? $this->getDoctrine_Dbal_DefaultConnectionService()), $a);
 
@@ -1293,10 +1305,8 @@ class srcApp_KernelDevDebugContainer extends Container
     {
         include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/UserPasswordEncoderInterface.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/UserPasswordEncoder.php';
-        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/EncoderFactoryInterface.php';
-        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/EncoderFactory.php';
 
-        return $this->services['security.password_encoder'] = new \Symfony\Component\Security\Core\Encoder\UserPasswordEncoder(($this->privates['security.encoder_factory.generic'] ?? ($this->privates['security.encoder_factory.generic'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory([]))));
+        return $this->services['security.password_encoder'] = new \Symfony\Component\Security\Core\Encoder\UserPasswordEncoder(($this->privates['security.encoder_factory.generic'] ?? $this->getSecurity_EncoderFactory_GenericService()));
     }
 
     /**
@@ -1663,6 +1673,92 @@ class srcApp_KernelDevDebugContainer extends Container
     protected function get_LegacyResolveControllerNameSubscriberService()
     {
         return $this->privates['.legacy_resolve_controller_name_subscriber'] = new \Symfony\Bundle\FrameworkBundle\EventListener\ResolveControllerNameSubscriber(($this->privates['.legacy_controller_name_converter'] ?? ($this->privates['.legacy_controller_name_converter'] = new \Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser(($this->services['kernel'] ?? $this->get('kernel', 1)), false))), false);
+    }
+
+    /**
+     * Gets the private 'App\Repository\FolderRepository' shared autowired service.
+     *
+     * @return \App\Repository\FolderRepository
+     */
+    protected function getFolderRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/persistence/lib/Doctrine/Persistence/ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Selectable.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/src/Repository/FolderRepository.php';
+
+        return $this->privates['App\\Repository\\FolderRepository'] = new \App\Repository\FolderRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
+    }
+
+    /**
+     * Gets the private 'App\Repository\ServerRepository' shared autowired service.
+     *
+     * @return \App\Repository\ServerRepository
+     */
+    protected function getServerRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/persistence/lib/Doctrine/Persistence/ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Selectable.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/src/Repository/ServerRepository.php';
+
+        return $this->privates['App\\Repository\\ServerRepository'] = new \App\Repository\ServerRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
+    }
+
+    /**
+     * Gets the private 'App\Repository\SubFolderRepository' shared autowired service.
+     *
+     * @return \App\Repository\SubFolderRepository
+     */
+    protected function getSubFolderRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/persistence/lib/Doctrine/Persistence/ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Selectable.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/src/Repository/SubFolderRepository.php';
+
+        return $this->privates['App\\Repository\\SubFolderRepository'] = new \App\Repository\SubFolderRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
+    }
+
+    /**
+     * Gets the private 'App\Repository\TransfertRepository' shared autowired service.
+     *
+     * @return \App\Repository\TransfertRepository
+     */
+    protected function getTransfertRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/persistence/lib/Doctrine/Persistence/ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Selectable.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/src/Repository/TransfertRepository.php';
+
+        return $this->privates['App\\Repository\\TransfertRepository'] = new \App\Repository\TransfertRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
+    }
+
+    /**
+     * Gets the private 'App\Repository\UserRepository' shared autowired service.
+     *
+     * @return \App\Repository\UserRepository
+     */
+    protected function getUserRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/persistence/lib/Doctrine/Persistence/ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Selectable.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/User/PasswordUpgraderInterface.php';
+        include_once \dirname(__DIR__, 4).'/src/Repository/UserRepository.php';
+
+        return $this->privates['App\\Repository\\UserRepository'] = new \App\Repository\UserRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
     }
 
     /**
@@ -4344,10 +4440,8 @@ class srcApp_KernelDevDebugContainer extends Container
     {
         include_once \dirname(__DIR__, 4).'/vendor/symfony/console/Command/Command.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/security-bundle/Command/UserPasswordEncoderCommand.php';
-        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/EncoderFactoryInterface.php';
-        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/EncoderFactory.php';
 
-        $this->privates['security.command.user_password_encoder'] = $instance = new \Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand(($this->privates['security.encoder_factory.generic'] ?? ($this->privates['security.encoder_factory.generic'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory([]))), []);
+        $this->privates['security.command.user_password_encoder'] = $instance = new \Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand(($this->privates['security.encoder_factory.generic'] ?? $this->getSecurity_EncoderFactory_GenericService()), [0 => 'App\\Entity\\User']);
 
         $instance->setName('security:encode-password');
 
@@ -4367,8 +4461,21 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/security-http/Firewall/ContextListener.php';
 
         return $this->privates['security.context_listener.0'] = new \Symfony\Component\Security\Http\Firewall\ContextListener(($this->privates['security.untracked_token_storage'] ?? ($this->privates['security.untracked_token_storage'] = new \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage())), new RewindableGenerator(function () {
-            yield 0 => ($this->privates['security.user.provider.concrete.users_in_memory'] ?? ($this->privates['security.user.provider.concrete.users_in_memory'] = new \Symfony\Component\Security\Core\User\InMemoryUserProvider([])));
+            yield 0 => ($this->privates['security.user.provider.concrete.app_user_provider'] ?? $this->getSecurity_User_Provider_Concrete_AppUserProviderService());
         }, 1), 'main', ($this->privates['monolog.logger.security'] ?? $this->getMonolog_Logger_SecurityService()), ($this->services['event_dispatcher'] ?? $this->getEventDispatcherService()), ($this->privates['security.authentication.trust_resolver'] ?? ($this->privates['security.authentication.trust_resolver'] = new \Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver(NULL, NULL))), [0 => ($this->services['security.token_storage'] ?? $this->getSecurity_TokenStorageService()), 1 => 'enableUsageTracking']);
+    }
+
+    /**
+     * Gets the private 'security.encoder_factory.generic' shared service.
+     *
+     * @return \Symfony\Component\Security\Core\Encoder\EncoderFactory
+     */
+    protected function getSecurity_EncoderFactory_GenericService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/EncoderFactoryInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/EncoderFactory.php';
+
+        return $this->privates['security.encoder_factory.generic'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(['App\\Entity\\User' => ['algorithm' => 'auto', 'migrate_from' => [], 'hash_algorithm' => 'sha512', 'key_length' => 40, 'ignore_case' => false, 'encode_as_base64' => true, 'iterations' => 5000, 'cost' => NULL, 'memory_cost' => NULL, 'time_cost' => NULL, 'threads' => NULL]]);
     }
 
     /**
@@ -4426,7 +4533,7 @@ class srcApp_KernelDevDebugContainer extends Container
             yield 1 => ($this->privates['security.context_listener.0'] ?? $this->getSecurity_ContextListener_0Service());
             yield 2 => ($this->privates['security.authentication.listener.anonymous.main'] ?? $this->getSecurity_Authentication_Listener_Anonymous_MainService());
             yield 3 => ($this->privates['security.access_listener'] ?? $this->getSecurity_AccessListenerService());
-        }, 4), new \Symfony\Component\Security\Http\Firewall\ExceptionListener(($this->services['security.token_storage'] ?? $this->getSecurity_TokenStorageService()), ($this->privates['security.authentication.trust_resolver'] ?? ($this->privates['security.authentication.trust_resolver'] = new \Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver(NULL, NULL))), new \Symfony\Component\Security\Http\HttpUtils($a, $a, '{^https?://%s$}i', '{^https://%s$}i'), 'main', NULL, NULL, NULL, ($this->privates['monolog.logger.security'] ?? $this->getMonolog_Logger_SecurityService()), false), NULL, new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('main', 'security.user_checker', NULL, true, false, 'security.user.provider.concrete.users_in_memory', 'main', NULL, NULL, NULL, [0 => 'anonymous'], NULL), ($this->privates['security.untracked_token_storage'] ?? ($this->privates['security.untracked_token_storage'] = new \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage())));
+        }, 4), new \Symfony\Component\Security\Http\Firewall\ExceptionListener(($this->services['security.token_storage'] ?? $this->getSecurity_TokenStorageService()), ($this->privates['security.authentication.trust_resolver'] ?? ($this->privates['security.authentication.trust_resolver'] = new \Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver(NULL, NULL))), new \Symfony\Component\Security\Http\HttpUtils($a, $a, '{^https?://%s$}i', '{^https://%s$}i'), 'main', NULL, NULL, NULL, ($this->privates['monolog.logger.security'] ?? $this->getMonolog_Logger_SecurityService()), false), NULL, new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('main', 'security.user_checker', NULL, true, false, 'security.user.provider.concrete.app_user_provider', 'main', NULL, NULL, NULL, [0 => 'anonymous'], NULL), ($this->privates['security.untracked_token_storage'] ?? ($this->privates['security.untracked_token_storage'] = new \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage())));
     }
 
     /**
@@ -4440,6 +4547,20 @@ class srcApp_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private 'security.user.provider.concrete.app_user_provider' shared service.
+     *
+     * @return \Symfony\Bridge\Doctrine\Security\User\EntityUserProvider
+     */
+    protected function getSecurity_User_Provider_Concrete_AppUserProviderService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/User/UserProviderInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/User/PasswordUpgraderInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/doctrine-bridge/Security/User/EntityUserProvider.php';
+
+        return $this->privates['security.user.provider.concrete.app_user_provider'] = new \Symfony\Bridge\Doctrine\Security\User\EntityUserProvider(($this->services['doctrine'] ?? $this->getDoctrineService()), 'App\\Entity\\User', 'username', NULL);
+    }
+
+    /**
      * Gets the private 'security.validator.user_password' shared service.
      *
      * @return \Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator
@@ -4449,10 +4570,8 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/validator/ConstraintValidatorInterface.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/validator/ConstraintValidator.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Validator/Constraints/UserPasswordValidator.php';
-        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/EncoderFactoryInterface.php';
-        include_once \dirname(__DIR__, 4).'/vendor/symfony/security-core/Encoder/EncoderFactory.php';
 
-        return $this->privates['security.validator.user_password'] = new \Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator(($this->services['security.token_storage'] ?? $this->getSecurity_TokenStorageService()), ($this->privates['security.encoder_factory.generic'] ?? ($this->privates['security.encoder_factory.generic'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory([]))));
+        return $this->privates['security.validator.user_password'] = new \Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator(($this->services['security.token_storage'] ?? $this->getSecurity_TokenStorageService()), ($this->privates['security.encoder_factory.generic'] ?? $this->getSecurity_EncoderFactory_GenericService()));
     }
 
     /**
