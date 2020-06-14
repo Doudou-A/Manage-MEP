@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInitd92ae733dff827285ea10dc22e3ac346
 {
     public static $files = array (
+        '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -108,6 +109,7 @@ class ComposerStaticInitd92ae733dff827285ea10dc22e3ac346
             'ProxyManager\\' => 13,
             'PhpParser\\' => 10,
             'PackageVersions\\' => 16,
+            'PHPStan\\' => 8,
         ),
         'M' => 
         array (
@@ -450,6 +452,10 @@ class ComposerStaticInitd92ae733dff827285ea10dc22e3ac346
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
+        ),
+        'PHPStan\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpstan/phpstan-symfony/src',
         ),
         'Monolog\\' => 
         array (

@@ -14,7 +14,7 @@ use OutOfBoundsException;
  */
 final class Versions
 {
-    public const ROOT_PACKAGE_NAME = 'symfony/website-skeleton';
+    public const ROOT_PACKAGE_NAME = '__root__';
     /**
      * Array of all available composer packages.
      * Dont read this array from your calling code, but use the \PackageVersions\Versions::getVersion() method instead.
@@ -118,6 +118,8 @@ final class Versions
   'webimpress/safe-writer' => '2.0.1@d6e879960febb307c112538997316371f1e95b12',
   'webmozart/assert' => '1.8.0@ab2cb0b3b559010b75981b1bdce728da3ee90ad6',
   'nikic/php-parser' => 'v4.5.0@53c2753d756f5adb586dca79c2ec0e2654dd9463',
+  'phpstan/phpstan' => '0.12.28@76c0c4ec90b1eed66fa4855b8b4b53fa9054353f',
+  'phpstan/phpstan-symfony' => '0.12.6@ba69dcd8e57c1a8580bf190e0554bea0fc37fe2f',
   'symfony/browser-kit' => 'v4.4.10@f53310646af9901292488b2ff36e26ea10f545f5',
   'symfony/css-selector' => 'v4.4.10@afc26133a6fbdd4f8842e38893e0ee4685c7c94b',
   'symfony/debug-bundle' => 'v4.4.10@12a020d14b4f6f3a5cfb46cd83836b78be036210',
@@ -128,13 +130,13 @@ final class Versions
   'symfony/profiler-pack' => 'v1.0.4@99c4370632c2a59bb0444852f92140074ef02209',
   'symfony/test-pack' => 'v1.0.6@ff87e800a67d06c423389f77b8209bc9dc469def',
   'symfony/web-profiler-bundle' => 'v4.4.10@e86d3e8d9230fddfee27017f3b8c5c868733079e',
-  'paragonie/random_compat' => '2.*@',
-  'symfony/polyfill-ctype' => '*@',
-  'symfony/polyfill-iconv' => '*@',
-  'symfony/polyfill-php71' => '*@',
-  'symfony/polyfill-php70' => '*@',
-  'symfony/polyfill-php56' => '*@',
-  'symfony/website-skeleton' => 'v4.4.99@',
+  'paragonie/random_compat' => '2.*@d2ee620df2309097e0db4bf45170104f5bb45d2b',
+  'symfony/polyfill-ctype' => '*@d2ee620df2309097e0db4bf45170104f5bb45d2b',
+  'symfony/polyfill-iconv' => '*@d2ee620df2309097e0db4bf45170104f5bb45d2b',
+  'symfony/polyfill-php71' => '*@d2ee620df2309097e0db4bf45170104f5bb45d2b',
+  'symfony/polyfill-php70' => '*@d2ee620df2309097e0db4bf45170104f5bb45d2b',
+  'symfony/polyfill-php56' => '*@d2ee620df2309097e0db4bf45170104f5bb45d2b',
+  '__root__' => 'dev-master@d2ee620df2309097e0db4bf45170104f5bb45d2b',
 );
 
     private function __construct()
