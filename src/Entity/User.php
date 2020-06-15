@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -12,6 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface
 {
     /**
+     * @var integer
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -19,11 +21,13 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $username;
 
     /**
+     * @var array<Role>
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -58,6 +62,7 @@ class User implements UserInterface
 
     /**
      * @see UserInterface
+     * @return array<string|Role>
      */
     public function getRoles(): array
     {
@@ -68,6 +73,10 @@ class User implements UserInterface
         return array_unique($roles);
     }
 
+    /**
+     * @param array<Role> $roles
+     * @return self
+     */
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
@@ -92,6 +101,7 @@ class User implements UserInterface
 
     /**
      * @see UserInterface
+     * @return mixed
      */
     public function getSalt()
     {
@@ -100,6 +110,7 @@ class User implements UserInterface
 
     /**
      * @see UserInterface
+     * @return mixed
      */
     public function eraseCredentials()
     {

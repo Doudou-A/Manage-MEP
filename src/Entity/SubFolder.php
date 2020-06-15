@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\SubFolderRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\SubFolderRepository;
 
 /**
  * @ORM\Entity(repositoryClass=SubFolderRepository::class)
@@ -11,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class SubFolder
 {
     /**
+     * @var integer
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -18,21 +20,25 @@ class SubFolder
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $type;
 
     /**
+     * @var integer
      * @ORM\Column(type="integer")
      */
     private $level;
 
     /**
+     * @var DateTimeInterface|null
      * @ORM\Column(type="datetime")
      */
     private $dateCreated;

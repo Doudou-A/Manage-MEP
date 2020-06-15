@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Server
 {
     /**
+     * @var integer
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -18,6 +19,7 @@ class Server
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $name;

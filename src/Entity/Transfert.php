@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\TransfertRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TransfertRepository;
 
 /**
  * @ORM\Entity(repositoryClass=TransfertRepository::class)
@@ -11,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Transfert
 {
     /**
+     * @var integer
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -18,21 +20,25 @@ class Transfert
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $type;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $comment;
 
     /**
+     * @var DateTimeInterface|null
      * @ORM\Column(type="datetime")
      */
     private $dateCreated;

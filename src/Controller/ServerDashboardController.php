@@ -12,6 +12,7 @@ class ServerDashboardController extends AbstractController
      */
     public function index()
     {
+        
         return $this->render('server_dashboard/index.html.twig', [
             'controller_name' => 'ServerDashboardController',
         ]);

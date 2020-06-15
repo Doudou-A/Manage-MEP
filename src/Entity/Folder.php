@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\FolderRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\FolderRepository;
 
 /**
  * @ORM\Entity(repositoryClass=FolderRepository::class)
@@ -11,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Folder
 {
     /**
+     * @var int
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -18,11 +20,13 @@ class Folder
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @var DateTimeInterface|null
      * @ORM\Column(type="datetime")
      */
     private $dateCreated;
