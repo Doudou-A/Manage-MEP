@@ -65,7 +65,8 @@ class __TwigTemplate_cae6f1668b1b7c44dd7d48240080a428fa4a0f3701da755d96ac4a5a1dc
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello ServerDashboardController!";
+        echo "Dashboard
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -74,7 +75,7 @@ class __TwigTemplate_cae6f1668b1b7c44dd7d48240080a428fa4a0f3701da755d96ac4a5a1dc
 
     }
 
-    // line 5
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,30 +85,21 @@ class __TwigTemplate_cae6f1668b1b7c44dd7d48240080a428fa4a0f3701da755d96ac4a5a1dc
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        // line 7
+        echo "\t";
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 7, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("server_add_folder", ["server" => (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 7, $this->source); })())])]);
+        echo "
 
-<div class=\"example-wrapper\">
-    <h1>Hello ";
+\t";
+        // line 9
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), "name", [], "any", false, false, false, 9), 'row');
+        echo "
+
+\t<button type=\"submit\" value=\"Ajouter\" class=\"btn btn-success pull-right\">Ajouter</button>
+\t";
         // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("/Users/Adel/Documents/ARTEVA/Manage-MEP/src/Controller/ServerDashboardController.php", 0), "html", null, true);
-        echo "\">src/Controller/ServerDashboardController.php</a></code></li>
-        <li>Your template at <code><a href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig", 0), "html", null, true);
-        echo "\">templates/server_dashboard/index.html.twig</a></code></li>
-    </ul>
-</div>
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_end');
+        echo "
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -129,31 +121,23 @@ class __TwigTemplate_cae6f1668b1b7c44dd7d48240080a428fa4a0f3701da755d96ac4a5a1dc
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  101 => 12,  95 => 9,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello ServerDashboardController!{% endblock %}
+{% block title %}Dashboard
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+\t{{ form_start(form, {'action' : path('server_add_folder', { 'server': server })}) }}
 
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+\t{{ form_row(form.name)}}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"{{ '/Users/Adel/Documents/ARTEVA/Manage-MEP/src/Controller/ServerDashboardController.php'|file_link(0) }}\">src/Controller/ServerDashboardController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ '/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig'|file_link(0) }}\">templates/server_dashboard/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
-", "server_dashboard/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig");
+\t<button type=\"submit\" value=\"Ajouter\" class=\"btn btn-success pull-right\">Ajouter</button>
+\t{{ form_end(form) }}
+{% endblock %}", "server_dashboard/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig");
     }
 }

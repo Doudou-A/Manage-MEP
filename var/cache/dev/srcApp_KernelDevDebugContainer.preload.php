@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/Container4Fkux5O/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerFXGXEmn/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -29,13 +29,16 @@ $classes[] = 'Symfony\Bundle\FrameworkBundle\EventListener\ResolveControllerName
 $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\SecurityController';
+$classes[] = 'App\Controller\ServerAddFolderController';
 $classes[] = 'App\Controller\ServerDashboardController';
+$classes[] = 'App\Form\FolderType';
 $classes[] = 'App\Repository\FolderRepository';
 $classes[] = 'App\Repository\ServerRepository';
 $classes[] = 'App\Repository\SubFolderRepository';
 $classes[] = 'App\Repository\TransfertRepository';
 $classes[] = 'App\Repository\UserRepository';
 $classes[] = 'App\Security\LoginFormAuthenticator';
+$classes[] = 'App\Service\FolderManager';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';
 $classes[] = 'Symfony\Component\Cache\DoctrineProvider';
