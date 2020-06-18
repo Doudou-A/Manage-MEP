@@ -15,7 +15,7 @@ class FolderType extends AbstractType
      * @param array<Folder> $options
      * @return void
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) : void
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name')
@@ -26,7 +26,7 @@ class FolderType extends AbstractType
      * @param OptionsResolver $resolver
      * @return void
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => ServerAddFolderRequest::class,

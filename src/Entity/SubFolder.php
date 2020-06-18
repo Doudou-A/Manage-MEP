@@ -12,7 +12,7 @@ use App\Repository\SubFolderRepository;
 class SubFolder
 {
     /**
-     * @var integer
+     * @var int
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -32,7 +32,7 @@ class SubFolder
     private $type;
 
     /**
-     * @var integer
+     * @var int
      * @ORM\Column(type="integer")
      */
     private $level;
@@ -42,6 +42,41 @@ class SubFolder
      * @ORM\Column(type="datetime")
      */
     private $dateCreated;
+
+    /**
+     * @var DateTimeInterface|null
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateLastUpdate;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subFolder_1;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subFolder_2;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subFolder_3;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subFolder_4;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Folder::class, inversedBy="subFolders")
+     */
+    private $Folder;
 
     public function getId(): ?int
     {
@@ -95,4 +130,77 @@ class SubFolder
 
         return $this;
     }
+
+    public function getDateLastUpdate(): ?\DateTimeInterface
+    {
+        return $this->dateLastUpdate;
+    }
+
+    public function setDateLastUpdate(?\DateTimeInterface $dateLastUpdate): self
+    {
+        $this->dateLastUpdate = $dateLastUpdate;
+
+        return $this;
+    }
+
+    public function getSubFolder1(): ?string
+    {
+        return $this->subFolder_1;
+    }
+
+    public function setSubFolder1(?string $subFolder_1): self
+    {
+        $this->subFolder_1 = $subFolder_1;
+
+        return $this;
+    }
+
+    public function getSubFolder2(): ?string
+    {
+        return $this->subFolder_2;
+    }
+
+    public function setSubFolder2(?string $subFolder_2): self
+    {
+        $this->subFolder_2 = $subFolder_2;
+
+        return $this;
+    }
+
+    public function getSubFolder3(): ?string
+    {
+        return $this->subFolder_3;
+    }
+
+    public function setSubFolder3(?string $subFolder_3): self
+    {
+        $this->subFolder_3 = $subFolder_3;
+
+        return $this;
+    }
+
+    public function getSubFolder4(): ?string
+    {
+        return $this->subFolder_4;
+    }
+
+    public function setSubFolder4(?string $subFolder_4): self
+    {
+        $this->subFolder_4 = $subFolder_4;
+
+        return $this;
+    }
+
+    public function getFolder(): ?Folder
+    {
+        return $this->Folder;
+    }
+
+    public function setFolder(?Folder $Folder): self
+    {
+        $this->Folder = $Folder;
+
+        return $this;
+    }
+
 }

@@ -7,7 +7,7 @@ use App\Entity\Folder;
 use App\DOI\ServerAddFolderRequest;
 use App\Repository\FolderRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Response;
+use Doctrine\Common\Collections\Collection;
 
 class FolderManager
 {
@@ -42,11 +42,17 @@ class FolderManager
 
         $this->remove($folder);
     }
+    /**
+     * @return array<Folder>
+     */
+    public function getAll()
+    {
+        return $this->repository->findAll();
+    }
 
     public function getFolder(int $id):Folder
     {
-        $folder = $this->repository->find($id);
-        return $folder;
+        return $this->repository->find($id);;
     }
 
     public function persist(Folder $folder):void

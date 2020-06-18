@@ -87,18 +87,62 @@ class __TwigTemplate_cae6f1668b1b7c44dd7d48240080a428fa4a0f3701da755d96ac4a5a1dc
 
         // line 7
         echo "\t";
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 7, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("server_add_folder", ["server" => (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 7, $this->source); })())])]);
-        echo "
-
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["folders"]) || array_key_exists("folders", $context) ? $context["folders"] : (function () { throw new RuntimeError('Variable "folders" does not exist.', 7, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["folder"]) {
+            // line 8
+            echo "\t\t<div class=\"col-12 d-flex flex-row\">
+\t\t\t<img src=\"";
+            // line 9
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("picture/folder_win10.png"), "html", null, true);
+            echo "\" alt=\"Folder\" class=\"mx-auto\" width=\"15\">
+\t\t\t<div class=\"col-9\">";
+            // line 10
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 10), "html", null, true);
+            echo "</div>
+\t\t</div>
+\t\t<div>
+\t\t\t";
+            // line 13
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form_subFolder"]) || array_key_exists("form_subFolder", $context) ? $context["form_subFolder"] : (function () { throw new RuntimeError('Variable "form_subFolder" does not exist.', 13, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("server_add_subFolder", ["server" => (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 13, $this->source); })())])]);
+            echo "
+\t\t\t";
+            // line 14
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form_subFolder"]) || array_key_exists("form_subFolder", $context) ? $context["form_subFolder"] : (function () { throw new RuntimeError('Variable "form_subFolder" does not exist.', 14, $this->source); })()), "name", [], "any", false, false, false, 14), 'row', ["label" => false]);
+            echo "
+\t\t\t";
+            // line 15
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form_subFolder"]) || array_key_exists("form_subFolder", $context) ? $context["form_subFolder"] : (function () { throw new RuntimeError('Variable "form_subFolder" does not exist.', 15, $this->source); })()), "Folder", [], "any", false, false, false, 15), 'row', ["value" => "folder.name"]);
+            echo "
+\t\t\t";
+            // line 16
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form_subFolder"]) || array_key_exists("form_subFolder", $context) ? $context["form_subFolder"] : (function () { throw new RuntimeError('Variable "form_subFolder" does not exist.', 16, $this->source); })()), "subFolder_1", [], "any", false, false, false, 16), 'row', ["value" => "null"]);
+            echo "
+\t\t\t";
+            // line 17
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form_subFolder"]) || array_key_exists("form_subFolder", $context) ? $context["form_subFolder"] : (function () { throw new RuntimeError('Variable "form_subFolder" does not exist.', 17, $this->source); })()), "level", [], "any", false, false, false, 17), 'row', ["value" => "1"]);
+            echo "
+\t\t\t";
+            // line 18
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form_subFolder"]) || array_key_exists("form_subFolder", $context) ? $context["form_subFolder"] : (function () { throw new RuntimeError('Variable "form_subFolder" does not exist.', 18, $this->source); })()), 'form_end');
+            echo "
+\t\t</div>
 \t";
-        // line 9
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), "name", [], "any", false, false, false, 9), 'row');
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['folder'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 21
+        echo "\t";
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 21, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("server_add_folder", ["server" => (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 21, $this->source); })())])]);
         echo "
-
-\t<button type=\"submit\" value=\"Ajouter\" class=\"btn btn-success pull-right\">Ajouter</button>
 \t";
-        // line 12
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_end');
+        // line 22
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "name", [], "any", false, false, false, 22), 'row', ["label" => false]);
+        echo "
+\t";
+        // line 23
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), 'form_end');
         echo "
 ";
         
@@ -121,7 +165,7 @@ class __TwigTemplate_cae6f1668b1b7c44dd7d48240080a428fa4a0f3701da755d96ac4a5a1dc
 
     public function getDebugInfo()
     {
-        return array (  101 => 12,  95 => 9,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  145 => 23,  141 => 22,  136 => 21,  127 => 18,  123 => 17,  119 => 16,  115 => 15,  111 => 14,  107 => 13,  101 => 10,  97 => 9,  94 => 8,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -132,11 +176,22 @@ class __TwigTemplate_cae6f1668b1b7c44dd7d48240080a428fa4a0f3701da755d96ac4a5a1dc
 {% endblock %}
 
 {% block body %}
+\t{% for folder in folders %}
+\t\t<div class=\"col-12 d-flex flex-row\">
+\t\t\t<img src=\"{{ asset('picture/folder_win10.png') }}\" alt=\"Folder\" class=\"mx-auto\" width=\"15\">
+\t\t\t<div class=\"col-9\">{{folder.name}}</div>
+\t\t</div>
+\t\t<div>
+\t\t\t{{ form_start(form_subFolder, {'action' : path('server_add_subFolder', { 'server': server })}) }}
+\t\t\t{{ form_row(form_subFolder.name, {'label':false})}}
+\t\t\t{{ form_row(form_subFolder.Folder, {'value': \"folder.name\" })}}
+\t\t\t{{ form_row(form_subFolder.subFolder_1, {'value': \"null\"})}}
+\t\t\t{{ form_row(form_subFolder.level, {'value':'1'})}}
+\t\t\t{{ form_end(form_subFolder) }}
+\t\t</div>
+\t{% endfor %}
 \t{{ form_start(form, {'action' : path('server_add_folder', { 'server': server })}) }}
-
-\t{{ form_row(form.name)}}
-
-\t<button type=\"submit\" value=\"Ajouter\" class=\"btn btn-success pull-right\">Ajouter</button>
+\t{{ form_row(form.name, {'label':false})}}
 \t{{ form_end(form) }}
 {% endblock %}", "server_dashboard/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig");
     }

@@ -4,10 +4,29 @@
 {% endblock %}
 
 {% block body %}
+	{% for folder in folders %}
+		<div class="col-12 d-flex flex-row">
+			<img src="picture/folder_win10.png" alt="Folder" class="mx-auto" width="15"/>
+			<div class="col-9">{{folder.name}}</div>
+		</div>
+		<div>
+			{{ form_start(form_subFolder, {'action' : path('server_add_subFolder', { 'server': server })}) }}
+			{{ form_row(form_subFolder.name, {'label':false})}}
+			{{ form_row(form_subFolder.Folder, {'value': "folder.name" })}}
+			{{ form_row(form_subFolder.subFolder_1, {'value': "null"})}}
+			{{ form_row(form_subFolder.level, {'value':'1'})}}
+			{{ form_end(form_subFolder) }}
+		</div>
+		{% verbatim %}
+			<div id="example-1">
+				<button v-on:click="counter += 1">Add 1</button>
+				<p>Le bouton ci-dessus a été cliqué
+					{{ counter }}
+					fois.</p>
+			</div>
+		{% endverbatim %}
+	{% endfor %}
 	{{ form_start(form, {'action' : path('server_add_folder', { 'server': server })}) }}
-
-	{{ form_row(form.name)}}
-
-	<button type="submit" value="Ajouter" class="btn btn-success pull-right">Ajouter</button>
+	{{ form_row(form.name, {'label':false})}}
 	{{ form_end(form) }}
 {% endblock %}

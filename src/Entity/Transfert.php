@@ -12,7 +12,7 @@ use App\Repository\TransfertRepository;
 class Transfert
 {
     /**
-     * @var integer
+     * @var int
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")

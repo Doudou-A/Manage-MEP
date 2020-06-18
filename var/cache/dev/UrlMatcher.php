@@ -34,7 +34,10 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/server/add/folder/([^/]++)(*:196)'
+                .'|/server/add/(?'
+                    .'|sub_folder/([^/]++)(*:203)'
+                    .'|folder/([^/]++)(*:226)'
+                .')'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -45,7 +48,8 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        196 => [
+        203 => [[['_route' => 'server_add_subFolder', '_controller' => 'App\\Controller\\AddSubFolderController::index'], ['server'], null, null, false, true, null]],
+        226 => [
             [['_route' => 'server_add_folder', '_controller' => 'App\\Controller\\ServerAddFolderController::index'], ['server'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

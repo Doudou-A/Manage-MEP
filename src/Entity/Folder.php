@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FolderRepository;
 
@@ -31,6 +33,16 @@ class Folder
      */
     private $dateCreated;
 
+    /**
+     * @ORM\OneToMany(targetEntity=SubFolder::class, mappedBy="Folder")
+     */
+    private $subFolders;
+
+    public function __construct()
+    {
+        $this->subFolders = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -56,6 +68,37 @@ class Folder
     public function setDateCreated(\DateTimeInterface $dateCreated): self
     {
         $this->dateCreated = $dateCreated;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SubFolder[]
+     */
+    public function getSubFolders(): Collection
+    {
+        return $this->subFolders;
+    }
+
+    public function addSubFolder(SubFolder $subFolder): self
+    {
+        if (!$this->subFolders->contains($subFolder)) {
+            $this->subFolders[] = $subFolder;
+            $subFolder->setFolder($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubFolder(SubFolder $subFolder): self
+    {
+        if ($this->subFolders->contains($subFolder)) {
+            $this->subFolders->removeElement($subFolder);
+            // set the owning side to null (unless already changed)
+            if ($subFolder->getFolder() === $this) {
+                $subFolder->setFolder(null);
+            }
+        }
 
         return $this;
     }
