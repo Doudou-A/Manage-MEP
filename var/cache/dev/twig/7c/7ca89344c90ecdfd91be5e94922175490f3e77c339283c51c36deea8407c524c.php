@@ -54,19 +54,20 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         $this->displayBlock('title', $context, $blocks);
         // line 8
         echo "\t\t</title>
+\t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
 \t\t";
-        // line 9
+        // line 10
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 12
+        // line 13
         echo "\t</head>
 \t<body>
 \t\t";
-        // line 14
-        $this->displayBlock('body', $context, $blocks);
         // line 15
+        $this->displayBlock('body', $context, $blocks);
+        // line 16
         echo "\t\t";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 18
+        // line 19
         echo "\t</body>
 </html>
 ";
@@ -98,7 +99,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 9
+    // line 10
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -108,7 +109,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 10
+        // line 11
         echo "\t\t\t";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
         echo "
@@ -121,7 +122,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 14
+    // line 15
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -139,7 +140,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 15
+    // line 16
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -149,7 +150,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 16
+        // line 17
         echo "\t\t\t";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
@@ -169,7 +170,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     public function getDebugInfo()
     {
-        return array (  153 => 16,  143 => 15,  125 => 14,  112 => 10,  102 => 9,  82 => 6,  70 => 18,  67 => 15,  65 => 14,  61 => 12,  59 => 9,  56 => 8,  54 => 6,  47 => 1,);
+        return array (  154 => 17,  144 => 16,  126 => 15,  113 => 11,  103 => 10,  83 => 6,  71 => 19,  68 => 16,  66 => 15,  62 => 13,  60 => 10,  56 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -182,6 +183,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 \t\t\t{% block title %}Welcome!
 \t\t\t{% endblock %}
 \t\t</title>
+\t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
 \t\t{% block stylesheets %}
 \t\t\t{{ encore_entry_link_tags('app') }}
 \t\t{% endblock %}

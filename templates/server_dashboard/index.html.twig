@@ -5,42 +5,24 @@
 
 {% block body %}
 	{% for folder in folders %}
-		<div class="col-12 d-flex flex-row">
-			<img src="picture/folder_win10.png" alt="Folder" class="mx-auto" width="15"/>
-			<div class="col-9">{{folder.name}}</div>
+		<div class="col-12 d-flex">
+			<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
+			<div>{{folder.name}}</div>
+			<form action="http://localhost:8000/server/add/sub_folder/{{server}}" id="formRegistration" method="POST">
+				<div class="row col-12 p-0 m-0">
+					<div class="row p-0 m-0 col-12">
+						<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
+					</div>
+					<div style="display: none;">
+						<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{folder.name}}" type="text" name="folderName" required="required"/>
+					</div>
+					<div style="display: none;">
+						<input class="col-lg-12 p-2 animated fadeInLeft border" value='1' type="number" name="level" required="required"/>
+					</div>
+					<input id="submitFormRegistration" style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
+				</div>
+			</form>
 		</div>
-		{{ form_start(form_subFolder, {'action' : path('server_add_subFolder', { 'server': server })}) }}
-		{{ form_row(form_subFolder.name, {'label':false})}}
-		{{ form_row(form_subFolder.Folder, {'value': "folder.name" })}}
-		{{ form_row(form_subFolder.subFolder_1, {'value': "null"})}}
-		{{ form_row(form_subFolder.level, {'value':'1'})}}
-		{{ form_end(form_subFolder) }}
-		<form action="path('server_add_subFolder', { 'server': server })" id="formRegistration" method="POST">
-			<div class="row col-12 p-0 m-0">
-				<div class="row p-0 m-0 col-12">
-					<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{folder.name}}" type="text" name="name" required="required"/>
-				</div>
-				<div class="row p-0 m-0 col-12">
-					<label class="col-lg-12 mt-4 animated fadeInRight">Prénom :
-					</label>
-					<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="firstName" required="required"/>
-				</div>
-				<div class="row p-0 m-0 col-12">
-					<label class="col-lg-12 mt-4 animated fadeInRight">Mot de Passe :
-					</label>
-					<input class="col-lg-12 p-2 animated fadeInLeft border" id="pass" type="password" name="password" required="required"/>
-				</div>
-				<div class="row p-0 m-0 col-12">
-					<label class="col-lg-12 mt-4 animated fadeInRight">Confirmer le Mot de Passe :
-					</label>
-					<input class="col-lg-12 p-2 animated fadeInLeft border" id="pass" type="password" name="passwordConfirm" required="required"/>
-				</div>
-				<div style="display: none;" class="text-danger" id="errorPassword">
-					* Les mots de passe sont différents !
-				</div>
-				<input id="submitFormRegistration" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
-			</div>
-		</form>
 		{% verbatim %}
 			<div id="example-1">
 				<button v-on:click="counter += 1">Add 1</button>
