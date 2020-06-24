@@ -5,6 +5,7 @@ namespace App\Service;
 use DateTime;
 use App\Entity\Folder;
 use App\DOI\AddSubFolderRequest;
+use App\Entity\SubFolder;
 use App\Repository\SubFolderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Collection;
@@ -27,10 +28,13 @@ class SubFolderManager
         $this->repository = $repository;
     }
 
-    public function createFolder(AddSubFolderRequest $AddSubFolderRequest) : void
+    public function createFolder(AddSubFolderRequest $addSubFolderRequest) : void
     {
-        $subFolder = new Folder;
-        $subFolder->setName($AddSubFolderRequest->name);
+        $subFolder = new SubFolder;
+        
+        $subFolder->setName($addSubFolderRequest->getName());
+        $subFolder->setFolder($addSubFolderRequest->getFolder());
+        $subFolder->setLevel($addSubFolderRequest->getLevel());
         $subFolder->setDateCreated(new \DateTime());
 
         $this->persist($subFolder);
@@ -55,13 +59,13 @@ class SubFolderManager
         return $this->repository->find($id);;
     }
 
-    public function persist(Folder $subFolder):void
+    public function persist(SubFolder $subFolder):void
     {
         $this->manager->persist($subFolder);
         $this->manager->flush();
     }
 
-    public function remove(Folder $subFolder):void
+    public function remove(SubFolder $subFolder):void
     {
         $this->manager->remove($subFolder);
         $this->manager->flush();
