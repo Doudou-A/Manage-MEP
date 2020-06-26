@@ -19,6 +19,7 @@ class AddSubFolderController extends AbstractController
 
         $addSubFolderRequest->setName($_POST['name']);
         $addSubFolderRequest->setFolder($_POST['folderName']);
+        $addSubFolderRequest->setType($_POST['type']);
         $addSubFolderRequest->setLevel($_POST['level']);
         $addSubFolderRequest->setSubFolder1($_POST['subFolder_1']);
 

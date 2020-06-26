@@ -1,10 +1,44 @@
-var example1 = new Vue({
-    el: '#example-1',
-    data: {
-      counter: 0
-    }
-  })
+import Vue from 'vue'
 
-  import Vue from 'vue'
+new Vue({
+  el: '#AddFolder',
+  data:{
+      seen: true
+  }
+  });
 
-new Vue({ el: '#app' })
+new Vue({
+  el:'#AddSubFolder',
+  data:{
+      seen: true
+  }
+  });
+
+new Vue({
+  el:'#top',
+  data:{
+      seen: true
+  }
+  });
+
+new Vue(
+    {
+      el: '#message',
+      data: {
+          message: 'Hello Vue !'
+      }
+  }
+)
+
+const MonComposant = {
+  data() {
+    return  {name: server} ;
+  }
+}
+
+new Vue({
+  el: '#name',
+  components: {
+    MonComposant
+  },
+})

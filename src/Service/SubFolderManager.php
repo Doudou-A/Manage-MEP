@@ -21,11 +21,17 @@ class SubFolderManager
      * @var SubFolderRepository
      */
     private $repository;
+    
+    /**
+     * @var FolderManager
+     */
+    private $folderManager;
 
-    public function __construct(EntityManagerInterface $manager, SubFolderRepository $repository)
+    public function __construct(EntityManagerInterface $manager, FolderManager $folderManager, SubFolderRepository $repository)
     {
         $this->manager = $manager;
         $this->repository = $repository;
+        $this->folderManager = $folderManager;
     }
 
     public function createFolder(AddSubFolderRequest $addSubFolderRequest) : void
@@ -33,7 +39,9 @@ class SubFolderManager
         $subFolder = new SubFolder;
         
         $subFolder->setName($addSubFolderRequest->getName());
-        $subFolder->setFolder($addSubFolderRequest->getFolder());
+        $folder = $addSubFolderRequest->getFolder();
+        $subFolder->setType($addSubFolderRequest->getType($folder));
+        $subFolder->setFolder($this->folderManager->getFolderByName($folder));
         $subFolder->setLevel($addSubFolderRequest->getLevel());
         $subFolder->setDateCreated(new \DateTime());
 

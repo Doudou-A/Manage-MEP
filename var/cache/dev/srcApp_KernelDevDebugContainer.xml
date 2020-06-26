@@ -417,6 +417,7 @@
     </service>
     <service id="App\Service\SubFolderManager" class="App\Service\SubFolderManager" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Service\FolderManager"/>
       <argument type="service" id="App\Repository\SubFolderRepository"/>
     </service>
     <service id=".legacy_controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">

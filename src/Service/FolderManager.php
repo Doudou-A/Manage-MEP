@@ -27,13 +27,15 @@ class FolderManager
         $this->repository = $repository;
     }
 
-    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest) : void
+    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest) : Folder
     {
         $folder = new Folder;
         $folder->setName($serverAddFolderRequest->name);
         $folder->setDateCreated(new \DateTime());
 
         $this->persist($folder);
+
+        return $folder;
     }
      
     public function deleteFolder(int $id):void
@@ -53,6 +55,12 @@ class FolderManager
     public function getFolder(int $id):Folder
     {
         return $this->repository->find($id);;
+    }
+    
+    public function getFolderByName(string $folder):Folder
+    {
+        $Folder = $this->repository->findByName($folder);
+        return $Folder[0];
     }
 
     public function persist(Folder $folder):void

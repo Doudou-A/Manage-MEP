@@ -55,19 +55,20 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         // line 8
         echo "\t\t</title>
 \t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
+\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js\"></script>
 \t\t";
-        // line 10
+        // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 13
+        // line 14
         echo "\t</head>
 \t<body>
 \t\t";
-        // line 15
-        $this->displayBlock('body', $context, $blocks);
         // line 16
+        $this->displayBlock('body', $context, $blocks);
+        // line 17
         echo "\t\t";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 19
+        // line 20
         echo "\t</body>
 </html>
 ";
@@ -99,7 +100,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 10
+    // line 11
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -109,7 +110,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 11
+        // line 12
         echo "\t\t\t";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
         echo "
@@ -122,7 +123,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 15
+    // line 16
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -140,7 +141,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 16
+    // line 17
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -150,7 +151,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 17
+        // line 18
         echo "\t\t\t";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
@@ -170,7 +171,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     public function getDebugInfo()
     {
-        return array (  154 => 17,  144 => 16,  126 => 15,  113 => 11,  103 => 10,  83 => 6,  71 => 19,  68 => 16,  66 => 15,  62 => 13,  60 => 10,  56 => 8,  54 => 6,  47 => 1,);
+        return array (  155 => 18,  145 => 17,  127 => 16,  114 => 12,  104 => 11,  84 => 6,  72 => 20,  69 => 17,  67 => 16,  63 => 14,  61 => 11,  56 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -184,6 +185,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 \t\t\t{% endblock %}
 \t\t</title>
 \t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
+\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js\"></script>
 \t\t{% block stylesheets %}
 \t\t\t{{ encore_entry_link_tags('app') }}
 \t\t{% endblock %}
