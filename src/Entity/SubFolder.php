@@ -78,6 +78,11 @@ class SubFolder
      */
     private $Folder;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $jsId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -199,6 +204,18 @@ class SubFolder
     public function setFolder(?Folder $Folder): self
     {
         $this->Folder = $Folder;
+
+        return $this;
+    }
+
+    public function getJsId(): ?int
+    {
+        return $this->jsId;
+    }
+
+    public function setJsId(int $jsId): self
+    {
+        $this->jsId = $jsId;
 
         return $this;
     }

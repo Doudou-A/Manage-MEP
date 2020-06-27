@@ -4,45 +4,52 @@
 {% endblock %}
 
 {% block body %}
-	{% verbatim %}
-		<div id="AddFolder">
-			<button id="app" v-on:click="seen = !seen" class="control">
-				<p>Ajouter un Dossier</p>
-			</button>
+	<a href="javascript:visibilite('div_form0');">
+		<p>Ajouter un Dossier</p>
+	</a>
 
-			<div v-if="!seen" id="hide">
-			{% endverbatim %}
-			{{ form_start(form, {'action' : path('server_add_folder', { 'server': server })}) }}
-			{{ form_row(form.name, {'label':false})}}
-			{{ form_end(form) }}
-			{% verbatim %}
-			</div>
-		</div>
-	{% endverbatim %}
-	<div id="name">
-		<mon-composant :name="'{{ server }}'" inline-template>
-			<div>
-				{% verbatim %}
-					hello {{ name }}
-				{% endverbatim %}
-			</div>
-		</mon-composant>
+	<div id="div_form0">
+		{{ form_start(form, {'action' : path('server_add_folder', { 'server': server })}) }}
+		{{ form_row(form.name, {'label':false})}}
+		{{ form_end(form) }}
 	</div>
 	{% for folder in folders %}
 		<div class="col-12 d-flex">
 			<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
 			<div>{{folder.name}}</div>
-			{% verbatim %}
-				<div id="message">
-					<MonComposant :name="'{{folder.name}}'" inline-template>
-						<div>{{ name }}</div>
-						<div id="{{ name }} ">
-						{% endverbatim %}
+			<a href="javascript:visibilite('div_form{{folder.id}}');">
+				<p>Ajouter un Dossier</p>
+			</a>
+			<div id="div_form{{folder.id}}" style="display:none;">
+				<form action="http://localhost:8000/server/add/sub_folder/{{server}}" id="formRegistration" method="POST">
+					<div class="row col-12 p-0 m-0">
+						<div class="row p-0 m-0 col-12">
+							<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
+						</div>
+						<div style="display: none;">
+							<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{folder.name}}" type="text" name="folderName" required="required"/>
+						</div>
+						<div style="display: none;">
+							<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type" required="required"/>
+						</div>
+						<div style="display: none;">
+							<input class="col-lg-12 p-2 animated fadeInLeft border" value='1' type="number" name="level" required="required"/>
+						</div>
+						<div style="display: none;">
+							<input class="col-lg-12 p-2 animated fadeInLeft border" value="ok" type="text" name="subFolder_1"/>
+						</div>
+						<input id="submitFormRegistration" style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
 					</div>
-					<button id="top" v-on:click="seen = !seen" class="control">
+				</form>
+			</div>
+			{% for subFolder in subFolders %}
+				{% if folder.name == subFolder.folder.name %}
+					<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
+					<div>{{subFolder.name}}</div>
+					<a href="javascript:visibilite('div_form{{subFolder.id}}');">
 						<p>Ajouter un Dossier</p>
-					</button>
-					<div v-if="!seen" id="hide">
+					</a>
+					<div id="div_form{{subFolder.id}}" style="display:none;">
 						<form action="http://localhost:8000/server/add/sub_folder/{{server}}" id="formRegistration" method="POST">
 							<div class="row col-12 p-0 m-0">
 								<div class="row p-0 m-0 col-12">
@@ -64,8 +71,22 @@
 							</div>
 						</form>
 					</div>
-				</div>
-			</MonComposant>
+				{% endif %}
+			{% endfor %}
 		</div>
 	{% endfor %}
+{% endblock %}
+{% block javascripts %}
+	<script>
+		var divPrecedent = document.getElementById('div_form0');
+function visibilite(divId) {
+divPresent = document.getElementById(divId);
+if (divPresent.style.display == 'none') 
+divPresent.style.display = 'block';
+ else 
+divPresent.style.display = 'none';
+
+
+}
+	</script>
 {% endblock %}

@@ -19,6 +19,15 @@ class FolderRepository extends ServiceEntityRepository
         parent::__construct($registry, Folder::class);
     }
 
+    public function getJsIdMax()
+    {
+        $rawSql = "SELECT MAX(f.id), MAX(sf.id) FROM folder AS f JOIN sub_folder AS sf";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
+    
     // /**
     //  * @return Folder[] Returns an array of Folder objects
     //  */

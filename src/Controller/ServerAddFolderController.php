@@ -25,18 +25,7 @@ class ServerAddFolderController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             //Ajoût du folder en bdd
-            $folder = $folderManager->createFolder($serverAddFolderRequest);
-
-            //Ajoût du script JS dans le fichier app.js
-            $name = $folder->getName();
-            $app = fopen(__DIR__.'/../../assets/js/app.js', 'a+');
-            fputs($app, "
-            new Vue({
-                el:'#$name',
-                data:{
-                    seen: true
-                }
-                });");
+            $folderManager->createFolder($serverAddFolderRequest);
 
             return $this->redirectToRoute('server_dashboard');
         }

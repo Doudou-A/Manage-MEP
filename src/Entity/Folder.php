@@ -38,6 +38,11 @@ class Folder
      */
     private $subFolders;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $jsId;
+
     public function __construct()
     {
         $this->subFolders = new ArrayCollection();
@@ -99,6 +104,18 @@ class Folder
                 $subFolder->setFolder(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getJsId(): ?int
+    {
+        return $this->jsId;
+    }
+
+    public function setJsId(int $jsId): self
+    {
+        $this->jsId = $jsId;
 
         return $this;
     }
