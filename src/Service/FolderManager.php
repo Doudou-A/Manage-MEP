@@ -8,6 +8,7 @@ use App\DOI\ServerAddFolderRequest;
 use App\Repository\FolderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Collection;
+use phpDocumentor\Reflection\Types\Integer;
 
 class FolderManager
 {
@@ -27,20 +28,12 @@ class FolderManager
         $this->repository = $repository;
     }
 
-    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest): Folder
+    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest, $jsIdMax): Folder
     {
         $folder = new Folder;
         $folder->setName($serverAddFolderRequest->name);
         $folder->setDateCreated(new \DateTime());
-
-        $jsIdAll = $this->repository->getJsIdMax();
-        dd($jsIdAll);
-        foreach ($jsIdAll as $jsId) {
-            if ($jsId['MAX(f.id)'] > $jsId['MAX(sf.id)']) $jsIdMax = $jsId['MAX(f.id)'];
-            else $jsIdMax = $jsId['MAX(sf.id)'];
-        }
-        dd($jsIdMax);
-
+        $folder->setJsId($jsIdMax +1);
 
         $this->persist($folder);
 
@@ -70,6 +63,13 @@ class FolderManager
     {
         $Folder = $this->repository->findByName($folder);
         return $Folder[0];
+    }
+
+    public function getJsIds(): array
+    {
+        $aJsId = $this->repository->getJsIdMax();
+        
+        return $aJsId;
     }
 
     public function persist(Folder $folder): void

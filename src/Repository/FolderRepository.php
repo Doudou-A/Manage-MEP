@@ -21,7 +21,7 @@ class FolderRepository extends ServiceEntityRepository
 
     public function getJsIdMax()
     {
-        $rawSql = "SELECT MAX(f.id), MAX(sf.id) FROM folder AS f JOIN sub_folder AS sf";
+        $rawSql = "SELECT MAX(f.js_id), MAX(sf.js_id) FROM folder AS f JOIN sub_folder AS sf";
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
         $stmt->execute([]);
 
