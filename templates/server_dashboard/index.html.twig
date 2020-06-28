@@ -44,44 +44,44 @@
 			</div>
 			<a href="{{ path('sub_folder_request', {'id' : folder.id }) }}" class="btn js-test">+
 				<div class="testing">
-					{% if subFolder is defined %}
-						{% for subFolderTest in subFolder %}
-							{{ subFolderTest.name }}
+					{% if listSubFolder is defined %}
+						{% for subFolder in listSubFolder %}
+							{{ subFolder.0.name }}
 						{% endfor %}
 					{% endif %}
 				</div>
 			</a>
 			{# {% for subFolder in subFolders %}
-													{% if folder.name == subFolder.folder.name %}
-														<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
-														<div>{{subFolder.name}}</div>
-														<a href="javascript:visibilite('div_form{{subFolder.id}}');">
-															<p>Ajouter un Dossier</p>
-														</a>
-														<div id="div_form{{subFolder.id}}" style="display:none;">
-															<form action="http://localhost:8000/server/add/sub_folder/{{server}}" id="formRegistration" method="POST">
-																<div class="row col-12 p-0 m-0">
-																	<div class="row p-0 m-0 col-12">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
-																	</div>
-																	<div style="display: none;">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{folder.name}}" type="text" name="folderName" required="required"/>
-																	</div>
-																	<div style="display: none;">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type" required="required"/>
-																	</div>
-																	<div style="display: none;">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" value='1' type="number" name="level" required="required"/>
-																	</div>
-																	<div style="display: none;">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" value="ok" type="text" name="subFolder_1"/>
-																	</div>
-																	<input id="submitFormRegistration" style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
-																</div>
-															</form>
-														</div>
-													{% endif %}
-												{% endfor %} #}
+				{% if folder.name == subFolder.folder.name %}
+					<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
+					<div>{{subFolder.name}}</div>
+					<a href="javascript:visibilite('div_form{{subFolder.id}}');">
+						<p>Ajouter un Dossier</p>
+					</a>
+					<div id="div_form{{subFolder.id}}" style="display:none;">
+						<form action="http://localhost:8000/server/add/sub_folder/{{server}}" id="formRegistration" method="POST">
+							<div class="row col-12 p-0 m-0">
+								<div class="row p-0 m-0 col-12">
+									<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
+								</div>
+								<div style="display: none;">
+									<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{folder.name}}" type="text" name="folderName" required="required"/>
+								</div>
+								<div style="display: none;">
+									<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type" required="required"/>
+								</div>
+								<div style="display: none;">
+									<input class="col-lg-12 p-2 animated fadeInLeft border" value='1' type="number" name="level" required="required"/>
+								</div>
+								<div style="display: none;">
+									<input class="col-lg-12 p-2 animated fadeInLeft border" value="ok" type="text" name="subFolder_1"/>
+								</div>
+								<input id="submitFormRegistration" style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
+							</div>
+						</form>
+					</div>
+				{% endif %}
+			{% endfor %} #}
 		</div>
 	{% endfor %}
 {% endblock %}
@@ -90,14 +90,14 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script>
 		function onClickBtnAjax(event) {
-			event.preventDefault();
-
-			/* const url = this.href; */
+			/* event.preventDefault();
+ */
+			const url = this.href;
 			const divTest = this.querySelector('div.testing');
 
 			axios.get(url).then(function (response) {
-				console.log(response);
-				divTest.textContent = response.data.subFolderRequest;  
+				console.log(response.data);
+				divTest.textContent = response.data.listSubFolder;  
 			})
 		}
 

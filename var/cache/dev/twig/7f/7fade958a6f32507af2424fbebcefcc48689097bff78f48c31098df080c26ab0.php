@@ -161,20 +161,20 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t\t<div class=\"testing\">
 \t\t\t\t\t";
             // line 47
-            if ((isset($context["subFolder"]) || array_key_exists("subFolder", $context))) {
+            if ((isset($context["listSubFolder"]) || array_key_exists("listSubFolder", $context))) {
                 // line 48
                 echo "\t\t\t\t\t\t";
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable((isset($context["subFolder"]) || array_key_exists("subFolder", $context) ? $context["subFolder"] : (function () { throw new RuntimeError('Variable "subFolder" does not exist.', 48, $this->source); })()));
-                foreach ($context['_seq'] as $context["_key"] => $context["subFolderTest"]) {
+                $context['_seq'] = twig_ensure_traversable((isset($context["listSubFolder"]) || array_key_exists("listSubFolder", $context) ? $context["listSubFolder"] : (function () { throw new RuntimeError('Variable "listSubFolder" does not exist.', 48, $this->source); })()));
+                foreach ($context['_seq'] as $context["_key"] => $context["subFolder"]) {
                     // line 49
                     echo "\t\t\t\t\t\t\t";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subFolderTest"], "name", [], "any", false, false, false, 49), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["subFolder"], 0, [], "any", false, false, false, 49), "name", [], "any", false, false, false, 49), "html", null, true);
                     echo "
 \t\t\t\t\t\t";
                 }
                 $_parent = $context['_parent'];
-                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subFolderTest'], $context['_parent'], $context['loop']);
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subFolder'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
                 // line 51
                 echo "\t\t\t\t\t";
@@ -214,14 +214,14 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         echo "\t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
 \t<script>
 \t\tfunction onClickBtnAjax(event) {
-\t\t\tevent.preventDefault();
-
+\t\t\t/* event.preventDefault();
+ */
 \t\t\tconst url = this.href;
 \t\t\tconst divTest = this.querySelector('div.testing');
 
 \t\t\taxios.get(url).then(function (response) {
-\t\t\t\tconsole.log(response);
-\t\t\t\tdivTest.textContent = response.data.subFolderRequest;  
+\t\t\t\tconsole.log(response.data);
+\t\t\t\tdivTest.textContent = response.data.listSubFolder;  
 \t\t\t})
 \t\t}
 
@@ -313,44 +313,44 @@ divPresent.style.display = 'none';
 \t\t\t</div>
 \t\t\t<a href=\"{{ path('sub_folder_request', {'id' : folder.id }) }}\" class=\"btn js-test\">+
 \t\t\t\t<div class=\"testing\">
-\t\t\t\t\t{% if subFolder is defined %}
-\t\t\t\t\t\t{% for subFolderTest in subFolder %}
-\t\t\t\t\t\t\t{{ subFolderTest.name }}
+\t\t\t\t\t{% if listSubFolder is defined %}
+\t\t\t\t\t\t{% for subFolder in listSubFolder %}
+\t\t\t\t\t\t\t{{ subFolder.0.name }}
 \t\t\t\t\t\t{% endfor %}
 \t\t\t\t\t{% endif %}
 \t\t\t\t</div>
 \t\t\t</a>
 \t\t\t{# {% for subFolder in subFolders %}
-\t\t\t\t\t\t\t\t\t\t\t\t\t{% if folder.name == subFolder.folder.name %}
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div>{{subFolder.name}}</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:visibilite('div_form{{subFolder.id}}');\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>Ajouter un Dossier</p>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"div_form{{subFolder.id}}\" style=\"display:none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.name}}\" type=\"text\" name=\"folderName\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</form>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t{% endif %}
-\t\t\t\t\t\t\t\t\t\t\t\t{% endfor %} #}
+\t\t\t\t{% if folder.name == subFolder.folder.name %}
+\t\t\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
+\t\t\t\t\t<div>{{subFolder.name}}</div>
+\t\t\t\t\t<a href=\"javascript:visibilite('div_form{{subFolder.id}}');\">
+\t\t\t\t\t\t<p>Ajouter un Dossier</p>
+\t\t\t\t\t</a>
+\t\t\t\t\t<div id=\"div_form{{subFolder.id}}\" style=\"display:none;\">
+\t\t\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
+\t\t\t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
+\t\t\t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
+\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.name}}\" type=\"text\" name=\"folderName\" required=\"required\"/>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</form>
+\t\t\t\t\t</div>
+\t\t\t\t{% endif %}
+\t\t\t{% endfor %} #}
 \t\t</div>
 \t{% endfor %}
 {% endblock %}
@@ -359,14 +359,14 @@ divPresent.style.display = 'none';
 \t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
 \t<script>
 \t\tfunction onClickBtnAjax(event) {
-\t\t\tevent.preventDefault();
-
+\t\t\t/* event.preventDefault();
+ */
 \t\t\tconst url = this.href;
 \t\t\tconst divTest = this.querySelector('div.testing');
 
 \t\t\taxios.get(url).then(function (response) {
-\t\t\t\tconsole.log(response);
-\t\t\t\tdivTest.textContent = response.data.subFolderRequest;  
+\t\t\t\tconsole.log(response.data);
+\t\t\t\tdivTest.textContent = response.data.listSubFolder;  
 \t\t\t})
 \t\t}
 

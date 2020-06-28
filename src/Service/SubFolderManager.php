@@ -67,12 +67,6 @@ class SubFolderManager
     {
         return $this->repository->find($id);;
     }
-    
-    public function findListByFolder(Folder $folder) : array
-    {
-        $id = $folder->getId();
-        return $this->repository->findListByFolder($id);;
-    }
 
     public function persist(SubFolder $subFolder):void
     {
