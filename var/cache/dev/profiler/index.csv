@@ -928,3 +928,15 @@ d4e291,::1,GET,https://localhost:8000/dashboard,1593332970,,500
 41f39b,::1,GET,https://localhost:8000/dashboard,1593333017,,200
 dd8d1e,::1,POST,https://localhost:8000/server/add/sub_folder/dev,1593333044,,302
 343a2d,::1,GET,https://localhost:8000/dashboard,1593333044,,200
+fe9685,::1,GET,https://localhost:8000/server/add/folder/dev,1593347649,7afa5b,500
+7afa5b,::1,POST,https://localhost:8000/server/add/folder/dev,1593347649,,500
+f783a8,::1,GET,https://localhost:8000/favicon.ico,1593347652,9c8a10,404
+9c8a10,::1,GET,https://localhost:8000/favicon.ico,1593347652,,404
+fb4f97,::1,GET,https://localhost:8000/server/add/folder/dev,1593347654,c87eb4,500
+c87eb4,::1,POST,https://localhost:8000/server/add/folder/dev,1593347654,,500
+173339,::1,GET,https://localhost:8000/dashboard,1593347666,,200
+034219,::1,GET,https://localhost:8000/dashboard,1593347669,,200
+123f28,::1,POST,https://localhost:8000/server/add/folder/dev,1593347675,,302
+e48ee9,::1,GET,https://localhost:8000/dashboard,1593347675,,200
+e4c769,::1,POST,https://localhost:8000/server/add/sub_folder/dev,1593347707,,302
+35b777,::1,GET,https://localhost:8000/dashboard,1593347707,,200
