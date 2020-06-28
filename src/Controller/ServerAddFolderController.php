@@ -29,7 +29,7 @@ class ServerAddFolderController extends AbstractController
                 if ($jsId['MAX(f.js_id)'] > $jsId['MAX(sf.js_id)']) $jsIdMax = $jsId['MAX(f.js_id)'];
                 else $jsIdMax = $jsId['MAX(sf.js_id)'];
             }
-            dd($jsIdMax);
+
             //Ajoût du folder en bdd
             $folderManager->createFolder($serverAddFolderRequest, $jsIdMax);
 

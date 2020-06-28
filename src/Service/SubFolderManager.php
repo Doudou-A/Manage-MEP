@@ -34,7 +34,7 @@ class SubFolderManager
         $this->folderManager = $folderManager;
     }
 
-    public function createFolder(AddSubFolderRequest $addSubFolderRequest) : void
+    public function createFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null) : void
     {
         $subFolder = new SubFolder;
         
@@ -43,6 +43,7 @@ class SubFolderManager
         $subFolder->setType($addSubFolderRequest->getType($folder));
         $subFolder->setFolder($this->folderManager->getFolderByName($folder));
         $subFolder->setLevel($addSubFolderRequest->getLevel());
+        $subFolder->setJsId($addSubFolderRequest->getJsId() + 1);
         $subFolder->setDateCreated(new \DateTime());
 
         $this->persist($subFolder);

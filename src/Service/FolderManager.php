@@ -28,7 +28,7 @@ class FolderManager
         $this->repository = $repository;
     }
 
-    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest, $jsIdMax): Folder
+    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest, $jsIdMax = null): Folder
     {
         $folder = new Folder;
         $folder->setName($serverAddFolderRequest->name);

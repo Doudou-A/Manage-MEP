@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerKvncDBL;
+namespace ContainerBIGS2Wa;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -1773,6 +1773,22 @@ class srcApp_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private '.service_locator.FLJUM9X' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_FLJUM9XService()
+    {
+        return $this->privates['.service_locator.FLJUM9X'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'folderManager' => ['privates', 'App\\Service\\FolderManager', 'getFolderManagerService', false],
+            'subFolderManager' => ['privates', 'App\\Service\\SubFolderManager', 'getSubFolderManagerService', false],
+        ], [
+            'folderManager' => 'App\\Service\\FolderManager',
+            'subFolderManager' => 'App\\Service\\SubFolderManager',
+        ]);
+    }
+
+    /**
      * Gets the private '.service_locator.LKev.lg' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
@@ -1801,16 +1817,30 @@ class srcApp_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.service_locator.gZ3njl5' shared service.
+     * Gets the private '.service_locator.teknvUj' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
      */
-    protected function get_ServiceLocator_GZ3njl5Service()
+    protected function get_ServiceLocator_TeknvUjService()
     {
-        return $this->privates['.service_locator.gZ3njl5'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'subFolderManager' => ['privates', 'App\\Service\\SubFolderManager', 'getSubFolderManagerService', false],
+        return $this->privates['.service_locator.teknvUj'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Controller\\AddSubFolderController::index' => ['privates', '.service_locator.FLJUM9X', 'get_ServiceLocator_FLJUM9XService', false],
+            'App\\Controller\\SecurityController::login' => ['privates', '.service_locator.g.xob4v', 'get_ServiceLocator_G_Xob4vService', false],
+            'App\\Controller\\ServerAddFolderController::index' => ['privates', '.service_locator.LKev.lg', 'get_ServiceLocator_LKev_LgService', false],
+            'App\\Controller\\ServerDashboardController::index' => ['privates', '.service_locator.FLJUM9X', 'get_ServiceLocator_FLJUM9XService', false],
+            'App\\Controller\\AddSubFolderController:index' => ['privates', '.service_locator.FLJUM9X', 'get_ServiceLocator_FLJUM9XService', false],
+            'App\\Controller\\SecurityController:login' => ['privates', '.service_locator.g.xob4v', 'get_ServiceLocator_G_Xob4vService', false],
+            'App\\Controller\\ServerAddFolderController:index' => ['privates', '.service_locator.LKev.lg', 'get_ServiceLocator_LKev_LgService', false],
+            'App\\Controller\\ServerDashboardController:index' => ['privates', '.service_locator.FLJUM9X', 'get_ServiceLocator_FLJUM9XService', false],
         ], [
-            'subFolderManager' => 'App\\Service\\SubFolderManager',
+            'App\\Controller\\AddSubFolderController::index' => '?',
+            'App\\Controller\\SecurityController::login' => '?',
+            'App\\Controller\\ServerAddFolderController::index' => '?',
+            'App\\Controller\\ServerDashboardController::index' => '?',
+            'App\\Controller\\AddSubFolderController:index' => '?',
+            'App\\Controller\\SecurityController:login' => '?',
+            'App\\Controller\\ServerAddFolderController:index' => '?',
+            'App\\Controller\\ServerDashboardController:index' => '?',
         ]);
     }
 
@@ -1847,34 +1877,6 @@ class srcApp_KernelDevDebugContainer extends Container
             'serializer' => '?',
             'session' => '?',
             'twig' => '?',
-        ]);
-    }
-
-    /**
-     * Gets the private '.service_locator.zb3FJlH' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_Zb3FJlHService()
-    {
-        return $this->privates['.service_locator.zb3FJlH'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'App\\Controller\\AddSubFolderController::index' => ['privates', '.service_locator.gZ3njl5', 'get_ServiceLocator_GZ3njl5Service', false],
-            'App\\Controller\\SecurityController::login' => ['privates', '.service_locator.g.xob4v', 'get_ServiceLocator_G_Xob4vService', false],
-            'App\\Controller\\ServerAddFolderController::index' => ['privates', '.service_locator.LKev.lg', 'get_ServiceLocator_LKev_LgService', false],
-            'App\\Controller\\ServerDashboardController::index' => ['privates', '.service_locator.LKev.lg', 'get_ServiceLocator_LKev_LgService', false],
-            'App\\Controller\\AddSubFolderController:index' => ['privates', '.service_locator.gZ3njl5', 'get_ServiceLocator_GZ3njl5Service', false],
-            'App\\Controller\\SecurityController:login' => ['privates', '.service_locator.g.xob4v', 'get_ServiceLocator_G_Xob4vService', false],
-            'App\\Controller\\ServerAddFolderController:index' => ['privates', '.service_locator.LKev.lg', 'get_ServiceLocator_LKev_LgService', false],
-            'App\\Controller\\ServerDashboardController:index' => ['privates', '.service_locator.LKev.lg', 'get_ServiceLocator_LKev_LgService', false],
-        ], [
-            'App\\Controller\\AddSubFolderController::index' => '?',
-            'App\\Controller\\SecurityController::login' => '?',
-            'App\\Controller\\ServerAddFolderController::index' => '?',
-            'App\\Controller\\ServerDashboardController::index' => '?',
-            'App\\Controller\\AddSubFolderController:index' => '?',
-            'App\\Controller\\SecurityController:login' => '?',
-            'App\\Controller\\ServerAddFolderController:index' => '?',
-            'App\\Controller\\ServerDashboardController:index' => '?',
         ]);
     }
 
@@ -2818,7 +2820,7 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.zb3FJlH'] ?? $this->get_ServiceLocator_Zb3FJlHService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.teknvUj'] ?? $this->get_ServiceLocator_TeknvUjService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -2860,7 +2862,7 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.zb3FJlH'] ?? $this->get_ServiceLocator_Zb3FJlHService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.teknvUj'] ?? $this->get_ServiceLocator_TeknvUjService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**

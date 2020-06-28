@@ -32,6 +32,11 @@ class AddSubFolderRequest
     */
     public $level;
 
+    /**
+     * @var int
+     */
+    private $jsId;
+
     public function getName(): ?string
     {
         return $this->name;
@@ -87,6 +92,18 @@ class AddSubFolderRequest
     public function setFolder(?string $folder): self
     {
         $this->folder = $folder;
+
+        return $this;
+    }
+
+    public function getJsId(): ?int
+    {
+        return $this->jsId;
+    }
+
+    public function setJsId(int $jsId): self
+    {
+        $this->jsId = $jsId;
 
         return $this;
     }
