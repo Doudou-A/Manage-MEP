@@ -19,6 +19,15 @@ class SubFolderRepository extends ServiceEntityRepository
         parent::__construct($registry, SubFolder::class);
     }
 
+    public function findListByFolder($id)
+    {
+        $rawSql = "SELECT * FROM sub_folder WHERE folder_id = $id";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
+
     // /**
     //  * @return SubFolder[] Returns an array of SubFolder objects
     //  */

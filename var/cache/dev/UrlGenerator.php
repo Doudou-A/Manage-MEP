@@ -20,4 +20,5 @@ return [
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'server_add_folder' => [['server'], ['_controller' => 'App\\Controller\\ServerAddFolderController::index'], [], [['variable', '/', '[^/]++', 'server'], ['text', '/server/add/folder']], [], []],
     'server_dashboard' => [[], ['_controller' => 'App\\Controller\\ServerDashboardController::index'], [], [['text', '/dashboard']], [], []],
+    'sub_folder_request' => [['id'], ['_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], [], [['text', '/request'], ['variable', '/', '[^/]++', 'id'], ['text', '/sub_folder']], [], []],
 ];

@@ -154,66 +154,36 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t\t\t</div>
 \t\t\t\t</form>
 \t\t\t</div>
-\t\t\t";
+\t\t\t<a href=\"";
             // line 45
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["subFolders"]) || array_key_exists("subFolders", $context) ? $context["subFolders"] : (function () { throw new RuntimeError('Variable "subFolders" does not exist.', 45, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["subFolder"]) {
-                // line 46
-                echo "\t\t\t\t";
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 46), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["subFolder"], "folder", [], "any", false, false, false, 46), "name", [], "any", false, false, false, 46))) {
-                    // line 47
-                    echo "\t\t\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
-\t\t\t\t\t<div>";
-                    // line 48
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subFolder"], "name", [], "any", false, false, false, 48), "html", null, true);
-                    echo "</div>
-\t\t\t\t\t<a href=\"javascript:visibilite('div_form";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sub_folder_request", ["id" => twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 45)]), "html", null, true);
+            echo "\" class=\"btn js-test\">+
+\t\t\t\t<div class=\"testing\">
+\t\t\t\t\t";
+            // line 47
+            if ((isset($context["subFolder"]) || array_key_exists("subFolder", $context))) {
+                // line 48
+                echo "\t\t\t\t\t\t";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable((isset($context["subFolder"]) || array_key_exists("subFolder", $context) ? $context["subFolder"] : (function () { throw new RuntimeError('Variable "subFolder" does not exist.', 48, $this->source); })()));
+                foreach ($context['_seq'] as $context["_key"] => $context["subFolderTest"]) {
                     // line 49
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subFolder"], "id", [], "any", false, false, false, 49), "html", null, true);
-                    echo "');\">
-\t\t\t\t\t\t<p>Ajouter un Dossier</p>
-\t\t\t\t\t</a>
-\t\t\t\t\t<div id=\"div_form";
-                    // line 52
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subFolder"], "id", [], "any", false, false, false, 52), "html", null, true);
-                    echo "\" style=\"display:none;\">
-\t\t\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/";
-                    // line 53
-                    echo twig_escape_filter($this->env, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 53, $this->source); })()), "html", null, true);
-                    echo "\" id=\"formRegistration\" method=\"POST\">
-\t\t\t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
-\t\t\t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"";
-                    // line 59
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 59), "html", null, true);
-                    echo "\" type=\"text\" name=\"folderName\" required=\"required\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</form>
-\t\t\t\t\t</div>
-\t\t\t\t";
+                    echo "\t\t\t\t\t\t\t";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subFolderTest"], "name", [], "any", false, false, false, 49), "html", null, true);
+                    echo "
+\t\t\t\t\t\t";
                 }
-                // line 75
-                echo "\t\t\t";
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subFolderTest'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 51
+                echo "\t\t\t\t\t";
             }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subFolder'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 76
+            // line 52
+            echo "\t\t\t\t</div>
+\t\t\t</a>
+\t\t\t";
+            // line 85
             echo "\t\t</div>
 \t";
         }
@@ -228,7 +198,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     }
 
-    // line 79
+    // line 88
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -238,8 +208,28 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 80
-        echo "\t<script>
+        // line 89
+        echo "\t";
+        // line 90
+        echo "\t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
+\t<script>
+\t\tfunction onClickBtnAjax(event) {
+\t\t\tevent.preventDefault();
+
+\t\t\tconst url = this.href;
+\t\t\tconst divTest = this.querySelector('div.testing');
+
+\t\t\taxios.get(url).then(function (response) {
+\t\t\t\tconsole.log(response);
+\t\t\t\tdivTest.textContent = response.data.subFolderRequest;  
+\t\t\t})
+\t\t}
+
+document.querySelectorAll('a.js-test').forEach(function (link) {
+link.addEventListener('click', onClickBtnAjax);
+})
+\t</script>
+\t<script>
 \t\tvar divPrecedent = document.getElementById('div_form0');
 function visibilite(divId) {
 divPresent = document.getElementById(divId);
@@ -272,7 +262,7 @@ divPresent.style.display = 'none';
 
     public function getDebugInfo()
     {
-        return array (  242 => 80,  232 => 79,  217 => 76,  211 => 75,  192 => 59,  183 => 53,  179 => 52,  173 => 49,  169 => 48,  166 => 47,  163 => 46,  159 => 45,  141 => 30,  132 => 24,  128 => 23,  122 => 20,  118 => 19,  114 => 17,  110 => 16,  105 => 14,  101 => 13,  97 => 12,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  214 => 90,  212 => 89,  202 => 88,  187 => 85,  183 => 52,  180 => 51,  171 => 49,  166 => 48,  164 => 47,  159 => 45,  141 => 30,  132 => 24,  128 => 23,  122 => 20,  118 => 19,  114 => 17,  110 => 16,  105 => 14,  101 => 13,  97 => 12,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -321,41 +311,69 @@ divPresent.style.display = 'none';
 \t\t\t\t\t</div>
 \t\t\t\t</form>
 \t\t\t</div>
-\t\t\t{% for subFolder in subFolders %}
-\t\t\t\t{% if folder.name == subFolder.folder.name %}
-\t\t\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
-\t\t\t\t\t<div>{{subFolder.name}}</div>
-\t\t\t\t\t<a href=\"javascript:visibilite('div_form{{subFolder.id}}');\">
-\t\t\t\t\t\t<p>Ajouter un Dossier</p>
-\t\t\t\t\t</a>
-\t\t\t\t\t<div id=\"div_form{{subFolder.id}}\" style=\"display:none;\">
-\t\t\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
-\t\t\t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
-\t\t\t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.name}}\" type=\"text\" name=\"folderName\" required=\"required\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</form>
-\t\t\t\t\t</div>
-\t\t\t\t{% endif %}
-\t\t\t{% endfor %}
+\t\t\t<a href=\"{{ path('sub_folder_request', {'id' : folder.id }) }}\" class=\"btn js-test\">+
+\t\t\t\t<div class=\"testing\">
+\t\t\t\t\t{% if subFolder is defined %}
+\t\t\t\t\t\t{% for subFolderTest in subFolder %}
+\t\t\t\t\t\t\t{{ subFolderTest.name }}
+\t\t\t\t\t\t{% endfor %}
+\t\t\t\t\t{% endif %}
+\t\t\t\t</div>
+\t\t\t</a>
+\t\t\t{# {% for subFolder in subFolders %}
+\t\t\t\t\t\t\t\t\t\t\t\t\t{% if folder.name == subFolder.folder.name %}
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div>{{subFolder.name}}</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:visibilite('div_form{{subFolder.id}}');\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>Ajouter un Dossier</p>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"div_form{{subFolder.id}}\" style=\"display:none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.name}}\" type=\"text\" name=\"folderName\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</form>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t\t\t\t\t\t{% endfor %} #}
 \t\t</div>
 \t{% endfor %}
 {% endblock %}
 {% block javascripts %}
+\t{# Script pour les requêtes Ajax #}
+\t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
+\t<script>
+\t\tfunction onClickBtnAjax(event) {
+\t\t\tevent.preventDefault();
+
+\t\t\tconst url = this.href;
+\t\t\tconst divTest = this.querySelector('div.testing');
+
+\t\t\taxios.get(url).then(function (response) {
+\t\t\t\tconsole.log(response);
+\t\t\t\tdivTest.textContent = response.data.subFolderRequest;  
+\t\t\t})
+\t\t}
+
+document.querySelectorAll('a.js-test').forEach(function (link) {
+link.addEventListener('click', onClickBtnAjax);
+})
+\t</script>
 \t<script>
 \t\tvar divPrecedent = document.getElementById('div_form0');
 function visibilite(divId) {
