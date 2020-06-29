@@ -16,6 +16,6 @@ if (!\class_exists(srcApp_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerBGji8To\srcApp_KernelDevDebugContainer([
     'container.build_hash' => 'BGji8To',
-    'container.build_id' => 'd38a300c',
-    'container.build_time' => 1593360866,
+    'container.build_id' => '37a84008',
+    'container.build_time' => 1593361077,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerBGji8To');

@@ -24,7 +24,7 @@ class SubFolderRepository extends ServiceEntityRepository
         $rawSql = "SELECT * FROM sub_folder WHERE folder_id = $id";
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
         $stmt->execute([]);
-
+        
         return $stmt->fetchAll();
     }
 

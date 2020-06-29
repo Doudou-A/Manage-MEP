@@ -18,16 +18,14 @@ class SubFolderRequestController extends AbstractController
      */
     public function subFolderRequest(Folder $folder, Request $request, SubFolderManager $subFolderManager, SubFolderRepository $repo) : Response
     {
-        /* $listSubFolder = $subFolderManager->findListByFolder($folder); */
-        $listSubFolder = $repo->findListByFolder($folder);
-        dd($listSubFolder);
-        foreach ($listSubFolder as $subFolder){
-            dd($subFolder);
-            $output[]=array($subFolder->getName());
-        }
+        $listSubFolder = $repo->findListByFolder($folder->getId());
+        $server = 'dev';
 
-        dd($output);
-
-        return $this->json(['code' => 200, 'message' => 'récupération', 'listSubFolder' => $output]);
+        return new JsonResponse([
+            'html' => $this->renderView('subFolder/ajaxRequest.html.twig', [
+            'listSubFolder' => $listSubFolder,
+            'server' => $server,
+        ])
+        ]);
     }
 }
