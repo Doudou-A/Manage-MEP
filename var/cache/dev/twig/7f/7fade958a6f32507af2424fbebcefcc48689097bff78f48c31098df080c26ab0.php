@@ -127,7 +127,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
             // line 23
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 23), "html", null, true);
             echo "\" style=\"display:none;\">
-\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/";
+\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/folder/";
             // line 24
             echo twig_escape_filter($this->env, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 24, $this->source); })()), "html", null, true);
             echo "\" id=\"formRegistration\" method=\"POST\">
@@ -148,7 +148,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
+\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
 \t\t\t\t\t</div>
@@ -156,19 +156,28 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t</div>
 \t\t\t<a ";
             // line 45
-            echo " class=\"btn js-test\">+
-\t\t\t\t";
+            echo " ";
+            echo " id=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 45), "html", null, true);
+            echo "\" class=\"btn js-test\">
+\t\t\t\t<div id=\"";
             // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 46), "html", null, true);
+            echo "_sign\">+</div>
+\t\t\t</a>
+\t\t\t\t";
+            // line 48
             if ((isset($context["listSubFolder"]) || array_key_exists("listSubFolder", $context))) {
-                // line 47
+                // line 49
                 echo "\t\t\t\t\tdac
 \t\t\t\t";
             }
-            // line 49
-            echo "\t\t\t\t<div class=\"testing\"></div>
-\t\t\t</a>
+            // line 51
+            echo "\t\t\t\t<div class=\"testing\" id=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 51), "html", null, true);
+            echo "_request\"></div>
 \t\t\t";
-            // line 82
+            // line 83
             echo "\t\t</div>
 \t";
         }
@@ -183,7 +192,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     }
 
-    // line 85
+    // line 86
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -193,27 +202,38 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 86
-        echo "\t";
         // line 87
-        echo "\t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
-\t";
-        // line 105
+        echo "\t";
+        // line 88
+        echo "\t";
+        // line 89
         echo "\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
 \t<script>
 \t\t\$(function () {
-\$('.js-test').click(function (event) {
-\$.ajax({
-type: 'GET',
-url: 'sub_folder_request',
-timeout: 3000,
-success: function (data) {
-alert(data);
-},
-error: function () {
-alert('La requête n\\'a pas abouti');
-}
-});
+\t\t\t\$('.js-test').click(function (event) {
+\t\t\t\tvar divTest = document.getElementById(this.id + \"_sign\");
+\t\t\t\tvar divRequest = document.getElementById(this.id + \"_request\");
+\t\t\t\tif (divTest.innerHTML == '+') {
+\t\t\t\t\tvar request = \"#\" + this.id + \"_request\";
+\t\t\t\t\tvar id = \"#\" + this.id + \"_sign\";
+\t\t\t\t\t\$.ajax({
+\t\t\t\t\t\ttype: 'GET',
+\t\t\t\t\t\turl: '/sub_folder/' + this.id + '/request',
+\t\t\t\t\t\ttimeout: 3000,
+\t\t\t\t\t\tsuccess: function (data) {
+\t\t\t\t\t\t\tconsole.log(data);
+\t\t\t\t\t\t\$(request).html(data.html);
+\t\t\t\t\t\t\$(id).html('-');
+\t\t\t\t\t\t},
+\t\t\t\t\t\terror: function () {
+\t\t\t\t\t\t\talert('La requête n\\'a pas abouti');
+\t\t\t\t\t\t}
+\t\t\t\t\t});
+
+\t\t\t\t}else{
+\t\t\t\t\tdivTest.innerHTML = '+';
+\t\t\t\t\tdivRequest.innerHTML = '';
+\t\t\t\t}
 });
 });
 \t</script>
@@ -225,7 +245,6 @@ if (divPresent.style.display == 'none')
 divPresent.style.display = 'block';
  else 
 divPresent.style.display = 'none';
-
 }
 \t</script>
 ";
@@ -249,7 +268,7 @@ divPresent.style.display = 'none';
 
     public function getDebugInfo()
     {
-        return array (  202 => 105,  199 => 87,  197 => 86,  187 => 85,  172 => 82,  168 => 49,  164 => 47,  162 => 46,  159 => 45,  141 => 30,  132 => 24,  128 => 23,  122 => 20,  118 => 19,  114 => 17,  110 => 16,  105 => 14,  101 => 13,  97 => 12,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  210 => 89,  208 => 88,  206 => 87,  196 => 86,  181 => 83,  176 => 51,  172 => 49,  170 => 48,  165 => 46,  159 => 45,  141 => 30,  132 => 24,  128 => 23,  122 => 20,  118 => 19,  114 => 17,  110 => 16,  105 => 14,  101 => 13,  97 => 12,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -277,7 +296,7 @@ divPresent.style.display = 'none';
 \t\t\t\t<p>Ajouter un Dossier</p>
 \t\t\t</a>
 \t\t\t<div id=\"div_form{{folder.id}}\" style=\"display:none;\">
-\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
+\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
 \t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
@@ -292,87 +311,83 @@ divPresent.style.display = 'none';
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
+\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
 \t\t\t\t\t</div>
 \t\t\t\t</form>
 \t\t\t</div>
-\t\t\t<a {# href=\"{{ path('sub_folder_request', {'id' : folder.id }) }}\" #} class=\"btn js-test\">+
+\t\t\t<a {# href=\"{{ path('sub_folder_request', {'id' : folder.id }) }}\" #} {# id=\"{{ path('sub_folder_request', {'id' : folder.id }) }}\" #} id=\"{{folder.id}}\" class=\"btn js-test\">
+\t\t\t\t<div id=\"{{folder.id}}_sign\">+</div>
+\t\t\t</a>
 \t\t\t\t{% if listSubFolder is defined %}
 \t\t\t\t\tdac
 \t\t\t\t{% endif %}
-\t\t\t\t<div class=\"testing\"></div>
-\t\t\t</a>
+\t\t\t\t<div class=\"testing\" id=\"{{folder.id}}_request\"></div>
 \t\t\t{# {% for subFolder in subFolders %}
-\t\t\t\t\t\t\t\t\t\t{% if folder.name == subFolder.folder.name %}
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
-\t\t\t\t\t\t\t\t\t\t\t<div>{{subFolder.name}}</div>
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:visibilite('div_form{{subFolder.id}}');\">
-\t\t\t\t\t\t\t\t\t\t\t\t<p>Ajouter un Dossier</p>
-\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t<div id=\"div_form{{subFolder.id}}\" style=\"display:none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t{% if folder.name == subFolder.folder.name %}
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div>{{subFolder.name}}</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:visibilite('div_form{{subFolder.id}}');\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>Ajouter un Dossier</p>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"div_form{{subFolder.id}}\" style=\"display:none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.name}}\" type=\"text\" name=\"folderName\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</form>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.name}}\" type=\"text\" name=\"folderName\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</form>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t{% endif %}
-\t\t\t\t\t\t\t\t\t{% endfor %} #}
+\t\t\t\t\t\t\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t\t\t\t\t\t{% endfor %} #}
 \t\t</div>
 \t{% endfor %}
 {% endblock %}
 {% block javascripts %}
 \t{# Script pour les requêtes Ajax #}
-\t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
-\t{# <script>
-\t\t\tfunction onClickBtnAjax(event) {
-\tevent.preventDefault();
-\t
-\tconst url = this.href;
-\tconst divTest = this.querySelector('div.testing');
-\t
-\taxios.get(url).then(function (response) {
-\t\tconsole.log(response.data.html);
-\tdivTest.textContent = response.data.html;
-\t})
-\t}
-\t
-\tdocument.querySelectorAll('a.js-test').forEach(function (link) {
-\tlink.addEventListener('click', onClickBtnAjax);
-\t})
-\t</script>  #}
+\t{# <script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script> #}
 \t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
 \t<script>
 \t\t\$(function () {
-\$('.js-test').click(function (event) {
-\$.ajax({
-type: 'GET',
-url: 'sub_folder_request',
-timeout: 3000,
-success: function (data) {
-alert(data);
-},
-error: function () {
-alert('La requête n\\'a pas abouti');
-}
-});
+\t\t\t\$('.js-test').click(function (event) {
+\t\t\t\tvar divTest = document.getElementById(this.id + \"_sign\");
+\t\t\t\tvar divRequest = document.getElementById(this.id + \"_request\");
+\t\t\t\tif (divTest.innerHTML == '+') {
+\t\t\t\t\tvar request = \"#\" + this.id + \"_request\";
+\t\t\t\t\tvar id = \"#\" + this.id + \"_sign\";
+\t\t\t\t\t\$.ajax({
+\t\t\t\t\t\ttype: 'GET',
+\t\t\t\t\t\turl: '/sub_folder/' + this.id + '/request',
+\t\t\t\t\t\ttimeout: 3000,
+\t\t\t\t\t\tsuccess: function (data) {
+\t\t\t\t\t\t\tconsole.log(data);
+\t\t\t\t\t\t\$(request).html(data.html);
+\t\t\t\t\t\t\$(id).html('-');
+\t\t\t\t\t\t},
+\t\t\t\t\t\terror: function () {
+\t\t\t\t\t\t\talert('La requête n\\'a pas abouti');
+\t\t\t\t\t\t}
+\t\t\t\t\t});
+
+\t\t\t\t}else{
+\t\t\t\t\tdivTest.innerHTML = '+';
+\t\t\t\t\tdivRequest.innerHTML = '';
+\t\t\t\t}
 });
 });
 \t</script>
@@ -384,7 +399,6 @@ if (divPresent.style.display == 'none')
 divPresent.style.display = 'block';
  else 
 divPresent.style.display = 'none';
-
 }
 \t</script>
 {% endblock %}

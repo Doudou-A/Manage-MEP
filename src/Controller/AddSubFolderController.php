@@ -12,9 +12,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AddSubFolderController extends AbstractController
 {
     /**
-     * @Route("/server/add/sub_folder/{server}", name="server_add_subFolder")
+     * @Route("/server/add/sub_folder/folder/{server}", name="server_add_subFolder")
      */
-    public function index(SubFolderManager $subFolderManager, FolderManager $folderManager): Response
+    public function addSubFolderInFolder(SubFolderManager $subFolderManager, FolderManager $folderManager): Response
     {
         $addSubFolderRequest = new AddSubFolderRequest();
 
@@ -22,7 +22,7 @@ class AddSubFolderController extends AbstractController
         $addSubFolderRequest->setFolder($_POST['folderName']);
         $addSubFolderRequest->setType($_POST['type']);
         $addSubFolderRequest->setLevel($_POST['level']);
-        $addSubFolderRequest->setSubFolder1($_POST['subFolder_1']);
+        $addSubFolderRequest->setSubFolder($_POST['subFolder_1']);
 
         $aJsId = $folderManager->getJsIds();
 
@@ -34,6 +34,32 @@ class AddSubFolderController extends AbstractController
         $addSubFolderRequest->setJsId($jsIdMax);
 
         $subFolderManager->createFolder($addSubFolderRequest);
+
+        return $this->redirectToRoute('server_dashboard');
+    }
+
+    /**
+     * @Route("/server/add/sub_folder/subFolder/{server}", name="server_add_subFolder")
+     */
+    public function addSubFolderInSubFolder(SubFolderManager $subFolderManager, FolderManager $folderManager): Response
+    {
+        $addSubFolderRequest = new AddSubFolderRequest();
+
+        $addSubFolderRequest->setName($_POST['name']);
+        $addSubFolderRequest->setSubFolder($_POST['subFolder']);
+        $addSubFolderRequest->setType($_POST['type']);
+        $addSubFolderRequest->setLevel($_POST['level']);
+
+        $aJsId = $folderManager->getJsIds();
+
+        foreach ($aJsId as $jsId) {
+            if ($jsId['MAX(f.js_id)'] > $jsId['MAX(sf.js_id)']) $jsIdMax = $jsId['MAX(f.js_id)'];
+            else $jsIdMax = $jsId['MAX(sf.js_id)'];
+        }
+        
+        $addSubFolderRequest->setJsId($jsIdMax);
+
+        $subFolderManager->createInSubFolder($addSubFolderRequest);
 
         return $this->redirectToRoute('server_dashboard');
     }

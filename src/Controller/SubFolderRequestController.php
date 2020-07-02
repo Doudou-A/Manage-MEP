@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Folder;
+use App\Repository\FolderRepository;
 use App\Repository\SubFolderRepository;
 use App\Service\SubFolderManager;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,11 +17,16 @@ class SubFolderRequestController extends AbstractController
     /**
      * @Route("/sub_folder/{id}/request", name="sub_folder_request")
      */
-    public function subFolderRequest(Folder $folder, Request $request, SubFolderManager $subFolderManager, SubFolderRepository $repo) : Response
+    public function subFolderRequest($id, Request $request,FolderRepository $repoFolder, SubFolderRepository $repoSubFolder) : Response
     {
-        $listSubFolder = $repo->findListByFolder($folder->getId());
-        $server = 'dev';
-
+        $folder = $repoFolder->find($id);
+        if($folder){
+            $listSubFolder = $repoSubFolder->findListByFolder($folder->getId());
+            $server = 'dev';
+        }else{
+            $listSubFolder = $repoSubFolder->findListBySubFolder($id);
+            $server = 'dev';
+        }
         return new JsonResponse([
             'html' => $this->renderView('subFolder/ajaxRequest.html.twig', [
             'listSubFolder' => $listSubFolder,

@@ -48,7 +48,21 @@ class SubFolderManager
 
         $this->persist($subFolder);
     }
-     
+    
+    public function createInSubFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null) : void
+    {
+        $subFolder = new SubFolder;
+        
+        $subFolder->setName($addSubFolderRequest->getName());
+        $subFolder->setSubFolder($addSubFolderRequest->getSubFolder());
+        $subFolder->setType($addSubFolderRequest->getType());
+        $subFolder->setLevel($addSubFolderRequest->getLevel());
+        $subFolder->setJsId($addSubFolderRequest->getJsId() + 1);
+        $subFolder->setDateCreated(new \DateTime());
+
+        $this->persist($subFolder);
+    }
+
     public function deleteFolder(int $id):void
     {
         $subFolder = $this->repository->find($id);

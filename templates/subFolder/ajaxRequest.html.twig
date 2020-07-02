@@ -1,18 +1,18 @@
 {% for subFolder in listSubFolder %}
-	{# <div class="col-12 d-flex">
-		<img src="picture/folder_win10.png" alt="Folder" width="3%"/> #}
-		<div>{{subFolder.name}}</div>
-		{# <a href="javascript:visibilite('div_form{{subFolder.id}}');">
+	<div>{{ subFolder.name }}</div>
+	<div class="col-12 d-flex">
+		<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
+		<a href="javascript:visibilite('div_form{{subFolder.id}}');">
 			<p>Ajouter un Dossier</p>
 		</a>
 		<div id="div_form{{subFolder.id}}" style="display:none;">
-			<form action="http://localhost:8000/server/add/sub_folder/{{server}}" id="formRegistration" method="POST">
+			<form action="http://localhost:8000/server/add/sub_folder/subFolder/{{server}}" id="formRegistration" method="POST">
 				<div class="row col-12 p-0 m-0">
 					<div class="row p-0 m-0 col-12">
 						<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
 					</div>
 					<div style="display: none;">
-						<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{subFolder.name}}" type="text" name="folderName" required="required"/>
+						<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{subFolder.id}}" type="text" name="subFolder" required="required"/>
 					</div>
 					<div style="display: none;">
 						<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type" required="required"/>
@@ -27,5 +27,48 @@
 				</div>
 			</form>
 		</div>
-	</div> #}
+	</div>
+	<a {# href="{{ path('sub_folder_request', {'id' : folder.id }) }}" #} {# id="{{ path('sub_folder_request', {'id' : folder.id }) }}" #} id="{{subFolder.id}}" class="btn js-test">
+		<div id="{{subFolder.id}}_sign">+</div>
+	</a>
+	{% if listSubFolder is defined %}
+		dac
+	{% endif %}
+	<div class="testing" id="{{subFolder.id}}_request"></div>
 {% endfor %}
+
+
+{% block javascripts %}
+	{# Script pour les requêtes Ajax #}
+	{# <script src="https://unpkg.com/axios/dist/axios.min.js"></script> #}
+	<script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script>
+		$(function () {
+			$('.js-test').click(function (event) {
+				var divTest = document.getElementById(this.id + "_sign");
+				var divRequest = document.getElementById(this.id + "_request");
+				if (divTest.innerHTML == '+') {
+					var request = "#" + this.id + "_request";
+					var id = "#" + this.id + "_sign";
+					$.ajax({
+						type: 'GET',
+						url: '/sub_folder/' + this.id + '/request',
+						timeout: 3000,
+						success: function (data) {
+							console.log(data);
+						$(request).html(data.html);
+						$(id).html('-');
+						},
+						error: function () {
+							alert('La requête n\'a pas abouti');
+						}
+					});
+
+				}else{
+					divTest.innerHTML = '+';
+					divRequest.innerHTML = '';
+				}
+});
+});
+	</script> 
+{% endblock %}

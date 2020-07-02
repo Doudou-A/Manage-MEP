@@ -36,10 +36,10 @@ return [
                 .')'
                 .'|/s(?'
                     .'|erver/add/(?'
-                        .'|sub_folder/([^/]++)(*:206)'
-                        .'|folder/([^/]++)(*:229)'
+                        .'|sub_folder/subFolder/([^/]++)(*:216)'
+                        .'|folder/([^/]++)(*:239)'
                     .')'
-                    .'|ub_folder/([^/]++)/request(*:264)'
+                    .'|ub_folder/([^/]++)/request(*:274)'
                 .')'
             .')/?$}sD',
     ],
@@ -51,9 +51,9 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        206 => [[['_route' => 'server_add_subFolder', '_controller' => 'App\\Controller\\AddSubFolderController::index'], ['server'], null, null, false, true, null]],
-        229 => [[['_route' => 'server_add_folder', '_controller' => 'App\\Controller\\ServerAddFolderController::index'], ['server'], null, null, false, true, null]],
-        264 => [
+        216 => [[['_route' => 'server_add_subFolder', '_controller' => 'App\\Controller\\AddSubFolderController::addSubFolderInSubFolder'], ['server'], null, null, false, true, null]],
+        239 => [[['_route' => 'server_add_folder', '_controller' => 'App\\Controller\\ServerAddFolderController::index'], ['server'], null, null, false, true, null]],
+        274 => [
             [['_route' => 'sub_folder_request', '_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

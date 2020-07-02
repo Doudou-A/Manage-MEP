@@ -18,7 +18,7 @@ class SubFolderType extends AbstractType
             ->add('level')/* 
             ->add('dateCreated')
             ->add('dateLastUpdate') */
-            ->add('subFolder_1')/* 
+            ->add('subFolder')/* 
             ->add('subFolder_2')
             ->add('subFolder_3')
             ->add('subFolder_4') */

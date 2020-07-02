@@ -53,7 +53,7 @@ class SubFolder
      * @var string
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $subFolder_1;
+    private $subFolder;
 
     /**
      * @var string
@@ -148,14 +148,14 @@ class SubFolder
         return $this;
     }
 
-    public function getSubFolder1(): ?string
+    public function getSubFolder(): ?string
     {
-        return $this->subFolder_1;
+        return $this->subFolder;
     }
 
-    public function setSubFolder1(?string $subFolder_1): self
+    public function setSubFolder(?string $subFolder): self
     {
-        $this->subFolder_1 = $subFolder_1;
+        $this->subFolder = $subFolder;
 
         return $this;
     }
