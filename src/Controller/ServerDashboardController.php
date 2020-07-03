@@ -18,7 +18,7 @@ class ServerDashboardController extends AbstractController
     /**
      * @Route("/dashboard", name="server_dashboard")
      */
-    public function index(FolderManager $folderManager, SubFolderManager $subFolderManager, Request $request): Response
+    public function dashboard(FolderManager $folderManager, SubFolderManager $subFolderManager, Request $request): Response
     {
         $allFolder = $folderManager->getAll();
         $serverAddFolderRequest = new ServerAddFolderRequest;

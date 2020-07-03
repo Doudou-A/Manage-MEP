@@ -28,7 +28,7 @@ class FolderManager
         $this->repository = $repository;
     }
 
-    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest, $jsIdMax = null): Folder
+    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest, $jsIdMax=null): Folder
     {
         $folder = new Folder;
         $folder->setName($serverAddFolderRequest->name);
@@ -65,11 +65,18 @@ class FolderManager
         return $Folder[0];
     }
 
-    public function getJsIds(): array
+    public function getArrayJsId(): array
     {
         $aJsId = $this->repository->getJsIdMax();
         
         return $aJsId;
+    }
+    
+    public function getJsIdMax(): array
+    {
+        $JsId = $this->repository->getJsOnceIdMax();
+        
+        return $JsId;
     }
 
     public function persist(Folder $folder): void

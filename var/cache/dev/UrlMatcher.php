@@ -15,7 +15,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/dashboard' => [[['_route' => 'server_dashboard', '_controller' => 'App\\Controller\\ServerDashboardController::index'], null, null, null, false, false, null]],
+        '/dashboard' => [[['_route' => 'server_dashboard', '_controller' => 'App\\Controller\\ServerDashboardController::dashboard'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -34,13 +34,14 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/s(?'
-                    .'|erver/add/(?'
-                        .'|sub_folder/subFolder/([^/]++)(*:216)'
-                        .'|folder/([^/]++)(*:239)'
+                .'|/([^/]++)/add/(?'
+                    .'|folder(*:192)'
+                    .'|sub_folder/(?'
+                        .'|folder(*:220)'
+                        .'|subFolder(*:237)'
                     .')'
-                    .'|ub_folder/([^/]++)/request(*:274)'
                 .')'
+                .'|/sub_folder/([^/]++)/request(*:275)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -51,9 +52,10 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        216 => [[['_route' => 'server_add_subFolder', '_controller' => 'App\\Controller\\AddSubFolderController::addSubFolderInSubFolder'], ['server'], null, null, false, true, null]],
-        239 => [[['_route' => 'server_add_folder', '_controller' => 'App\\Controller\\ServerAddFolderController::index'], ['server'], null, null, false, true, null]],
-        274 => [
+        192 => [[['_route' => 'add_folder', '_controller' => 'App\\Controller\\FolderAddController::addFolder'], ['server'], null, null, false, false, null]],
+        220 => [[['_route' => 'add_subFolder_in_folder', '_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInFolder'], ['server'], null, null, false, false, null]],
+        237 => [[['_route' => 'add_subFolder_in_subFolder', '_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInSubFolder'], ['server'], null, null, false, false, null]],
+        275 => [
             [['_route' => 'sub_folder_request', '_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

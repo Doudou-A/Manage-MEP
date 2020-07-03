@@ -2,11 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Folder;
 use App\Repository\FolderRepository;
 use App\Repository\SubFolderRepository;
-use App\Service\SubFolderManager;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,7 +14,7 @@ class SubFolderRequestController extends AbstractController
     /**
      * @Route("/sub_folder/{id}/request", name="sub_folder_request")
      */
-    public function subFolderRequest($id, Request $request,FolderRepository $repoFolder, SubFolderRepository $repoSubFolder) : Response
+    public function subFolderRequest($id, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder) : Response
     {
         $folder = $repoFolder->find($id);
         if($folder){

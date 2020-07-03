@@ -55,17 +55,17 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         // line 8
         echo "\t\t</title>
 \t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
-\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js\"></script>
+\t\t
 \t\t";
         // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 13
+        // line 12
         echo "\t</head>
 \t<body>
 \t\t";
-        // line 15
+        // line 14
         $this->displayBlock('body', $context, $blocks);
-        // line 16
+        // line 15
         echo "\t\t";
         $this->displayBlock('javascripts', $context, $blocks);
         // line 18
@@ -110,8 +110,6 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 12
-        echo "\t\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -120,7 +118,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 15
+    // line 14
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -138,7 +136,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 16
+    // line 15
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -148,8 +146,9 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 17
-        echo "\t\t";
+        // line 16
+        echo "\t
+\t\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -165,7 +164,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     public function getDebugInfo()
     {
-        return array (  152 => 17,  142 => 16,  124 => 15,  114 => 12,  104 => 11,  84 => 6,  72 => 18,  69 => 16,  67 => 15,  63 => 13,  61 => 11,  56 => 8,  54 => 6,  47 => 1,);
+        return array (  150 => 16,  140 => 15,  122 => 14,  104 => 11,  84 => 6,  72 => 18,  69 => 15,  67 => 14,  63 => 12,  61 => 11,  56 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -179,13 +178,13 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 \t\t\t{% endblock %}
 \t\t</title>
 \t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
-\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js\"></script>
-\t\t{% block stylesheets %}
-\t\t{% endblock %}
+\t\t
+\t\t{% block stylesheets %}{% endblock %}
 \t</head>
 \t<body>
 \t\t{% block body %}{% endblock %}
 \t\t{% block javascripts %}
+\t
 \t\t{% endblock %}
 \t</body>
 </html>

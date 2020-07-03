@@ -28,6 +28,15 @@ class FolderRepository extends ServiceEntityRepository
         return $stmt->fetchAll();
     }
     
+    public function getJsOnceIdMax()
+    {
+        $rawSql = "SELECT MAX(f.js_id) FROM folder AS f";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
+    
     // /**
     //  * @return Folder[] Returns an array of Folder objects
     //  */

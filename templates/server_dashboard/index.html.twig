@@ -7,9 +7,8 @@
 	<a href="javascript:visibilite('div_form0');">
 		<p>Ajouter un Dossier</p>
 	</a>
-
-	<div id="div_form0">
-		{{ form_start(form, {'action' : path('server_add_folder', { 'server': server })}) }}
+	<div id="div_form0" style="display:none;">
+		{{ form_start(form, {'action' : path('add_folder', { 'server': server })}) }}
 		{{ form_row(form.name, {'label':false})}}
 		{{ form_end(form) }}
 	</div>
@@ -21,7 +20,7 @@
 				<p>Ajouter un Dossier</p>
 			</a>
 			<div id="div_form{{folder.id}}" style="display:none;">
-				<form action="http://localhost:8000/server/add/sub_folder/folder/{{server}}" id="formRegistration" method="POST">
+				<form action="http://localhost:8000/{{server}}/add/sub_folder/folder" id="formRegistration" method="POST">
 					<div class="row col-12 p-0 m-0">
 						<div class="row p-0 m-0 col-12">
 							<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
@@ -42,88 +41,18 @@
 					</div>
 				</form>
 			</div>
-			<a {# href="{{ path('sub_folder_request', {'id' : folder.id }) }}" #} {# id="{{ path('sub_folder_request', {'id' : folder.id }) }}" #} id="{{folder.id}}" class="btn js-test">
+			<a id="{{folder.id}}" class="btn js-test">
 				<div id="{{folder.id}}_sign">+</div>
 			</a>
-				{% if listSubFolder is defined %}
-					dac
-				{% endif %}
-				<div class="testing" id="{{folder.id}}_request"></div>
-			{# {% for subFolder in subFolders %}
-													{% if folder.name == subFolder.folder.name %}
-														<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
-														<div>{{subFolder.name}}</div>
-														<a href="javascript:visibilite('div_form{{subFolder.id}}');">
-															<p>Ajouter un Dossier</p>
-														</a>
-														<div id="div_form{{subFolder.id}}" style="display:none;">
-															<form action="http://localhost:8000/server/add/sub_folder/{{server}}" id="formRegistration" method="POST">
-																<div class="row col-12 p-0 m-0">
-																	<div class="row p-0 m-0 col-12">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
-																	</div>
-																	<div style="display: none;">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{folder.name}}" type="text" name="folderName" required="required"/>
-																	</div>
-																	<div style="display: none;">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type" required="required"/>
-																	</div>
-																	<div style="display: none;">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" value='1' type="number" name="level" required="required"/>
-																	</div>
-																	<div style="display: none;">
-																		<input class="col-lg-12 p-2 animated fadeInLeft border" value="ok" type="text" name="subFolder_1"/>
-																	</div>
-																	<input id="submitFormRegistration" style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
-																</div>
-															</form>
-														</div>
-													{% endif %}
-												{% endfor %} #}
+			<a id="{{folder.id}}" class="btn js-test-moins">
+				<div id="{{folder.id}}_sign-"></div>
+			</a>
+			<div class="testing" id="{{folder.id}}_request"></div>
 		</div>
 	{% endfor %}
 {% endblock %}
-{% block javascripts %}
-	{# Script pour les requêtes Ajax #}
-	{# <script src="https://unpkg.com/axios/dist/axios.min.js"></script> #}
-	<script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<script>
-		$(function () {
-			$('.js-test').click(function (event) {
-				var divTest = document.getElementById(this.id + "_sign");
-				var divRequest = document.getElementById(this.id + "_request");
-				if (divTest.innerHTML == '+') {
-					var request = "#" + this.id + "_request";
-					var id = "#" + this.id + "_sign";
-					$.ajax({
-						type: 'GET',
-						url: '/sub_folder/' + this.id + '/request',
-						timeout: 3000,
-						success: function (data) {
-							console.log(data);
-						$(request).html(data.html);
-						$(id).html('-');
-						},
-						error: function () {
-							alert('La requête n\'a pas abouti');
-						}
-					});
 
-				}else{
-					divTest.innerHTML = '+';
-					divRequest.innerHTML = '';
-				}
-});
-});
-	</script>
-	<script>
-		var divPrecedent = document.getElementById('div_form0');
-function visibilite(divId) {
-divPresent = document.getElementById(divId);
-if (divPresent.style.display == 'none') 
-divPresent.style.display = 'block';
- else 
-divPresent.style.display = 'none';
-}
-	</script>
+{% block javascripts %}
+	<script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script language="javascript" src="js/style.js"></script>
 {% endblock %}

@@ -90,55 +90,54 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         echo "\t<a href=\"javascript:visibilite('div_form0');\">
 \t\t<p>Ajouter un Dossier</p>
 \t</a>
-
-\t<div id=\"div_form0\">
+\t<div id=\"div_form0\" style=\"display:none;\">
+\t\t";
+        // line 11
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_folder", ["server" => (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 11, $this->source); })())])]);
+        echo "
 \t\t";
         // line 12
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("server_add_folder", ["server" => (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 12, $this->source); })())])]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), "name", [], "any", false, false, false, 12), 'row', ["label" => false]);
         echo "
 \t\t";
         // line 13
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "name", [], "any", false, false, false, 13), 'row', ["label" => false]);
-        echo "
-\t\t";
-        // line 14
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), 'form_end');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), 'form_end');
         echo "
 \t</div>
 \t";
-        // line 16
+        // line 15
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["folders"]) || array_key_exists("folders", $context) ? $context["folders"] : (function () { throw new RuntimeError('Variable "folders" does not exist.', 16, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["folders"]) || array_key_exists("folders", $context) ? $context["folders"] : (function () { throw new RuntimeError('Variable "folders" does not exist.', 15, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["folder"]) {
-            // line 17
+            // line 16
             echo "\t\t<div class=\"col-12 d-flex\">
 \t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
 \t\t\t<div>";
-            // line 19
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 19), "html", null, true);
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 18), "html", null, true);
             echo "</div>
 \t\t\t<a href=\"javascript:visibilite('div_form";
-            // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 20), "html", null, true);
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 19), "html", null, true);
             echo "');\">
 \t\t\t\t<p>Ajouter un Dossier</p>
 \t\t\t</a>
 \t\t\t<div id=\"div_form";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 23), "html", null, true);
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 22), "html", null, true);
             echo "\" style=\"display:none;\">
-\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/folder/";
-            // line 24
-            echo twig_escape_filter($this->env, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 24, $this->source); })()), "html", null, true);
-            echo "\" id=\"formRegistration\" method=\"POST\">
+\t\t\t\t<form action=\"http://localhost:8000/";
+            // line 23
+            echo twig_escape_filter($this->env, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 23, $this->source); })()), "html", null, true);
+            echo "/add/sub_folder/folder\" id=\"formRegistration\" method=\"POST\">
 \t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div style=\"display: none;\">
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"";
-            // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 30), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 29), "html", null, true);
             echo "\" type=\"text\" name=\"folderName\" required=\"required\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div style=\"display: none;\">
@@ -154,31 +153,29 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t\t\t</div>
 \t\t\t\t</form>
 \t\t\t</div>
-\t\t\t<a ";
-            // line 45
-            echo " ";
-            echo " id=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 45), "html", null, true);
+\t\t\t<a id=\"";
+            // line 44
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 44), "html", null, true);
             echo "\" class=\"btn js-test\">
 \t\t\t\t<div id=\"";
-            // line 46
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 46), "html", null, true);
+            // line 45
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 45), "html", null, true);
             echo "_sign\">+</div>
 \t\t\t</a>
-\t\t\t\t";
+\t\t\t<a id=\"";
+            // line 47
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 47), "html", null, true);
+            echo "\" class=\"btn js-test-moins\">
+\t\t\t\t<div id=\"";
             // line 48
-            if ((isset($context["listSubFolder"]) || array_key_exists("listSubFolder", $context))) {
-                // line 49
-                echo "\t\t\t\t\tdac
-\t\t\t\t";
-            }
-            // line 51
-            echo "\t\t\t\t<div class=\"testing\" id=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 51), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 48), "html", null, true);
+            echo "_sign-\"></div>
+\t\t\t</a>
+\t\t\t<div class=\"testing\" id=\"";
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 50), "html", null, true);
             echo "_request\"></div>
-\t\t\t";
-            // line 83
-            echo "\t\t</div>
+\t\t</div>
 \t";
         }
         $_parent = $context['_parent'];
@@ -192,7 +189,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     }
 
-    // line 86
+    // line 55
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -202,51 +199,9 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 87
-        echo "\t";
-        // line 88
-        echo "\t";
-        // line 89
+        // line 56
         echo "\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
-\t<script>
-\t\t\$(function () {
-\t\t\t\$('.js-test').click(function (event) {
-\t\t\t\tvar divTest = document.getElementById(this.id + \"_sign\");
-\t\t\t\tvar divRequest = document.getElementById(this.id + \"_request\");
-\t\t\t\tif (divTest.innerHTML == '+') {
-\t\t\t\t\tvar request = \"#\" + this.id + \"_request\";
-\t\t\t\t\tvar id = \"#\" + this.id + \"_sign\";
-\t\t\t\t\t\$.ajax({
-\t\t\t\t\t\ttype: 'GET',
-\t\t\t\t\t\turl: '/sub_folder/' + this.id + '/request',
-\t\t\t\t\t\ttimeout: 3000,
-\t\t\t\t\t\tsuccess: function (data) {
-\t\t\t\t\t\t\tconsole.log(data);
-\t\t\t\t\t\t\$(request).html(data.html);
-\t\t\t\t\t\t\$(id).html('-');
-\t\t\t\t\t\t},
-\t\t\t\t\t\terror: function () {
-\t\t\t\t\t\t\talert('La requête n\\'a pas abouti');
-\t\t\t\t\t\t}
-\t\t\t\t\t});
-
-\t\t\t\t}else{
-\t\t\t\t\tdivTest.innerHTML = '+';
-\t\t\t\t\tdivRequest.innerHTML = '';
-\t\t\t\t}
-});
-});
-\t</script>
-\t<script>
-\t\tvar divPrecedent = document.getElementById('div_form0');
-function visibilite(divId) {
-divPresent = document.getElementById(divId);
-if (divPresent.style.display == 'none') 
-divPresent.style.display = 'block';
- else 
-divPresent.style.display = 'none';
-}
-\t</script>
+\t<script language=\"javascript\" src=\"js/style.js\"></script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -268,7 +223,7 @@ divPresent.style.display = 'none';
 
     public function getDebugInfo()
     {
-        return array (  210 => 89,  208 => 88,  206 => 87,  196 => 86,  181 => 83,  176 => 51,  172 => 49,  170 => 48,  165 => 46,  159 => 45,  141 => 30,  132 => 24,  128 => 23,  122 => 20,  118 => 19,  114 => 17,  110 => 16,  105 => 14,  101 => 13,  97 => 12,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  203 => 56,  193 => 55,  176 => 50,  171 => 48,  167 => 47,  162 => 45,  158 => 44,  140 => 29,  131 => 23,  127 => 22,  121 => 19,  117 => 18,  113 => 16,  109 => 15,  104 => 13,  100 => 12,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -282,9 +237,8 @@ divPresent.style.display = 'none';
 \t<a href=\"javascript:visibilite('div_form0');\">
 \t\t<p>Ajouter un Dossier</p>
 \t</a>
-
-\t<div id=\"div_form0\">
-\t\t{{ form_start(form, {'action' : path('server_add_folder', { 'server': server })}) }}
+\t<div id=\"div_form0\" style=\"display:none;\">
+\t\t{{ form_start(form, {'action' : path('add_folder', { 'server': server })}) }}
 \t\t{{ form_row(form.name, {'label':false})}}
 \t\t{{ form_end(form) }}
 \t</div>
@@ -296,7 +250,7 @@ divPresent.style.display = 'none';
 \t\t\t\t<p>Ajouter un Dossier</p>
 \t\t\t</a>
 \t\t\t<div id=\"div_form{{folder.id}}\" style=\"display:none;\">
-\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
+\t\t\t\t<form action=\"http://localhost:8000/{{server}}/add/sub_folder/folder\" id=\"formRegistration\" method=\"POST\">
 \t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
@@ -317,90 +271,20 @@ divPresent.style.display = 'none';
 \t\t\t\t\t</div>
 \t\t\t\t</form>
 \t\t\t</div>
-\t\t\t<a {# href=\"{{ path('sub_folder_request', {'id' : folder.id }) }}\" #} {# id=\"{{ path('sub_folder_request', {'id' : folder.id }) }}\" #} id=\"{{folder.id}}\" class=\"btn js-test\">
+\t\t\t<a id=\"{{folder.id}}\" class=\"btn js-test\">
 \t\t\t\t<div id=\"{{folder.id}}_sign\">+</div>
 \t\t\t</a>
-\t\t\t\t{% if listSubFolder is defined %}
-\t\t\t\t\tdac
-\t\t\t\t{% endif %}
-\t\t\t\t<div class=\"testing\" id=\"{{folder.id}}_request\"></div>
-\t\t\t{# {% for subFolder in subFolders %}
-\t\t\t\t\t\t\t\t\t\t\t\t\t{% if folder.name == subFolder.folder.name %}
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div>{{subFolder.name}}</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:visibilite('div_form{{subFolder.id}}');\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>Ajouter un Dossier</p>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"div_form{{subFolder.id}}\" style=\"display:none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<form action=\"http://localhost:8000/server/add/sub_folder/{{server}}\" id=\"formRegistration\" method=\"POST\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.name}}\" type=\"text\" name=\"folderName\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value='1' type=\"number\" name=\"level\" required=\"required\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder_1\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"submitFormRegistration\" style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</form>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t\t{% endif %}
-\t\t\t\t\t\t\t\t\t\t\t\t{% endfor %} #}
+\t\t\t<a id=\"{{folder.id}}\" class=\"btn js-test-moins\">
+\t\t\t\t<div id=\"{{folder.id}}_sign-\"></div>
+\t\t\t</a>
+\t\t\t<div class=\"testing\" id=\"{{folder.id}}_request\"></div>
 \t\t</div>
 \t{% endfor %}
 {% endblock %}
-{% block javascripts %}
-\t{# Script pour les requêtes Ajax #}
-\t{# <script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script> #}
-\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
-\t<script>
-\t\t\$(function () {
-\t\t\t\$('.js-test').click(function (event) {
-\t\t\t\tvar divTest = document.getElementById(this.id + \"_sign\");
-\t\t\t\tvar divRequest = document.getElementById(this.id + \"_request\");
-\t\t\t\tif (divTest.innerHTML == '+') {
-\t\t\t\t\tvar request = \"#\" + this.id + \"_request\";
-\t\t\t\t\tvar id = \"#\" + this.id + \"_sign\";
-\t\t\t\t\t\$.ajax({
-\t\t\t\t\t\ttype: 'GET',
-\t\t\t\t\t\turl: '/sub_folder/' + this.id + '/request',
-\t\t\t\t\t\ttimeout: 3000,
-\t\t\t\t\t\tsuccess: function (data) {
-\t\t\t\t\t\t\tconsole.log(data);
-\t\t\t\t\t\t\$(request).html(data.html);
-\t\t\t\t\t\t\$(id).html('-');
-\t\t\t\t\t\t},
-\t\t\t\t\t\terror: function () {
-\t\t\t\t\t\t\talert('La requête n\\'a pas abouti');
-\t\t\t\t\t\t}
-\t\t\t\t\t});
 
-\t\t\t\t}else{
-\t\t\t\t\tdivTest.innerHTML = '+';
-\t\t\t\t\tdivRequest.innerHTML = '';
-\t\t\t\t}
-});
-});
-\t</script>
-\t<script>
-\t\tvar divPrecedent = document.getElementById('div_form0');
-function visibilite(divId) {
-divPresent = document.getElementById(divId);
-if (divPresent.style.display == 'none') 
-divPresent.style.display = 'block';
- else 
-divPresent.style.display = 'none';
-}
-\t</script>
+{% block javascripts %}
+\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
+\t<script language=\"javascript\" src=\"js/style.js\"></script>
 {% endblock %}
 ", "server_dashboard/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig");
     }
