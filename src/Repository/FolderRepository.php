@@ -36,7 +36,7 @@ class FolderRepository extends ServiceEntityRepository
 
         return $stmt->fetchAll();
     }
-    
+
     // /**
     //  * @return Folder[] Returns an array of Folder objects
     //  */

@@ -2,10 +2,10 @@
 	<div>{{ subFolder.name }}</div>
 	<div class="col-12 d-flex">
 		<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
-		<a href="javascript:visibilite('div_form{{subFolder.id}}');">
+		<a href="javascript:visibilite('div_form{{subFolder.js_id}}');">
 			<p>Ajouter un Dossier</p>
 		</a>
-		<div id="div_form{{subFolder.id}}" style="display:none;">
+		<div id="div_form{{subFolder.js_id}}" style="display:none;">
 			<form action="http://localhost:8000/{{server}}/add/sub_folder/subFolder" id="formRegistration" method="POST">
 				<div class="row col-12 p-0 m-0">
 					<div class="row p-0 m-0 col-12">
@@ -28,13 +28,13 @@
 			</form>
 		</div>
 	</div>
-	<a id="{{subFolder.id}}" class="btn js-test">
-		<div id="{{subFolder.id}}_sign">+</div>
+	<a id="{{subFolder.js_id}}" class="btn js-test">
+		<div id="{{subFolder.js_id}}_sign">+</div>
 	</a>
-	<a id="{{subFolder.id}}" class="btn js-test-moins">
-		<div id="{{subFolder.id}}_sign-"></div>
+	<a id="{{subFolder.js_id}}" class="btn js-test-moins">
+		<div id="{{subFolder.js_id}}_sign-"></div>
 	</a>
-	<div class="testing" id="{{subFolder.id}}_request"></div>
+	<div class="testing" id="{{subFolder.js_id}}_request"></div>
 {% endfor %}
 
 {% block javascripts %}

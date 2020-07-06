@@ -21,7 +21,7 @@ class SubFolderRepository extends ServiceEntityRepository
 
     public function findListByFolder($id)
     {
-        $rawSql = "SELECT * FROM sub_folder WHERE folder_id = $id";
+        $rawSql = "SELECT * FROM sub_folder WHERE js_id = $id";
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
         $stmt->execute([]);
         

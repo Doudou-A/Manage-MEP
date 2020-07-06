@@ -14,21 +14,21 @@ class SubFolderRequestController extends AbstractController
     /**
      * @Route("/sub_folder/{id}/request", name="sub_folder_request")
      */
-    public function subFolderRequest($id, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder) : Response
+    public function subFolderRequest($id, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder): Response
     {
-        $folder = $repoFolder->find($id);
-        if($folder){
-            $listSubFolder = $repoSubFolder->findListByFolder($folder->getId());
-            $server = 'dev';
-        }else{
-            $listSubFolder = $repoSubFolder->findListBySubFolder($id);
-            $server = 'dev';
-        }
+        $folder = $repoFolder->findOneByJsId($id);
+
+        $listSubFolder = $repoSubFolder->findListByJsId($folder->getJsId());
+        $server = 'dev';
+        dd($listSubFolder);
+        $listSubFolder = $repoSubFolder->findListBySubFolder($id);
+        $server = 'dev';
+
         return new JsonResponse([
             'html' => $this->renderView('subFolder/ajaxRequest.html.twig', [
-            'listSubFolder' => $listSubFolder,
-            'server' => $server,
-        ])
+                'listSubFolder' => $listSubFolder,
+                'server' => $server,
+            ])
         ]);
     }
 }

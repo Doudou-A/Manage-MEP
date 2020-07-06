@@ -118,13 +118,13 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
             echo "</div>
 \t\t\t<a href=\"javascript:visibilite('div_form";
             // line 19
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 19), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 19), "html", null, true);
             echo "');\">
 \t\t\t\t<p>Ajouter un Dossier</p>
 \t\t\t</a>
 \t\t\t<div id=\"div_form";
             // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 22), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 22), "html", null, true);
             echo "\" style=\"display:none;\">
 \t\t\t\t<form action=\"http://localhost:8000/";
             // line 23
@@ -155,25 +155,25 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t</div>
 \t\t\t<a id=\"";
             // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 44), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 44), "html", null, true);
             echo "\" class=\"btn js-test\">
 \t\t\t\t<div id=\"";
             // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 45), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 45), "html", null, true);
             echo "_sign\">+</div>
 \t\t\t</a>
 \t\t\t<a id=\"";
             // line 47
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 47), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 47), "html", null, true);
             echo "\" class=\"btn js-test-moins\">
 \t\t\t\t<div id=\"";
             // line 48
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 48), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 48), "html", null, true);
             echo "_sign-\"></div>
 \t\t\t</a>
 \t\t\t<div class=\"testing\" id=\"";
             // line 50
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "id", [], "any", false, false, false, 50), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 50), "html", null, true);
             echo "_request\"></div>
 \t\t</div>
 \t";
@@ -246,10 +246,10 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t<div class=\"col-12 d-flex\">
 \t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
 \t\t\t<div>{{folder.name}}</div>
-\t\t\t<a href=\"javascript:visibilite('div_form{{folder.id}}');\">
+\t\t\t<a href=\"javascript:visibilite('div_form{{folder.jsId}}');\">
 \t\t\t\t<p>Ajouter un Dossier</p>
 \t\t\t</a>
-\t\t\t<div id=\"div_form{{folder.id}}\" style=\"display:none;\">
+\t\t\t<div id=\"div_form{{folder.jsId}}\" style=\"display:none;\">
 \t\t\t\t<form action=\"http://localhost:8000/{{server}}/add/sub_folder/folder\" id=\"formRegistration\" method=\"POST\">
 \t\t\t\t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t\t\t\t<div class=\"row p-0 m-0 col-12\">
@@ -271,13 +271,13 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t\t\t</div>
 \t\t\t\t</form>
 \t\t\t</div>
-\t\t\t<a id=\"{{folder.id}}\" class=\"btn js-test\">
-\t\t\t\t<div id=\"{{folder.id}}_sign\">+</div>
+\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-test\">
+\t\t\t\t<div id=\"{{folder.jsId}}_sign\">+</div>
 \t\t\t</a>
-\t\t\t<a id=\"{{folder.id}}\" class=\"btn js-test-moins\">
-\t\t\t\t<div id=\"{{folder.id}}_sign-\"></div>
+\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-test-moins\">
+\t\t\t\t<div id=\"{{folder.jsId}}_sign-\"></div>
 \t\t\t</a>
-\t\t\t<div class=\"testing\" id=\"{{folder.id}}_request\"></div>
+\t\t\t<div class=\"testing\" id=\"{{folder.jsId}}_request\"></div>
 \t\t</div>
 \t{% endfor %}
 {% endblock %}

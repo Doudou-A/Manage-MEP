@@ -16,6 +16,6 @@ if (!\class_exists(srcApp_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerUALxp1U\srcApp_KernelDevDebugContainer([
     'container.build_hash' => 'UALxp1U',
-    'container.build_id' => '3e4fecaf',
-    'container.build_time' => 1593753701,
+    'container.build_id' => '9fc04180',
+    'container.build_time' => 1593941446,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerUALxp1U');

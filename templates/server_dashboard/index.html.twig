@@ -16,10 +16,10 @@
 		<div class="col-12 d-flex">
 			<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
 			<div>{{folder.name}}</div>
-			<a href="javascript:visibilite('div_form{{folder.id}}');">
+			<a href="javascript:visibilite('div_form{{folder.jsId}}');">
 				<p>Ajouter un Dossier</p>
 			</a>
-			<div id="div_form{{folder.id}}" style="display:none;">
+			<div id="div_form{{folder.jsId}}" style="display:none;">
 				<form action="http://localhost:8000/{{server}}/add/sub_folder/folder" id="formRegistration" method="POST">
 					<div class="row col-12 p-0 m-0">
 						<div class="row p-0 m-0 col-12">
@@ -41,13 +41,13 @@
 					</div>
 				</form>
 			</div>
-			<a id="{{folder.id}}" class="btn js-test">
-				<div id="{{folder.id}}_sign">+</div>
+			<a id="{{folder.jsId}}" class="btn js-test">
+				<div id="{{folder.jsId}}_sign">+</div>
 			</a>
-			<a id="{{folder.id}}" class="btn js-test-moins">
-				<div id="{{folder.id}}_sign-"></div>
+			<a id="{{folder.jsId}}" class="btn js-test-moins">
+				<div id="{{folder.jsId}}_sign-"></div>
 			</a>
-			<div class="testing" id="{{folder.id}}_request"></div>
+			<div class="testing" id="{{folder.jsId}}_request"></div>
 		</div>
 	{% endfor %}
 {% endblock %}
