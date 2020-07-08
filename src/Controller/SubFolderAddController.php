@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Service\FolderManager;
 use App\DOI\AddSubFolderRequest;
 use App\Service\SubFolderManager;
+use App\Repository\FolderRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,15 +15,13 @@ class SubFolderAddController extends AbstractController
     /**
      * @Route("/{server}/add/sub_folder/folder", name="add_subFolder_in_folder")
      */
-    public function addSubFolderInFolder(SubFolderManager $subFolderManager, FolderManager $folderManager): Response
+    public function addSubFolderInFolder(FolderRepository $repoFolder, SubFolderManager $subFolderManager, FolderManager $folderManager): Response
     {
         $addSubFolderRequest = new AddSubFolderRequest();
 
         $addSubFolderRequest->setName($_POST['name']);
-        $addSubFolderRequest->setFolder($_POST['folderName']);
         $addSubFolderRequest->setType($_POST['type']);
-        $addSubFolderRequest->setLevel($_POST['level']);
-        $addSubFolderRequest->setSubFolder($_POST['subFolder']);
+        $addSubFolderRequest->setOnFolder($_POST['onFolder']);
 
         $aJsId = $folderManager->getArrayJsId();
 
@@ -37,7 +36,7 @@ class SubFolderAddController extends AbstractController
 
         $addSubFolderRequest->setJsId($jsIdMax);
 
-        $subFolderManager->createFolder($addSubFolderRequest);
+        $subFolderManager->createInFolder($addSubFolderRequest);
 
         return $this->redirectToRoute('server_dashboard');
     }
@@ -50,9 +49,8 @@ class SubFolderAddController extends AbstractController
         $addSubFolderRequest = new AddSubFolderRequest();
 
         $addSubFolderRequest->setName($_POST['name']);
-        $addSubFolderRequest->setSubFolder($_POST['subFolder']);
         $addSubFolderRequest->setType($_POST['type']);
-        $addSubFolderRequest->setLevel($_POST['level']);
+        $addSubFolderRequest->setOnFolder($_POST['onFolder']);
 
         $aJsId = $folderManager->getArrayJsId();
 

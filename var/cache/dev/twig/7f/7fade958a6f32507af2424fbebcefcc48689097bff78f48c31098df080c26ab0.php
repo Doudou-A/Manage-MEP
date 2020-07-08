@@ -27,7 +27,6 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
-            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -137,8 +136,8 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t\t\t\t<div style=\"display: none;\">
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"";
             // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 29), "html", null, true);
-            echo "\" type=\"text\" name=\"folderName\" required=\"required\"/>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 29), "html", null, true);
+            echo "\" type=\"text\" name=\"onFolder\" required=\"required\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div style=\"display: none;\">
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
@@ -156,22 +155,20 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t<a id=\"";
             // line 44
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 44), "html", null, true);
-            echo "\" class=\"btn js-test\">
-\t\t\t\t<div id=\"";
-            // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 45), "html", null, true);
-            echo "_sign\">+</div>
+            echo "\" class=\"btn js-close ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 44), "html", null, true);
+            echo "_close\">
+\t\t\t\t<div>+</div>
 \t\t\t</a>
 \t\t\t<a id=\"";
             // line 47
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 47), "html", null, true);
-            echo "\" class=\"btn js-test-moins\">
-\t\t\t\t<div id=\"";
-            // line 48
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 48), "html", null, true);
-            echo "_sign-\"></div>
+            echo "\" class=\"btn js-open ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 47), "html", null, true);
+            echo "_open d-none\">
+\t\t\t\t<div>-</div>
 \t\t\t</a>
-\t\t\t<div class=\"testing\" id=\"";
+\t\t\t<div id=\"";
             // line 50
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 50), "html", null, true);
             echo "_request\"></div>
@@ -181,28 +178,6 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['folder'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 55
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 56
-        echo "\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
-\t<script language=\"javascript\" src=\"js/style.js\"></script>
-";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -223,7 +198,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     public function getDebugInfo()
     {
-        return array (  203 => 56,  193 => 55,  176 => 50,  171 => 48,  167 => 47,  162 => 45,  158 => 44,  140 => 29,  131 => 23,  127 => 22,  121 => 19,  117 => 18,  113 => 16,  109 => 15,  104 => 13,  100 => 12,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  173 => 50,  165 => 47,  157 => 44,  139 => 29,  130 => 23,  126 => 22,  120 => 19,  116 => 18,  112 => 16,  108 => 15,  103 => 13,  99 => 12,  95 => 11,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -256,7 +231,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div style=\"display: none;\">
-\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.name}}\" type=\"text\" name=\"folderName\" required=\"required\"/>
+\t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"{{folder.jsId}}\" type=\"text\" name=\"onFolder\" required=\"required\"/>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div style=\"display: none;\">
 \t\t\t\t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"file\" type=\"text\" name=\"type\" required=\"required\"/>
@@ -271,20 +246,15 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t\t\t\t</div>
 \t\t\t\t</form>
 \t\t\t</div>
-\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-test\">
-\t\t\t\t<div id=\"{{folder.jsId}}_sign\">+</div>
+\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-close {{folder.jsId}}_close\">
+\t\t\t\t<div>+</div>
 \t\t\t</a>
-\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-test-moins\">
-\t\t\t\t<div id=\"{{folder.jsId}}_sign-\"></div>
+\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-open {{folder.jsId}}_open d-none\">
+\t\t\t\t<div>-</div>
 \t\t\t</a>
-\t\t\t<div class=\"testing\" id=\"{{folder.jsId}}_request\"></div>
+\t\t\t<div id=\"{{folder.jsId}}_request\"></div>
 \t\t</div>
 \t{% endfor %}
-{% endblock %}
-
-{% block javascripts %}
-\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
-\t<script language=\"javascript\" src=\"js/style.js\"></script>
 {% endblock %}
 ", "server_dashboard/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig");
     }

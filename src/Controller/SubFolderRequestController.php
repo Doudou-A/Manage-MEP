@@ -16,12 +16,17 @@ class SubFolderRequestController extends AbstractController
      */
     public function subFolderRequest($id, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder): Response
     {
-        $folder = $repoFolder->findOneByJsId($id);
+        /* folder = $repoFolder->findOneByJsId($id);
 
-        $listSubFolder = $repoSubFolder->findListByJsId($folder->getJsId());
-        $server = 'dev';
-        dd($listSubFolder);
-        $listSubFolder = $repoSubFolder->findListBySubFolder($id);
+        if($folder){
+            $listSubFolder = $repoSubFolder->findList($folder->getId());
+            $server = 'dev';
+        }else{
+            $subFolder = $repoSubFolder->findOneByJsId($id);
+            $listSubFolder = $repoSubFolder->findList($subFolder->getId());
+            $server = 'dev';
+        } */
+        $listSubFolder = $repoSubFolder->findList($id);
         $server = 'dev';
 
         return new JsonResponse([

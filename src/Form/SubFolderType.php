@@ -15,9 +15,7 @@ class SubFolderType extends AbstractType
         $builder
             ->add('name')
             ->add('type')
-            ->add('level')
-            ->add('subFolder')
-            ->add('Folder')
+            ->add('onFolder')
         ;
     }
 

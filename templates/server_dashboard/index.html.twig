@@ -26,7 +26,7 @@
 							<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
 						</div>
 						<div style="display: none;">
-							<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{folder.name}}" type="text" name="folderName" required="required"/>
+							<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{folder.jsId}}" type="text" name="onFolder" required="required"/>
 						</div>
 						<div style="display: none;">
 							<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type" required="required"/>
@@ -41,18 +41,13 @@
 					</div>
 				</form>
 			</div>
-			<a id="{{folder.jsId}}" class="btn js-test">
-				<div id="{{folder.jsId}}_sign">+</div>
+			<a id="{{folder.jsId}}" class="btn js-close {{folder.jsId}}_close">
+				<div>+</div>
 			</a>
-			<a id="{{folder.jsId}}" class="btn js-test-moins">
-				<div id="{{folder.jsId}}_sign-"></div>
+			<a id="{{folder.jsId}}" class="btn js-open {{folder.jsId}}_open d-none">
+				<div>-</div>
 			</a>
-			<div class="testing" id="{{folder.jsId}}_request"></div>
+			<div id="{{folder.jsId}}_request"></div>
 		</div>
 	{% endfor %}
-{% endblock %}
-
-{% block javascripts %}
-	<script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<script language="javascript" src="js/style.js"></script>
 {% endblock %}

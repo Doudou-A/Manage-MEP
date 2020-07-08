@@ -1,18 +1,18 @@
 /* Requêtes Ajax */
 $(function () {
-    $('.js-test').click(function (event) {
-        var request = "#" + this.id + "_request";
-        var idtest = "#" + this.id + "_sign";
-        var idmoins = "#" + this.id + "_sign-";
+    $('.js-close').click(function (event) {
+        var divClose = "." + this.id + "_close";
+        var divOpen = "." + this.id + "_open";
+        var divRequest = "#" + this.id + "_request";
         $.ajax({
             type: 'GET',
             url: '/sub_folder/' + this.id + '/request',
             timeout: 3000,
             success: function (data) {
-                console.log(data);
-                $(request).html(data.html);
-                $(idtest).html('');
-                $(idmoins).html('-');
+                $(divRequest).html(data.html);
+                /* $(divClose).html(''); */
+                $(divClose).removeClass("d-block").addClass("d-none");
+                $(divOpen).removeClass("d-none").addClass("d-block");
             },
             error: function () {
                 alert('La requête n\'a pas abouti');
@@ -21,13 +21,26 @@ $(function () {
     });
 });
 $(function () {
-    $('.js-test-moins').click(function (event) {
-        var divTest = document.getElementById(this.id + "_sign");
-        var divTestMoins = document.getElementById(this.id + "_sign-");
-        var divRequest = document.getElementById(this.id + "_request");
-        divTest.innerHTML = '+';
-        divTestMoins.innerHTML = '';
-        divRequest.innerHTML = '';
+    $('.js-open').click(function (event) {
+        /* var divClose = document.getElementById(this.id + "_close");
+        var divOpen = document.getElementById(this.id + "_open");
+        var divRequest = document.getElementById(this.id + "_request"); */
+        var divClose = "." + this.id + "_close";
+        var divOpen = "." + this.id + "_open";
+        var divRequest = "#" + this.id + "_request";
+        $.ajax({
+            success: function () {
+                /* $(divClose).html(''); */
+                $(divClose).removeClass("d-none").addClass("d-block");
+                $(divOpen).removeClass("d-block").addClass("d-none");
+                $(divRequest).html('');
+            },
+            /* divOpen.classList.remove("d-block");
+            divOpen.className("d-none");
+            divClose.innerHTML = '+';
+            divOpen.innerHTML = ''; 
+            divRequest.innerHTML = ''; */
+        });
     });
 });
 

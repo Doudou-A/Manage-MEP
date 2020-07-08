@@ -5155,6 +5155,14 @@
         <argument key="subFolderManager" type="service" id="App\Service\SubFolderManager"/>
       </argument>
     </service>
+    <service id=".service_locator.wiuDEvy" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="folderManager" type="service" id="App\Service\FolderManager"/>
+        <argument key="repoFolder" type="service" id="App\Repository\FolderRepository"/>
+        <argument key="subFolderManager" type="service" id="App\Service\SubFolderManager"/>
+      </argument>
+    </service>
     <service id=".service_locator.zNses0N" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5162,19 +5170,19 @@
         <argument key="repoSubFolder" type="service" id="App\Repository\SubFolderRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.vPufSbs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.PCMESlK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\FolderAddController::addFolder" type="service" id=".service_locator.LKev.lg"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\ServerDashboardController::dashboard" type="service" id=".service_locator.FLJUM9X"/>
-        <argument key="App\Controller\SubFolderAddController::addSubFolderInFolder" type="service" id=".service_locator.FLJUM9X"/>
+        <argument key="App\Controller\SubFolderAddController::addSubFolderInFolder" type="service" id=".service_locator.wiuDEvy"/>
         <argument key="App\Controller\SubFolderAddController::addSubFolderInSubFolder" type="service" id=".service_locator.FLJUM9X"/>
         <argument key="App\Controller\SubFolderRequestController::subFolderRequest" type="service" id=".service_locator.zNses0N"/>
         <argument key="App\Controller\FolderAddController:addFolder" type="service" id=".service_locator.LKev.lg"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\ServerDashboardController:dashboard" type="service" id=".service_locator.FLJUM9X"/>
-        <argument key="App\Controller\SubFolderAddController:addSubFolderInFolder" type="service" id=".service_locator.FLJUM9X"/>
+        <argument key="App\Controller\SubFolderAddController:addSubFolderInFolder" type="service" id=".service_locator.wiuDEvy"/>
         <argument key="App\Controller\SubFolderAddController:addSubFolderInSubFolder" type="service" id=".service_locator.FLJUM9X"/>
         <argument key="App\Controller\SubFolderRequestController:subFolderRequest" type="service" id=".service_locator.zNses0N"/>
       </argument>
@@ -5639,12 +5647,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.vPufSbs"/>
+      <argument type="service" id=".service_locator.PCMESlK"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.vPufSbs"/>
+      <argument type="service" id=".service_locator.PCMESlK"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6035,7 +6043,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.vPufSbs"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.PCMESlK"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

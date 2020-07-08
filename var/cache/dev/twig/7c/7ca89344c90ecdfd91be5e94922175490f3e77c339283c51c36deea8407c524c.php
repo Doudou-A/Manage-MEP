@@ -55,17 +55,19 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         // line 8
         echo "\t\t</title>
 \t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
-\t\t
+\t\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
+\t\t<script language=\"javascript\" src=\"js/style.js\"></script>
+
 \t\t";
-        // line 11
+        // line 13
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 12
+        // line 14
         echo "\t</head>
 \t<body>
 \t\t";
-        // line 14
+        // line 16
         $this->displayBlock('body', $context, $blocks);
-        // line 15
+        // line 17
         echo "\t\t";
         $this->displayBlock('javascripts', $context, $blocks);
         // line 18
@@ -100,7 +102,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 11
+    // line 13
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -118,7 +120,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 14
+    // line 16
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -136,7 +138,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 15
+    // line 17
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -146,9 +148,6 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 16
-        echo "\t
-\t\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -164,7 +163,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     public function getDebugInfo()
     {
-        return array (  150 => 16,  140 => 15,  122 => 14,  104 => 11,  84 => 6,  72 => 18,  69 => 15,  67 => 14,  63 => 12,  61 => 11,  56 => 8,  54 => 6,  47 => 1,);
+        return array (  142 => 17,  124 => 16,  106 => 13,  86 => 6,  74 => 18,  71 => 17,  69 => 16,  65 => 14,  63 => 13,  56 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -178,14 +177,14 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 \t\t\t{% endblock %}
 \t\t</title>
 \t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
-\t\t
+\t\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
+\t\t<script language=\"javascript\" src=\"js/style.js\"></script>
+
 \t\t{% block stylesheets %}{% endblock %}
 \t</head>
 \t<body>
 \t\t{% block body %}{% endblock %}
-\t\t{% block javascripts %}
-\t
-\t\t{% endblock %}
+\t\t{% block javascripts %}{% endblock %}
 \t</body>
 </html>
 ", "base.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/base.html.twig");

@@ -19,18 +19,27 @@ class SubFolderRepository extends ServiceEntityRepository
         parent::__construct($registry, SubFolder::class);
     }
 
-    public function findListByFolder($id)
+    public function findListByFolder($jsId)
     {
-        $rawSql = "SELECT * FROM sub_folder WHERE js_id = $id";
+        $rawSql = "SELECT * FROM folder WHERE on_folder_id = $jsId";
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
         $stmt->execute([]);
         
         return $stmt->fetchAll();
     }
     
-    public function findListBySubFolder($id)
+    public function findListBySubFolder($jsId)
     {
-        $rawSql = "SELECT * FROM sub_folder WHERE sub_folder = $id";
+        $rawSql = "SELECT * FROM sub_folder WHERE on_sub_folder_id = $jsId";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+        
+        return $stmt->fetchAll();
+    }
+    
+    public function findList($jsId)
+    {
+        $rawSql = "SELECT * FROM sub_folder AS sf WHERE on_folder = $jsId";
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
         $stmt->execute([]);
         

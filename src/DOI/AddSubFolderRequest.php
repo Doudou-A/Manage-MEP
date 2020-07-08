@@ -18,19 +18,9 @@ class AddSubFolderRequest
     public $type;
     
     /**
-    * @var string
+    * @var int
     */
-    public $folder;
-
-    /**
-    * @var string
-    */
-    public $subFolder;
-
-    /**
-    * @var integer
-    */
-    public $level;
+    public $onFolder;
 
     /**
      * @var int
@@ -48,6 +38,7 @@ class AddSubFolderRequest
 
         return $this;
     }
+   
     public function getType(): ?string
     {
         return $this->type;
@@ -60,38 +51,14 @@ class AddSubFolderRequest
         return $this;
     }
 
-    public function getLevel(): ?int
+    public function getOnFolder(): ?string
     {
-        return $this->level;
+        return $this->onFolder;
     }
 
-    public function setLevel(int $level): self
+    public function setOnFolder(string $onFolder): self
     {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    public function getSubFolder(): ?string
-    {
-        return $this->subFolder;
-    }
-
-    public function setSubFolder(?string $subFolder): self
-    {
-        $this->subFolder = $subFolder;
-
-        return $this;
-    }
-
-    public function getFolder(): ?string
-    {
-        return $this->folder;
-    }
-
-    public function setFolder(?string $folder): self
-    {
-        $this->folder = $folder;
+        $this->onFolder = $onFolder;
 
         return $this;
     }

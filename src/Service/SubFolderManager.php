@@ -2,13 +2,11 @@
 
 namespace App\Service;
 
-use DateTime;
 use App\Entity\Folder;
 use App\DOI\AddSubFolderRequest;
 use App\Entity\SubFolder;
 use App\Repository\SubFolderRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Common\Collections\Collection;
 
 class SubFolderManager
 {
@@ -34,17 +32,16 @@ class SubFolderManager
         $this->folderManager = $folderManager;
     }
 
-    public function createFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null) : void
+    public function createInFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null) : void
     {
         $subFolder = new SubFolder;
         
         $subFolder->setName($addSubFolderRequest->getName());
-        $folder = $addSubFolderRequest->getFolder();
-        $subFolder->setType($addSubFolderRequest->getType($folder));
-        $subFolder->setFolder($this->folderManager->getFolderByName($folder));
-        $subFolder->setLevel($addSubFolderRequest->getLevel());
-        $subFolder->setJsId($addSubFolderRequest->getJsId() + 1);
         $subFolder->setDateCreated(new \DateTime());
+        $subFolder->setType($addSubFolderRequest->getType());
+        $subFolder->setJsId($addSubFolderRequest->getJsId() + 1);
+        $subFolder->setOnFolder($addSubFolderRequest->getOnFolder());
+
 
         $this->persist($subFolder);
     }
@@ -54,9 +51,8 @@ class SubFolderManager
         $subFolder = new SubFolder;
         
         $subFolder->setName($addSubFolderRequest->getName());
-        $subFolder->setSubFolder($addSubFolderRequest->getSubFolder());
+        $subFolder->setOnFolder($addSubFolderRequest->getOnFolder());
         $subFolder->setType($addSubFolderRequest->getType());
-        $subFolder->setLevel($addSubFolderRequest->getLevel());
         $subFolder->setJsId($addSubFolderRequest->getJsId() + 1);
         $subFolder->setDateCreated(new \DateTime());
 

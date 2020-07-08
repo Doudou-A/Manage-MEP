@@ -1,5 +1,6 @@
 {% for subFolder in listSubFolder %}
 	<div>{{ subFolder.name }}</div>
+	<div>{{ subFolder.js_id }}</div>
 	<div class="col-12 d-flex">
 		<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
 		<a href="javascript:visibilite('div_form{{subFolder.js_id}}');">
@@ -12,7 +13,7 @@
 						<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
 					</div>
 					<div style="display: none;">
-						<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{subFolder.id}}" type="text" name="subFolder" required="required"/>
+						<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{subFolder.js_id}}" type="text" name="onFolder" required="required"/>
 					</div>
 					<div style="display: none;">
 						<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type" required="required"/>
@@ -28,16 +29,14 @@
 			</form>
 		</div>
 	</div>
-	<a id="{{subFolder.js_id}}" class="btn js-test">
-		<div id="{{subFolder.js_id}}_sign">+</div>
+	<a id="{{subFolder.js_id}}" class="btn js-close {{subFolder.js_id}}_close">
+		<div>+</div>
 	</a>
-	<a id="{{subFolder.js_id}}" class="btn js-test-moins">
-		<div id="{{subFolder.js_id}}_sign-"></div>
+	<a id="{{subFolder.js_id}}" class="btn js-open {{subFolder.js_id}}_open d-none">
+		<div>-</div>
 	</a>
-	<div class="testing" id="{{subFolder.js_id}}_request"></div>
+	<div id="{{subFolder.js_id}}_request"></div>
 {% endfor %}
 
 {% block javascripts %}
-	<script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<script language="javascript" src="js/style.js"></script>
 {% endblock %}

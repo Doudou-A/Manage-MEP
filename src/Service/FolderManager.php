@@ -59,10 +59,10 @@ class FolderManager
         return $this->repository->find($id);;
     }
 
-    public function getFolderByName(string $folder): Folder
+    public function getFolderByJsId(string $folder): Folder
     {
-        $Folder = $this->repository->findByName($folder);
-        return $Folder[0];
+        $folder = $this->repository->findOneByJsId($folder);
+        return $folder;
     }
 
     public function getArrayJsId(): array

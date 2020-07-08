@@ -34,14 +34,14 @@ class Folder
     private $dateCreated;
 
     /**
-     * @ORM\OneToMany(targetEntity=SubFolder::class, mappedBy="Folder")
-     */
-    private $subFolders;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $jsId;
+
+    /**
+     * @ORM\OneToMany(targetEntity=SubFolder::class, mappedBy="onFolder")
+     */
+    private $subFolders;
 
     public function __construct()
     {
@@ -77,24 +77,6 @@ class Folder
         return $this;
     }
 
-    /**
-     * @return Collection|SubFolder[]
-     */
-    public function getSubFolders(): Collection
-    {
-        return $this->subFolders;
-    }
-
-    public function addSubFolder(SubFolder $subFolder): self
-    {
-        if (!$this->subFolders->contains($subFolder)) {
-            $this->subFolders[] = $subFolder;
-            $subFolder->setFolder($this);
-        }
-
-        return $this;
-    }
-
     public function removeSubFolder(SubFolder $subFolder): self
     {
         if ($this->subFolders->contains($subFolder)) {
@@ -116,6 +98,24 @@ class Folder
     public function setJsId(int $jsId): self
     {
         $this->jsId = $jsId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SubFolder[]
+     */
+    public function getSubFolders(): Collection
+    {
+        return $this->subFolders;
+    }
+
+    public function addSubFolder(SubFolder $subFolder): self
+    {
+        if (!$this->subFolders->contains($subFolder)) {
+            $this->subFolders[] = $subFolder;
+            $subFolder->setOnFolder($this);
+        }
 
         return $this;
     }

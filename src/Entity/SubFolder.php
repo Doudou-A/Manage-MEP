@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SubFolderRepository;
 
@@ -32,12 +34,6 @@ class SubFolder
     private $type;
 
     /**
-     * @var int
-     * @ORM\Column(type="integer")
-     */
-    private $level;
-
-    /**
      * @var DateTimeInterface|null
      * @ORM\Column(type="datetime")
      */
@@ -50,38 +46,21 @@ class SubFolder
     private $dateLastUpdate;
 
     /**
-     * @var string
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $subFolder;
-
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $subFolder_2;
-
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $subFolder_3;
-
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $subFolder_4;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Folder::class, inversedBy="subFolders")
-     */
-    private $Folder;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $jsId;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $onFolder;
+
+
+    public function __construct()
+    {
+        $this->onSubFolder = new ArrayCollection();
+        $this->subFolders = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -112,18 +91,6 @@ class SubFolder
         return $this;
     }
 
-    public function getLevel(): ?int
-    {
-        return $this->level;
-    }
-
-    public function setLevel(int $level): self
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
     public function getDateCreated(): ?\DateTimeInterface
     {
         return $this->dateCreated;
@@ -148,66 +115,6 @@ class SubFolder
         return $this;
     }
 
-    public function getSubFolder(): ?string
-    {
-        return $this->subFolder;
-    }
-
-    public function setSubFolder(?string $subFolder): self
-    {
-        $this->subFolder = $subFolder;
-
-        return $this;
-    }
-
-    public function getSubFolder2(): ?string
-    {
-        return $this->subFolder_2;
-    }
-
-    public function setSubFolder2(?string $subFolder_2): self
-    {
-        $this->subFolder_2 = $subFolder_2;
-
-        return $this;
-    }
-
-    public function getSubFolder3(): ?string
-    {
-        return $this->subFolder_3;
-    }
-
-    public function setSubFolder3(?string $subFolder_3): self
-    {
-        $this->subFolder_3 = $subFolder_3;
-
-        return $this;
-    }
-
-    public function getSubFolder4(): ?string
-    {
-        return $this->subFolder_4;
-    }
-
-    public function setSubFolder4(?string $subFolder_4): self
-    {
-        $this->subFolder_4 = $subFolder_4;
-
-        return $this;
-    }
-
-    public function getFolder(): ?Folder
-    {
-        return $this->Folder;
-    }
-
-    public function setFolder(?Folder $Folder): self
-    {
-        $this->Folder = $Folder;
-
-        return $this;
-    }
-
     public function getJsId(): ?int
     {
         return $this->jsId;
@@ -216,6 +123,18 @@ class SubFolder
     public function setJsId(int $jsId): self
     {
         $this->jsId = $jsId;
+
+        return $this;
+    }
+
+    public function getOnFolder(): ?int
+    {
+        return $this->onFolder;
+    }
+
+    public function setOnFolder(?int $onFolder): self
+    {
+        $this->onFolder = $onFolder;
 
         return $this;
     }
