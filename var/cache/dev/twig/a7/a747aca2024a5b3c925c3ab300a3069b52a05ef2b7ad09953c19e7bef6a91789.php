@@ -27,7 +27,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
         $this->parent = false;
 
         $this->blocks = [
-            'javascripts' => [$this, 'block_javascripts'],
+            'Javascript' => [$this, 'block_Javascript'],
         ];
     }
 
@@ -121,7 +121,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
         echo "
 ";
         // line 41
-        $this->displayBlock('javascripts', $context, $blocks);
+        $this->displayBlock('Javascript', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -130,15 +130,18 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 
     }
 
-    public function block_javascripts($context, array $blocks = [])
+    public function block_Javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "Javascript"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "Javascript"));
 
+        // line 42
+        echo "
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -159,7 +162,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 
     public function getDebugInfo()
     {
-        return array (  124 => 41,  121 => 40,  113 => 38,  105 => 35,  97 => 32,  78 => 16,  69 => 10,  65 => 9,  59 => 6,  53 => 3,  48 => 2,  44 => 1,);
+        return array (  143 => 42,  124 => 41,  121 => 40,  113 => 38,  105 => 35,  97 => 32,  78 => 16,  69 => 10,  65 => 9,  59 => 6,  53 => 3,  48 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -204,7 +207,8 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 \t<div id=\"{{subFolder.js_id}}_request\"></div>
 {% endfor %}
 
-{% block javascripts %}
+{% block Javascript %}
+
 {% endblock %}
 ", "subFolder/ajaxRequest.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/subFolder/ajaxRequest.html.twig");
     }

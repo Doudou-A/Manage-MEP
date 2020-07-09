@@ -68,9 +68,11 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         // line 16
         $this->displayBlock('body', $context, $blocks);
         // line 17
-        echo "\t\t";
-        $this->displayBlock('javascripts', $context, $blocks);
+        echo "\t\t
+\t\t";
         // line 18
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 19
         echo "\t</body>
 </html>
 ";
@@ -138,7 +140,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     }
 
-    // line 17
+    // line 18
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -163,7 +165,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 
     public function getDebugInfo()
     {
-        return array (  142 => 17,  124 => 16,  106 => 13,  86 => 6,  74 => 18,  71 => 17,  69 => 16,  65 => 14,  63 => 13,  56 => 8,  54 => 6,  47 => 1,);
+        return array (  144 => 18,  126 => 16,  108 => 13,  88 => 6,  76 => 19,  74 => 18,  71 => 17,  69 => 16,  65 => 14,  63 => 13,  56 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -184,6 +186,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 \t</head>
 \t<body>
 \t\t{% block body %}{% endblock %}
+\t\t
 \t\t{% block javascripts %}{% endblock %}
 \t</body>
 </html>

@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<a href="javascript:visibilite('div_form0');">
+	<a id="div_add0" href="javascript:visibilite('div_form0');">
 		<p>Ajouter un Dossier</p>
 	</a>
 	<div id="div_form0" style="display:none;">
@@ -16,7 +16,7 @@
 		<div class="col-12 d-flex">
 			<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
 			<div>{{folder.name}}</div>
-			<a href="javascript:visibilite('div_form{{folder.jsId}}');">
+			<a id="div_add{{folder.jsId}}" href="javascript:visibilite('div_form{{folder.jsId}}');">
 				<p>Ajouter un Dossier</p>
 			</a>
 			<div id="div_form{{folder.jsId}}" style="display:none;">

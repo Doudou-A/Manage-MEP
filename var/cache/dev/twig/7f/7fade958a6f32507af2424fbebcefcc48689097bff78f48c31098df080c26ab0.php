@@ -86,7 +86,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "\t<a href=\"javascript:visibilite('div_form0');\">
+        echo "\t<a id=\"div_add0\" href=\"javascript:visibilite('div_form0');\">
 \t\t<p>Ajouter un Dossier</p>
 \t</a>
 \t<div id=\"div_form0\" style=\"display:none;\">
@@ -115,8 +115,10 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
             // line 18
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 18), "html", null, true);
             echo "</div>
-\t\t\t<a href=\"javascript:visibilite('div_form";
+\t\t\t<a id=\"div_add";
             // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 19), "html", null, true);
+            echo "\" href=\"javascript:visibilite('div_form";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 19), "html", null, true);
             echo "');\">
 \t\t\t\t<p>Ajouter un Dossier</p>
@@ -198,7 +200,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     public function getDebugInfo()
     {
-        return array (  173 => 50,  165 => 47,  157 => 44,  139 => 29,  130 => 23,  126 => 22,  120 => 19,  116 => 18,  112 => 16,  108 => 15,  103 => 13,  99 => 12,  95 => 11,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  175 => 50,  167 => 47,  159 => 44,  141 => 29,  132 => 23,  128 => 22,  120 => 19,  116 => 18,  112 => 16,  108 => 15,  103 => 13,  99 => 12,  95 => 11,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -209,7 +211,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 {% endblock %}
 
 {% block body %}
-\t<a href=\"javascript:visibilite('div_form0');\">
+\t<a id=\"div_add0\" href=\"javascript:visibilite('div_form0');\">
 \t\t<p>Ajouter un Dossier</p>
 \t</a>
 \t<div id=\"div_form0\" style=\"display:none;\">
@@ -221,7 +223,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t<div class=\"col-12 d-flex\">
 \t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
 \t\t\t<div>{{folder.name}}</div>
-\t\t\t<a href=\"javascript:visibilite('div_form{{folder.jsId}}');\">
+\t\t\t<a id=\"div_add{{folder.jsId}}\" href=\"javascript:visibilite('div_form{{folder.jsId}}');\">
 \t\t\t\t<p>Ajouter un Dossier</p>
 \t\t\t</a>
 \t\t\t<div id=\"div_form{{folder.jsId}}\" style=\"display:none;\">
