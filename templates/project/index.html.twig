@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard
+{% endblock %}
+
+{% block body %}
+	{% for folder in folders %}
+		<div class="col-12 d-flex">
+			<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
+			<div>{{folder.name}}</div>
+			<a id="{{folder.jsId}}" class="btn js-close {{folder.jsId}}_close">
+				<div>+</div>
+			</a>
+			<a id="{{folder.jsId}}" class="btn js-open {{folder.jsId}}_open d-none">
+				<div>-</div>
+			</a>
+			<div id="{{folder.jsId}}_request"></div>
+		</div>
+	{% endfor %}
+{% endblock %}

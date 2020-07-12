@@ -119,4 +119,10 @@ class Folder
 
         return $this;
     }
+
+    public function getClass()
+    {
+        return 'Folder';
+    }
+    
 }

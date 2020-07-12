@@ -1,12 +1,18 @@
 {% for subFolder in listSubFolder %}
-	<div>{{ subFolder.name }}</div>
-	<div>{{ subFolder.js_id }}</div>
+	{% if subFolder.modification == 1 %}
+	<div class="bg-success">{{ subFolder.name }}</div>
+	{% else %}
+	<div>{{ subFolder.name }}</div>	
+	{% endif %}
 	<div class="col-12 d-flex">
 		<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
-		<a href="javascript:visibilite('div_form{{subFolder.js_id}}');">
+		<a id="div_{{subFolder.js_id}}_add" href="javascript:visibiliteAdd('div_{{subFolder.js_id}}');">
+				<p>Nouveau</p>
+		</a>
+		<a id="div_{{subFolder.js_id}}_folder_add" href="javascript:visibiliteFolder('div_{{subFolder.js_id}}_folder');" style="display:none;">
 			<p>Ajouter un Dossier</p>
 		</a>
-		<div id="div_form{{subFolder.js_id}}" style="display:none;">
+		<div id="div_{{subFolder.js_id}}_folder_form" style="display:none;">
 			<form action="http://localhost:8000/{{server}}/add/sub_folder/subFolder" id="formRegistration" method="POST">
 				<div class="row col-12 p-0 m-0">
 					<div class="row p-0 m-0 col-12">

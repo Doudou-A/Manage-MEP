@@ -39,10 +39,21 @@ $(function () {
 });
 
 /* Display formulaire */
-var divPrecedent = document.getElementById('div_form0');
-function visibilite(divId) {
-    divPresent = document.getElementById(divId);
-    alert(divId);
-    if (divPresent.style.display == 'none') divPresent.style.display = 'block';
-    else divPresent.style.display = 'none';
+var divPrecedent = document.getElementById('div_0_add');
+function visibiliteAdd(divId) {
+    divPresent = document.getElementById(divId+'_folder_add');
+    divForm = document.getElementById(divId+'_folder_form');
+    if (divPresent.style.display == 'none'){
+        divPresent.style.display = 'block';
+        divForm.style.display = 'none';
+    } else divPresent.style.display = 'none';
+}
+var divPrecedent = document.getElementById('div_0_folder_add');
+function visibiliteFolder(divId) {
+    divPresent = document.getElementById(divId+'_form');
+    divAdd = document.getElementById(divId+'_add');
+    if (divPresent.style.display == 'none'){
+        divAdd.style.display = 'none';
+        divPresent.style.display = 'block';
+    } else divPresent.style.display = 'none';
 }

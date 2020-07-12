@@ -4,10 +4,13 @@
 {% endblock %}
 
 {% block body %}
-	<a id="div_add0" href="javascript:visibilite('div_form0');">
+	<a id="div_0_add" href="javascript:visibiliteAdd('div_0');">
+		<p>Nouveau</p>
+	</a>
+	<a id="div_0_folder_add" href="javascript:visibiliteFolder('div_0_folder');" style="display:none;">
 		<p>Ajouter un Dossier</p>
 	</a>
-	<div id="div_form0" style="display:none;">
+	<div id="div_0_folder_form" style="display:none;">
 		{{ form_start(form, {'action' : path('add_folder', { 'server': server })}) }}
 		{{ form_row(form.name, {'label':false})}}
 		{{ form_end(form) }}
@@ -16,10 +19,13 @@
 		<div class="col-12 d-flex">
 			<img src="picture/folder_win10.png" alt="Folder" width="3%"/>
 			<div>{{folder.name}}</div>
-			<a id="div_add{{folder.jsId}}" href="javascript:visibilite('div_form{{folder.jsId}}');">
+			<a id="div_{{folder.jsId}}_add" href="javascript:visibiliteAdd('div_{{folder.jsId}}');">
+				<p>Nouveau</p>
+			</a>
+			<a id="div_{{folder.jsId}}_folder_add" href="javascript:visibiliteFolder('div_{{folder.jsId}}_folder');" style="display:none;">
 				<p>Ajouter un Dossier</p>
 			</a>
-			<div id="div_form{{folder.jsId}}" style="display:none;">
+			<div id="div_{{folder.jsId}}_folder_form" style="display:none;">
 				<form action="http://localhost:8000/{{server}}/add/sub_folder/folder" id="formRegistration" method="POST">
 					<div class="row col-12 p-0 m-0">
 						<div class="row p-0 m-0 col-12">

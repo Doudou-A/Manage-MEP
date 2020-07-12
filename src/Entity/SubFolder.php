@@ -55,6 +55,11 @@ class SubFolder
      */
     private $onFolder;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $Modification;
+
 
     public function __construct()
     {
@@ -137,6 +142,23 @@ class SubFolder
         $this->onFolder = $onFolder;
 
         return $this;
+    }
+
+    public function getModification(): ?bool
+    {
+        return $this->Modification;
+    }
+
+    public function setModification(?bool $Modification): self
+    {
+        $this->Modification = $Modification;
+
+        return $this;
+    }
+
+    public function getClass()
+    {
+        return 'SubFolder';
     }
 
 }

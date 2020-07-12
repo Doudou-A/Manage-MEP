@@ -16,6 +16,7 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     'add_folder' => [['server'], ['_controller' => 'App\\Controller\\FolderAddController::addFolder'], [], [['text', '/add/folder'], ['variable', '/', '[^/]++', 'server']], [], []],
+    'project' => [[], ['_controller' => 'App\\Controller\\ProjectController::index'], [], [['text', '/project']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'server_dashboard' => [[], ['_controller' => 'App\\Controller\\ServerDashboardController::dashboard'], [], [['text', '/dashboard']], [], []],
