@@ -16,9 +16,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ServerDashboardController extends AbstractController
 {
     /**
-     * @Route("/dashboard", name="server_dashboard")
+     * @Route("/dashboard/{project}", name="server_dashboard")
      */
-    public function dashboard(FolderManager $folderManager, SubFolderManager $subFolderManager, Request $request): Response
+    public function dashboard($project = null, FolderManager $folderManager, SubFolderManager $subFolderManager, Request $request): Response
     {
         $allFolder = $folderManager->getAll();
         $serverAddFolderRequest = new ServerAddFolderRequest;

@@ -65,7 +65,8 @@ class __TwigTemplate_14f39de0e2f1ed8b5775c4f7976c34d6f9c6e37496c2f2341312ee24b36
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello ProjectController!";
+        echo "Dashboard
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -74,7 +75,7 @@ class __TwigTemplate_14f39de0e2f1ed8b5775c4f7976c34d6f9c6e37496c2f2341312ee24b36
 
     }
 
-    // line 5
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,31 +85,44 @@ class __TwigTemplate_14f39de0e2f1ed8b5775c4f7976c34d6f9c6e37496c2f2341312ee24b36
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("/Users/Adel/Documents/ARTEVA/Manage-MEP/src/Controller/ProjectController.php", 0), "html", null, true);
-        echo "\">src/Controller/ProjectController.php</a></code></li>
-        <li>Your template at <code><a href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/project/index.html.twig", 0), "html", null, true);
-        echo "\">templates/project/index.html.twig</a></code></li>
-    </ul>
-</div>
-";
+        // line 7
+        echo "\t";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["folders"]) || array_key_exists("folders", $context) ? $context["folders"] : (function () { throw new RuntimeError('Variable "folders" does not exist.', 7, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["folder"]) {
+            // line 8
+            echo "\t\t<div class=\"col-12 d-flex\">
+\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
+\t\t\t<div>";
+            // line 10
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 10), "html", null, true);
+            echo "</div>
+\t\t\t<a id=\"";
+            // line 11
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 11), "html", null, true);
+            echo "\" class=\"btn js-close ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 11), "html", null, true);
+            echo "_close\">
+\t\t\t\t<div>+</div>
+\t\t\t</a>
+\t\t\t<a id=\"";
+            // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 14), "html", null, true);
+            echo "\" class=\"btn js-open ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 14), "html", null, true);
+            echo "_open d-none\">
+\t\t\t\t<div>-</div>
+\t\t\t</a>
+\t\t\t<div id=\"";
+            // line 17
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 17), "html", null, true);
+            echo "_request\"></div>
+\t\t</div>
+\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['folder'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -129,30 +143,30 @@ class __TwigTemplate_14f39de0e2f1ed8b5775c4f7976c34d6f9c6e37496c2f2341312ee24b36
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  118 => 17,  110 => 14,  102 => 11,  98 => 10,  94 => 8,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjectController!{% endblock %}
+{% block title %}Dashboard
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"{{ '/Users/Adel/Documents/ARTEVA/Manage-MEP/src/Controller/ProjectController.php'|file_link(0) }}\">src/Controller/ProjectController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ '/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/project/index.html.twig'|file_link(0) }}\">templates/project/index.html.twig</a></code></li>
-    </ul>
-</div>
+\t{% for folder in folders %}
+\t\t<div class=\"col-12 d-flex\">
+\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"3%\"/>
+\t\t\t<div>{{folder.name}}</div>
+\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-close {{folder.jsId}}_close\">
+\t\t\t\t<div>+</div>
+\t\t\t</a>
+\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-open {{folder.jsId}}_open d-none\">
+\t\t\t\t<div>-</div>
+\t\t\t</a>
+\t\t\t<div id=\"{{folder.jsId}}_request\"></div>
+\t\t</div>
+\t{% endfor %}
 {% endblock %}
 ", "project/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/project/index.html.twig");
     }

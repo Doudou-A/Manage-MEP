@@ -33,6 +33,7 @@ class SubFolderRequestController extends AbstractController
             'html' => $this->renderView('subFolder/ajaxRequest.html.twig', [
                 'listSubFolder' => $listSubFolder,
                 'server' => $server,
+                'jsId' => $id,
             ])
         ]);
     }

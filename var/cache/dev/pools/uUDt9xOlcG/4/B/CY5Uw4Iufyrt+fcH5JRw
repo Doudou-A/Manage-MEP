@@ -8,7 +8,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/dashboard',
+                '/dashboard/{project}',
             ],
             'name' => [
                 'server_dashboard',

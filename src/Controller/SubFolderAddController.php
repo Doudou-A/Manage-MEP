@@ -66,6 +66,6 @@ class SubFolderAddController extends AbstractController
 
         $subFolderManager->createInSubFolder($addSubFolderRequest);
 
-        return $this->redirectToRoute('server_dashboard');
+        return $this->redirectToRoute('server_dashboard'); 
     }
 }
