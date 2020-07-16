@@ -8,6 +8,7 @@ use App\Service\SubFolderManager;
 use App\Repository\FolderRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SubFolderAddController extends AbstractController
@@ -36,15 +37,20 @@ class SubFolderAddController extends AbstractController
 
         $addSubFolderRequest->setJsId($jsIdMax);
 
-        $subFolderManager->createInFolder($addSubFolderRequest);
+        $subFolder = $subFolderManager->createInFolder($addSubFolderRequest);
 
-        return $this->redirectToRoute('server_dashboard');
+        return new JsonResponse([
+            'html' => $this->renderView('subFolder/newSubFolder.html.twig', [
+                'subFolder' => $subFolder,
+            ])
+        ]);
+        /* return $this->redirectToRoute('server_dashboard'); */
     }
 
     /**
      * @Route("/{server}/add/sub_folder/subFolder", name="add_subFolder_in_subFolder")
      */
-    public function addSubFolderInSubFolder(SubFolderManager $subFolderManager, FolderManager $folderManager): Response
+    /* public function addSubFolderInSubFolder(SubFolderManager $subFolderManager, FolderManager $folderManager): Response
     {
         $addSubFolderRequest = new AddSubFolderRequest();
 
@@ -64,8 +70,14 @@ class SubFolderAddController extends AbstractController
         }
         $addSubFolderRequest->setJsId($jsIdMax);
 
-        $subFolderManager->createInSubFolder($addSubFolderRequest);
+        $subFolder = $subFolderManager->createInSubFolder($addSubFolderRequest);
 
-        return $this->redirectToRoute('server_dashboard'); 
-    }
+        return new JsonResponse([
+            'html' => $this->renderView('subFolder/newSubFolder.html.twig', [
+                'subFolder' => $subFolder,
+            ])
+        ]);
+        /* 
+        return $this->redirectToRoute('server_dashboard');  
+    } */
 }

@@ -1,0 +1,20 @@
+<div class="col-12 d-flex p-0">
+	<a id="{{subFolder.jsId}}" class="btn js-close {{subFolder.jsId}}_close p-1">
+		<div>+</div>
+	</a>
+	<a id="{{subFolder.jsId}}" class="btn js-open {{subFolder.jsId}}_open d-none p-1">
+		<div>-</div>
+	</a>
+	<img src="picture/folder_win10.png" alt="Folder" width="20px" height="30px"/>
+	<div>{{ subFolder.name }}</div>
+	{% if subFolder.modification == 1 %}
+		<form action="" method="post">
+			<input type="checkbox" value="1" class="ml-2" checked>
+		</form>
+	{% else %}
+		<form action="" method="post">
+			<input type="checkbox" value="1" class="ml-2">
+		</form>
+	{% endif %}
+</div>
+<div id="{{subFolder.jsId}}_request" class="ml-3 border-left"></div>

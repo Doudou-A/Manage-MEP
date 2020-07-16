@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/ContainerNAtIgMZ/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerJChZaRl/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -38,6 +38,7 @@ $classes[] = 'App\Controller\SubFolderRequestController';
 $classes[] = 'App\Form\FolderType';
 $classes[] = 'App\Form\SubFolderType';
 $classes[] = 'App\Repository\FolderRepository';
+$classes[] = 'App\Repository\ProjectRepository';
 $classes[] = 'App\Repository\ServerRepository';
 $classes[] = 'App\Repository\SubFolderRepository';
 $classes[] = 'App\Repository\TransfertRepository';

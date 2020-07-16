@@ -4,8 +4,8 @@
 {% endblock %}
 
 {% block body %}
-	<select class="target">
-		<option value="option1" selected="selected">Option 1</option>
+	<select class="target" id="selector">
+		<option value="option1" selected="selected">Choisir un projet</option>
 		<option value="option2">Option 2</option>
 	</select>
 	<a id="div_0_add" href="javascript:visibiliteAdd('div_0');">
@@ -34,30 +34,3 @@
 	{% endfor %}
 {% endblock %}
 
-{% block javascripts %}
-<script>
-$(function () {
-	 $(".form_submit").submit(function(e) {
-
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    var form = $(this);
-    var url = form.attr('action');
-		alert("ok");
-    
-    $.ajax({
-           type: "POST",
-           url: "http://localhost:8000/dev/add/sub_folder/folder",
-           data: form.serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-               alert(data); // show response from the php script.
-           }
-         });
-
-    
-});
-});
-</script>
-
-{% endblock %}

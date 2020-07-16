@@ -73,6 +73,7 @@ $(function () {
                             setTimeout(function () {
                                 if (!$('#' + data[j]).hasClass('d-none')) {
                                     $('#' + data[j]).trigger('click'); // Click sur la div si elle est fermé
+                                    $(".checkBox").removeClass("d-none").addClass("d-block"); // Apparition des checkBox
                                 }
                                 j++; // increment le compteur
                                 if (j < data[0]) { // Si le compteur < nombre d'index, appel de la fonction à nouveau
@@ -98,3 +99,21 @@ $(function () {
     );
 });
 
+// Requête ajouter un SubFolder à un projet
+$(function () {
+    $(".checkBoxForm").checkbox(function (event) {
+        event.preventDefault();  // Empêcher le rechargement de la page.
+		var post_url = $(this).attr("action"); //get form action url
+		var request_method = $(this).attr("method"); //get form GET/POST method
+		var form_data = $(this).serialize(); //Encode form elements for submission
+
+        $.ajax({
+            url : post_url,
+			type: request_method,
+			data : form_data
+		}).done(function(response){ //
+			$("#newSubFolder").append(response.html); 
+			$(this).trigger('click');
+		});
+	});
+});

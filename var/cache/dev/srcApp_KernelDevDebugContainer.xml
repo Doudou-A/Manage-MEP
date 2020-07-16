@@ -403,6 +403,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\ProjectRepository" class="App\Repository\ProjectRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\ServerRepository" class="App\Repository\ServerRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -3565,7 +3569,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.hJrXBVY"/>
+      <argument type="service" id=".service_locator.u6uRMoe"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4928,6 +4932,8 @@
     <service id=".abstract.instanceof.App\Form\SubFolderType" class="App\Form\SubFolderType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FolderRepository" class="App\Repository\FolderRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\FolderRepository" class="App\Repository\FolderRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProjectRepository" class="App\Repository\ProjectRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ProjectRepository" class="App\Repository\ProjectRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ServerRepository" class="App\Repository\ServerRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ServerRepository" class="App\Repository\ServerRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SubFolderRepository" class="App\Repository\SubFolderRepository" autowire="true" abstract="true"/>
@@ -5189,7 +5195,7 @@
         <argument key="repoSubFolder" type="service" id="App\Repository\SubFolderRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.rO2LvjP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.raq_sGz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\FolderAddController::addFolder" type="service" id=".service_locator.LKev.lg"/>
@@ -5197,14 +5203,12 @@
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\ServerDashboardController::dashboard" type="service" id=".service_locator.FLJUM9X"/>
         <argument key="App\Controller\SubFolderAddController::addSubFolderInFolder" type="service" id=".service_locator.wiuDEvy"/>
-        <argument key="App\Controller\SubFolderAddController::addSubFolderInSubFolder" type="service" id=".service_locator.FLJUM9X"/>
         <argument key="App\Controller\SubFolderRequestController::subFolderRequest" type="service" id=".service_locator.zNses0N"/>
         <argument key="App\Controller\FolderAddController:addFolder" type="service" id=".service_locator.LKev.lg"/>
         <argument key="App\Controller\ProjectController:index" type="service" id=".service_locator.4yiaqEo"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\ServerDashboardController:dashboard" type="service" id=".service_locator.FLJUM9X"/>
         <argument key="App\Controller\SubFolderAddController:addSubFolderInFolder" type="service" id=".service_locator.wiuDEvy"/>
-        <argument key="App\Controller\SubFolderAddController:addSubFolderInSubFolder" type="service" id=".service_locator.FLJUM9X"/>
         <argument key="App\Controller\SubFolderRequestController:subFolderRequest" type="service" id=".service_locator.zNses0N"/>
       </argument>
     </service>
@@ -5289,10 +5293,11 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.hJrXBVY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.u6uRMoe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\FolderRepository" type="service" id="App\Repository\FolderRepository"/>
+        <argument key="App\Repository\ProjectRepository" type="service" id="App\Repository\ProjectRepository"/>
         <argument key="App\Repository\ServerRepository" type="service" id="App\Repository\ServerRepository"/>
         <argument key="App\Repository\SubFolderRepository" type="service" id="App\Repository\SubFolderRepository"/>
         <argument key="App\Repository\TransfertRepository" type="service" id="App\Repository\TransfertRepository"/>
@@ -5674,12 +5679,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.rO2LvjP"/>
+      <argument type="service" id=".service_locator.raq_sGz"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.rO2LvjP"/>
+      <argument type="service" id=".service_locator.raq_sGz"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6070,7 +6075,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.rO2LvjP"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.raq_sGz"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

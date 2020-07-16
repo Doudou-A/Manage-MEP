@@ -21,6 +21,5 @@ return [
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'server_dashboard' => [['project'], ['project' => null, '_controller' => 'App\\Controller\\ServerDashboardController::dashboard'], [], [['variable', '/', '[^/]++', 'project'], ['text', '/dashboard']], [], []],
     'add_subFolder_in_folder' => [['server'], ['_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInFolder'], [], [['text', '/add/sub_folder/folder'], ['variable', '/', '[^/]++', 'server']], [], []],
-    'add_subFolder_in_subFolder' => [['server'], ['_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInSubFolder'], [], [['text', '/add/sub_folder/subFolder'], ['variable', '/', '[^/]++', 'server']], [], []],
     'sub_folder_request' => [['id'], ['_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], [], [['text', '/request'], ['variable', '/', '[^/]++', 'id'], ['text', '/sub_folder']], [], []],
 ];

@@ -27,7 +27,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
         $this->parent = false;
 
         $this->blocks = [
-            'Javascript' => [$this, 'block_Javascript'],
+            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -60,10 +60,10 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
         // line 7
         echo twig_escape_filter($this->env, (isset($context["jsId"]) || array_key_exists("jsId", $context) ? $context["jsId"] : (function () { throw new RuntimeError('Variable "jsId" does not exist.', 7, $this->source); })()), "html", null, true);
         echo "_folder_form\" style=\"display:none;\">
-\t<form action=\"http://localhost:8000/";
+\t<form action=\"https://localhost:8000/";
         // line 8
         echo twig_escape_filter($this->env, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 8, $this->source); })()), "html", null, true);
-        echo "/add/sub_folder/folder\" method=\"POST\">
+        echo "/add/sub_folder/folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
 \t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
@@ -83,7 +83,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 \t\t\t<div style=\"display: none;\">
 \t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder\"/>
 \t\t\t</div>
-\t\t\t<input style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white form_submit\"/>
+\t\t\t<input style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
 \t\t</div>
 \t</form>
 </div>
@@ -119,13 +119,13 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
             // line 39
             if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["subFolder"], "modification", [], "any", false, false, false, 39), 1)) {
                 // line 40
-                echo "\t\t\t<form action=\"\" method=\"post\">
+                echo "\t\t\t<form action=\"SubFolder/addCheckBox\" method=\"post\" class=\"checkBox checkBoxForm d-none\">
 \t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\" checked>
 \t\t\t</form>
 \t\t";
             } else {
                 // line 44
-                echo "\t\t\t<form action=\"\" method=\"post\">
+                echo "\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" class=\"checkBox checkBoxForm d-none\">
 \t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\">
 \t\t\t</form>
 \t\t";
@@ -142,10 +142,10 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subFolder'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 51
-        echo "
+        echo "<div id=\"newSubFolder\"></div>
 ";
         // line 52
-        $this->displayBlock('Javascript', $context, $blocks);
+        $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -154,15 +154,38 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 
     }
 
-    public function block_Javascript($context, array $blocks = [])
+    public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "Javascript"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "Javascript"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
+        // line 53
+        echo "<script>
+// Requête ajouter un Folder/File
+\$(function () {
+    \$(\".myForm\").submit(function (event) {
+        event.preventDefault();  // Empêcher le rechargement de la page.
+\t\tvar post_url = \$(this).attr(\"action\"); //get form action url
+\t\tvar request_method = \$(this).attr(\"method\"); //get form GET/POST method
+\t\tvar form_data = \$(this).serialize(); //Encode form elements for submission
+
+        \$.ajax({
+            url : post_url,
+\t\t\ttype: request_method,
+\t\t\tdata : form_data
+\t\t}).done(function(response){ //
+\t\t\t\$(\"#newSubFolder\").append(response.html); 
+\t\t\t/* \$(this).trigger('click'); */
+\t\t});
+\t});
+});
+</script>
+
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -183,7 +206,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 
     public function getDebugInfo()
     {
-        return array (  148 => 52,  145 => 51,  137 => 49,  134 => 48,  128 => 44,  122 => 40,  120 => 39,  116 => 38,  107 => 34,  99 => 31,  96 => 30,  92 => 29,  74 => 14,  65 => 8,  61 => 7,  53 => 4,  44 => 1,);
+        return array (  167 => 53,  148 => 52,  145 => 51,  137 => 49,  134 => 48,  128 => 44,  122 => 40,  120 => 39,  116 => 38,  107 => 34,  99 => 31,  96 => 30,  92 => 29,  74 => 14,  65 => 8,  61 => 7,  53 => 4,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -195,7 +218,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 \tAjouter un Dossier
 </a>
 <div id=\"div_{{jsId}}_folder_form\" style=\"display:none;\">
-\t<form action=\"http://localhost:8000/{{server}}/add/sub_folder/folder\" method=\"POST\">
+\t<form action=\"https://localhost:8000/{{server}}/add/sub_folder/folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
 \t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
@@ -212,7 +235,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 \t\t\t<div style=\"display: none;\">
 \t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" value=\"ok\" type=\"text\" name=\"subFolder\"/>
 \t\t\t</div>
-\t\t\t<input style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white form_submit\"/>
+\t\t\t<input style=\"display: none;\" type=\"submit\" name=\"valide\" value=\"Valider\" class=\"btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white\"/>
 \t\t</div>
 \t</form>
 </div>
@@ -227,19 +250,40 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 \t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
 \t\t<div>{{ subFolder.name }}</div>
 \t\t{% if subFolder.modification == 1 %}
-\t\t\t<form action=\"\" method=\"post\">
+\t\t\t<form action=\"SubFolder/addCheckBox\" method=\"post\" class=\"checkBox checkBoxForm d-none\">
 \t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\" checked>
 \t\t\t</form>
 \t\t{% else %}
-\t\t\t<form action=\"\" method=\"post\">
+\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" class=\"checkBox checkBoxForm d-none\">
 \t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\">
 \t\t\t</form>
 \t\t{% endif %}
 \t</div>
 \t<div id=\"{{subFolder.js_id}}_request\" class=\"ml-3 border-left\"></div>
 {% endfor %}
+<div id=\"newSubFolder\"></div>
+{% block javascripts %}
+<script>
+// Requête ajouter un Folder/File
+\$(function () {
+    \$(\".myForm\").submit(function (event) {
+        event.preventDefault();  // Empêcher le rechargement de la page.
+\t\tvar post_url = \$(this).attr(\"action\"); //get form action url
+\t\tvar request_method = \$(this).attr(\"method\"); //get form GET/POST method
+\t\tvar form_data = \$(this).serialize(); //Encode form elements for submission
 
-{% block Javascript %}{% endblock %}
-", "subFolder/ajaxRequest.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/subFolder/ajaxRequest.html.twig");
+        \$.ajax({
+            url : post_url,
+\t\t\ttype: request_method,
+\t\t\tdata : form_data
+\t\t}).done(function(response){ //
+\t\t\t\$(\"#newSubFolder\").append(response.html); 
+\t\t\t/* \$(this).trigger('click'); */
+\t\t});
+\t});
+});
+</script>
+
+{% endblock %}", "subFolder/ajaxRequest.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/subFolder/ajaxRequest.html.twig");
     }
 }

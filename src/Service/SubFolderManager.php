@@ -32,7 +32,7 @@ class SubFolderManager
         $this->folderManager = $folderManager;
     }
 
-    public function createInFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null) : void
+    public function createInFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null)
     {
         $subFolder = new SubFolder;
         
@@ -44,9 +44,11 @@ class SubFolderManager
 
 
         $this->persist($subFolder);
+
+        return $subFolder;
     }
     
-    public function createInSubFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null) : void
+    public function createInSubFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null) 
     {
         $subFolder = new SubFolder;
         
@@ -57,6 +59,8 @@ class SubFolderManager
         $subFolder->setDateCreated(new \DateTime());
 
         $this->persist($subFolder);
+
+        return $subFolder;
     }
 
     public function deleteFolder(int $id):void

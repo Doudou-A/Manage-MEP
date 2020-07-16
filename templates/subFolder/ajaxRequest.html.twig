@@ -5,7 +5,7 @@
 	Ajouter un Dossier
 </a>
 <div id="div_{{jsId}}_folder_form" style="display:none;">
-	<form action="http://localhost:8000/{{server}}/add/sub_folder/folder" method="POST">
+	<form action="https://localhost:8000/{{server}}/add/sub_folder/folder" enctype="multipart/form-data" class="myForm" method="POST">
 		<div class="row col-12 p-0 m-0">
 			<div class="row p-0 m-0 col-12">
 				<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
@@ -22,7 +22,7 @@
 			<div style="display: none;">
 				<input class="col-lg-12 p-2 animated fadeInLeft border" value="ok" type="text" name="subFolder"/>
 			</div>
-			<input style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white form_submit"/>
+			<input style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
 		</div>
 	</form>
 </div>
@@ -37,16 +37,38 @@
 		<img src="picture/folder_win10.png" alt="Folder" width="20px" height="30px"/>
 		<div>{{ subFolder.name }}</div>
 		{% if subFolder.modification == 1 %}
-			<form action="" method="post">
+			<form action="SubFolder/addCheckBox" method="post" class="checkBox checkBoxForm d-none">
 				<input type="checkbox" value="1" class="ml-2" checked>
 			</form>
 		{% else %}
-			<form action="" method="post">
+			<form action="SubFolder/removeCheckBox" method="post" class="checkBox checkBoxForm d-none">
 				<input type="checkbox" value="1" class="ml-2">
 			</form>
 		{% endif %}
 	</div>
 	<div id="{{subFolder.js_id}}_request" class="ml-3 border-left"></div>
 {% endfor %}
+<div id="newSubFolder"></div>
+{% block javascripts %}
+<script>
+// Requête ajouter un Folder/File
+$(function () {
+    $(".myForm").submit(function (event) {
+        event.preventDefault();  // Empêcher le rechargement de la page.
+		var post_url = $(this).attr("action"); //get form action url
+		var request_method = $(this).attr("method"); //get form GET/POST method
+		var form_data = $(this).serialize(); //Encode form elements for submission
 
-{% block Javascript %}{% endblock %}
+        $.ajax({
+            url : post_url,
+			type: request_method,
+			data : form_data
+		}).done(function(response){ //
+			$("#newSubFolder").append(response.html); 
+			/* $(this).trigger('click'); */
+		});
+	});
+});
+</script>
+
+{% endblock %}

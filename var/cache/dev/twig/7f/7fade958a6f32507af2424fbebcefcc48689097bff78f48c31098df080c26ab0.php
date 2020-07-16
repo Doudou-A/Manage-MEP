@@ -27,7 +27,6 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
-            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -87,8 +86,8 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "\t<select class=\"target\">
-\t\t<option value=\"option1\" selected=\"selected\">Option 1</option>
+        echo "\t<select class=\"target\" id=\"selector\">
+\t\t<option value=\"option1\" selected=\"selected\">Choisir un projet</option>
 \t\t<option value=\"option2\">Option 2</option>
 \t</select>
 \t<a id=\"div_0_add\" href=\"javascript:visibiliteAdd('div_0');\">
@@ -157,51 +156,6 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     }
 
-    // line 37
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 38
-        echo "<script>
-\$(function () {
-\t \$(\".form_submit\").submit(function(e) {
-
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    var form = \$(this);
-    var url = form.attr('action');
-\t\talert(\"ok\");
-    
-    \$.ajax({
-           type: \"POST\",
-           url: \"http://localhost:8000/dev/add/sub_folder/folder\",
-           data: form.serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-               alert(data); // show response from the php script.
-           }
-         });
-
-    
-});
-});
-</script>
-
-";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
     public function getTemplateName()
     {
         return "server_dashboard/index.html.twig";
@@ -214,7 +168,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     public function getDebugInfo()
     {
-        return array (  171 => 38,  161 => 37,  145 => 33,  140 => 31,  131 => 27,  123 => 24,  120 => 23,  116 => 22,  111 => 20,  107 => 19,  103 => 18,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  144 => 33,  139 => 31,  130 => 27,  122 => 24,  119 => 23,  115 => 22,  110 => 20,  106 => 19,  102 => 18,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -225,8 +179,8 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 {% endblock %}
 
 {% block body %}
-\t<select class=\"target\">
-\t\t<option value=\"option1\" selected=\"selected\">Option 1</option>
+\t<select class=\"target\" id=\"selector\">
+\t\t<option value=\"option1\" selected=\"selected\">Choisir un projet</option>
 \t\t<option value=\"option2\">Option 2</option>
 \t</select>
 \t<a id=\"div_0_add\" href=\"javascript:visibiliteAdd('div_0');\">
@@ -255,32 +209,6 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t{% endfor %}
 {% endblock %}
 
-{% block javascripts %}
-<script>
-\$(function () {
-\t \$(\".form_submit\").submit(function(e) {
-
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    var form = \$(this);
-    var url = form.attr('action');
-\t\talert(\"ok\");
-    
-    \$.ajax({
-           type: \"POST\",
-           url: \"http://localhost:8000/dev/add/sub_folder/folder\",
-           data: form.serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-               alert(data); // show response from the php script.
-           }
-         });
-
-    
-});
-});
-</script>
-
-{% endblock %}", "server_dashboard/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig");
+", "server_dashboard/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig");
     }
 }
