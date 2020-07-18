@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/ContainerJChZaRl/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerY7o3LBN/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -34,6 +34,7 @@ $classes[] = 'App\Controller\ProjectController';
 $classes[] = 'App\Controller\SecurityController';
 $classes[] = 'App\Controller\ServerDashboardController';
 $classes[] = 'App\Controller\SubFolderAddController';
+$classes[] = 'App\Controller\SubFolderAddToProjectController';
 $classes[] = 'App\Controller\SubFolderRequestController';
 $classes[] = 'App\Form\FolderType';
 $classes[] = 'App\Form\SubFolderType';
@@ -45,6 +46,7 @@ $classes[] = 'App\Repository\TransfertRepository';
 $classes[] = 'App\Repository\UserRepository';
 $classes[] = 'App\Security\LoginFormAuthenticator';
 $classes[] = 'App\Service\FolderManager';
+$classes[] = 'App\Service\ProjectManager';
 $classes[] = 'App\Service\SubFolderManager';
 $classes[] = 'SensioLabs\Security\Command\SecurityCheckerCommand';
 $classes[] = 'SensioLabs\Security\SecurityChecker';

@@ -5,8 +5,10 @@
 
 {% block body %}
 	<select class="target" id="selector">
-		<option value="option1" selected="selected">Choisir un projet</option>
-		<option value="option2">Option 2</option>
+		<option value="null" selected="selected">Choisir un projet</option>
+		{% for project in projects %}
+		<option value="{{project.id}}">{{project.name}}</option>
+		{% endfor %}
 	</select>
 	<a id="div_0_add" href="javascript:visibiliteAdd('div_0');">
 		<p>Nouveau</p>

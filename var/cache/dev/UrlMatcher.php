@@ -37,7 +37,10 @@ return [
                 .'|/([^/]++)/add/folder(*:189)'
                 .'|/dashboard(?:/([^/]++))?(*:221)'
                 .'|/([^/]++)/add/sub_folder/folder(*:260)'
-                .'|/sub_folder/([^/]++)/request(*:296)'
+                .'|/sub(?'
+                    .'|Folder/([^/]++)/addToProject/([^/]++)(*:312)'
+                    .'|_folder/([^/]++)/request(*:344)'
+                .')'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -51,7 +54,8 @@ return [
         189 => [[['_route' => 'add_folder', '_controller' => 'App\\Controller\\FolderAddController::addFolder'], ['server'], null, null, false, false, null]],
         221 => [[['_route' => 'server_dashboard', 'project' => null, '_controller' => 'App\\Controller\\ServerDashboardController::dashboard'], ['project'], null, null, false, true, null]],
         260 => [[['_route' => 'add_subFolder_in_folder', '_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInFolder'], ['server'], null, null, false, false, null]],
-        296 => [
+        312 => [[['_route' => 'sub_folder_add_to_project', '_controller' => 'App\\Controller\\SubFolderAddToProjectController::index'], ['jsId', 'id'], null, null, false, true, null]],
+        344 => [
             [['_route' => 'sub_folder_request', '_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

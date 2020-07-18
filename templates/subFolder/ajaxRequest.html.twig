@@ -37,11 +37,11 @@
 		<img src="picture/folder_win10.png" alt="Folder" width="20px" height="30px"/>
 		<div>{{ subFolder.name }}</div>
 		{% if subFolder.modification == 1 %}
-			<form action="SubFolder/addCheckBox" method="post" class="checkBox checkBoxForm d-none">
+			<form action="SubFolder/removeCheckBox" method="post" id="{{subFolder.js_id}}" class="removeCheckBox checkBox d-none">
 				<input type="checkbox" value="1" class="ml-2" checked>
 			</form>
 		{% else %}
-			<form action="SubFolder/removeCheckBox" method="post" class="checkBox checkBoxForm d-none">
+			<form action="SubFolder/addCheckBox" method="post" id="{{subFolder.js_id}}" class="addCheckBox checkBox d-none">
 				<input type="checkbox" value="1" class="ml-2">
 			</form>
 		{% endif %}
@@ -68,6 +68,28 @@ $(function () {
 			/* $(this).trigger('click'); */
 		});
 	});
+});
+
+// Requête ajouter un SubFolder à un projet
+$(function () {
+	$('body').on('click', '.addCheckBox', function () {
+		event.preventDefault();  // Empêcher le rechargement de la page.
+		var project = $("select").children("option:selected").val()
+		var jsId = $(this).attr("id");
+		var post_url = "/subFolder/"+ jsId +"/addToProject/"+ project; //get form action url
+		var request_method = $(this).attr("method"); //get form GET/POST method
+		var form_data = $(this).serialize(); //Encode form elements for submission
+
+        $.ajax({
+            url: post_url,
+            data: form_data,
+            type: request_method,
+            /* dataType: 'json', */
+            success: function (data) {
+                //  ... do something with the data...
+            }
+        });
+    });
 });
 </script>
 

@@ -61,9 +61,9 @@ class SubFolder
     private $Modification;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="subFolders")
+     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="subFolders")
      */
-    private $projects;
+    private $project;
 
 
     public function __construct()
@@ -167,30 +167,14 @@ class SubFolder
         return 'SubFolder';
     }
 
-    /**
-     * @return Collection|Project[]
-     */
-    public function getProjects(): Collection
+    public function getProject(): ?Project
     {
-        return $this->projects;
+        return $this->project;
     }
 
-    public function addProject(Project $project): self
+    public function setProject(?Project $project): self
     {
-        if (!$this->projects->contains($project)) {
-            $this->projects[] = $project;
-            $project->addSubFolder($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProject(Project $project): self
-    {
-        if ($this->projects->contains($project)) {
-            $this->projects->removeElement($project);
-            $project->removeSubFolder($this);
-        }
+        $this->project = $project;
 
         return $this;
     }

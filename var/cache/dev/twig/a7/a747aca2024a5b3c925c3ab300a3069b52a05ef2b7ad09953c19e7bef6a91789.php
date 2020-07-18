@@ -119,13 +119,17 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
             // line 39
             if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["subFolder"], "modification", [], "any", false, false, false, 39), 1)) {
                 // line 40
-                echo "\t\t\t<form action=\"SubFolder/addCheckBox\" method=\"post\" class=\"checkBox checkBoxForm d-none\">
+                echo "\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" id=\"";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subFolder"], "js_id", [], "any", false, false, false, 40), "html", null, true);
+                echo "\" class=\"removeCheckBox checkBox d-none\">
 \t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\" checked>
 \t\t\t</form>
 \t\t";
             } else {
                 // line 44
-                echo "\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" class=\"checkBox checkBoxForm d-none\">
+                echo "\t\t\t<form action=\"SubFolder/addCheckBox\" method=\"post\" id=\"";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subFolder"], "js_id", [], "any", false, false, false, 44), "html", null, true);
+                echo "\" class=\"addCheckBox checkBox d-none\">
 \t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\">
 \t\t\t</form>
 \t\t";
@@ -183,6 +187,28 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 \t\t});
 \t});
 });
+
+// Requête ajouter un SubFolder à un projet
+\$(function () {
+\t\$('body').on('click', '.addCheckBox', function () {
+\t\tevent.preventDefault();  // Empêcher le rechargement de la page.
+\t\tvar project = \$(\"select\").children(\"option:selected\").val()
+\t\tvar jsId = \$(this).attr(\"id\");
+\t\tvar post_url = \"/subFolder/\"+ jsId +\"/addToProject/\"+ project; //get form action url
+\t\tvar request_method = \$(this).attr(\"method\"); //get form GET/POST method
+\t\tvar form_data = \$(this).serialize(); //Encode form elements for submission
+
+        \$.ajax({
+            url: post_url,
+            data: form_data,
+            type: request_method,
+            /* dataType: 'json', */
+            success: function (data) {
+                //  ... do something with the data...
+            }
+        });
+    });
+});
 </script>
 
 ";
@@ -206,7 +232,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 
     public function getDebugInfo()
     {
-        return array (  167 => 53,  148 => 52,  145 => 51,  137 => 49,  134 => 48,  128 => 44,  122 => 40,  120 => 39,  116 => 38,  107 => 34,  99 => 31,  96 => 30,  92 => 29,  74 => 14,  65 => 8,  61 => 7,  53 => 4,  44 => 1,);
+        return array (  171 => 53,  152 => 52,  149 => 51,  141 => 49,  138 => 48,  130 => 44,  122 => 40,  120 => 39,  116 => 38,  107 => 34,  99 => 31,  96 => 30,  92 => 29,  74 => 14,  65 => 8,  61 => 7,  53 => 4,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -250,11 +276,11 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 \t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
 \t\t<div>{{ subFolder.name }}</div>
 \t\t{% if subFolder.modification == 1 %}
-\t\t\t<form action=\"SubFolder/addCheckBox\" method=\"post\" class=\"checkBox checkBoxForm d-none\">
+\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" id=\"{{subFolder.js_id}}\" class=\"removeCheckBox checkBox d-none\">
 \t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\" checked>
 \t\t\t</form>
 \t\t{% else %}
-\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" class=\"checkBox checkBoxForm d-none\">
+\t\t\t<form action=\"SubFolder/addCheckBox\" method=\"post\" id=\"{{subFolder.js_id}}\" class=\"addCheckBox checkBox d-none\">
 \t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\">
 \t\t\t</form>
 \t\t{% endif %}
@@ -281,6 +307,28 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 \t\t\t/* \$(this).trigger('click'); */
 \t\t});
 \t});
+});
+
+// Requête ajouter un SubFolder à un projet
+\$(function () {
+\t\$('body').on('click', '.addCheckBox', function () {
+\t\tevent.preventDefault();  // Empêcher le rechargement de la page.
+\t\tvar project = \$(\"select\").children(\"option:selected\").val()
+\t\tvar jsId = \$(this).attr(\"id\");
+\t\tvar post_url = \"/subFolder/\"+ jsId +\"/addToProject/\"+ project; //get form action url
+\t\tvar request_method = \$(this).attr(\"method\"); //get form GET/POST method
+\t\tvar form_data = \$(this).serialize(); //Encode form elements for submission
+
+        \$.ajax({
+            url: post_url,
+            data: form_data,
+            type: request_method,
+            /* dataType: 'json', */
+            success: function (data) {
+                //  ... do something with the data...
+            }
+        });
+    });
 });
 </script>
 
