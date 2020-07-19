@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SubFolderRequestController extends AbstractController
 {
     /**
-     * @Route("/sub_folder/{id}/request/{project}", name="sub_folder_request")
+     * @Route("/Sub-Folder/{id}/request/{project}", name="sub_folder_request")
      */
     public function subFolderRequest($id, $project=null, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder, ProjectRepository $repoProject): Response
     {
@@ -27,13 +27,23 @@ class SubFolderRequestController extends AbstractController
             $listSubFolder = $repoSubFolder->findList($subFolder->getId());
             $server = 'dev';
         } */
-        $listSubFolder = $repoSubFolder->findList($id);
-        if(isset($project)) $project = $repoProject->find($project);
+        $allSubFolder = $repoSubFolder->findList($id);
+        if($project == "null") $listId = null;
+        if($project !== "null"){
+            $projectCollection = $project->getSubFolders();
+            $listSubFolder = $projectCollection->getValues();
+            $listId = [];
+            foreach($listSubFolder as $subFolder){
+                $listId[] = $subFolder->getId();
+            }
+        } 
+
         $server = 'dev';
 
         return new JsonResponse([
             'html' => $this->renderView('subFolder/ajaxRequest.html.twig', [
-                'listSubFolder' => $listSubFolder,
+                'allSubFolder' => $allSubFolder,
+                'listId' => $listId,
                 'project' => $project,
                 'server' => $server,
                 'jsId' => $id,

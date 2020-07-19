@@ -20,7 +20,8 @@ class ProjectController extends AbstractController
     {
         //Récupération de tous les SubFolder reliés au projet
         /* $allSubFolder = $subFolderManager->getAll(); */
-        $allSubFolder = $repoSubFolder->findByProject($project); 
+        // $allSubFolder = $repoSubFolder->findByProject($project); 
+        $allSubFolder = $project->getSubFolders();
         
         //création du tableau contenant les subFolder modifié du projet
         $aSubFolderModif = [];

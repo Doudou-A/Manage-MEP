@@ -37,13 +37,11 @@ return [
                 .'|/([^/]++)/add/folder(*:189)'
                 .'|/project/([^/]++)/allSubFolder(*:227)'
                 .'|/([^/]++)/add/sub_folder/folder(*:266)'
-                .'|/sub(?'
-                    .'|Folder/([^/]++)/(?'
-                        .'|addToProject/([^/]++)(*:321)'
-                        .'|removeFromProject/([^/]++)(*:355)'
-                    .')'
-                    .'|_folder/([^/]++)/request(?:/([^/]++))?(*:402)'
+                .'|/Sub\\-Folder/([^/]++)/(?'
+                    .'|Add\\-To\\-Project/([^/]++)(*:324)'
+                    .'|request(?:/([^/]++))?(*:353)'
                 .')'
+                .'|/subFolder/([^/]++)/removeFromProject/([^/]++)(*:408)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -57,10 +55,10 @@ return [
         189 => [[['_route' => 'add_folder', '_controller' => 'App\\Controller\\FolderAddController::addFolder'], ['server'], null, null, false, false, null]],
         227 => [[['_route' => 'project', '_controller' => 'App\\Controller\\ProjectController::index'], ['project'], null, null, false, false, null]],
         266 => [[['_route' => 'add_subFolder_in_folder', '_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInFolder'], ['server'], null, null, false, false, null]],
-        321 => [[['_route' => 'sub_folder_add_to_project', '_controller' => 'App\\Controller\\SubFolderAddToProjectController::index'], ['jsId', 'id'], null, null, false, true, null]],
-        355 => [[['_route' => 'sub_folder_remove_from_project', '_controller' => 'App\\Controller\\SubFolderRemoveFromProjectController::index'], ['jsId', 'id'], null, null, false, true, null]],
-        402 => [
-            [['_route' => 'sub_folder_request', 'project' => null, '_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], ['id', 'project'], null, null, false, true, null],
+        324 => [[['_route' => 'sub_folder_add_to_project', '_controller' => 'App\\Controller\\SubFolderAddToProjectController::index'], ['jsId', 'id'], null, null, false, true, null]],
+        353 => [[['_route' => 'sub_folder_request', 'project' => null, '_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], ['id', 'project'], null, null, false, true, null]],
+        408 => [
+            [['_route' => 'sub_folder_remove_from_project', '_controller' => 'App\\Controller\\SubFolderRemoveFromProjectController::index'], ['jsId', 'id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

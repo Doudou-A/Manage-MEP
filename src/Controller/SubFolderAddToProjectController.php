@@ -13,14 +13,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SubFolderAddToProjectController extends AbstractController
 {
     /**
-     * @Route("/subFolder/{jsId}/addToProject/{id}", name="sub_folder_add_to_project")
+     * @Route("/Sub-Folder/{jsId}/Add-To-Project/{id}", name="sub_folder_add_to_project")
      */
     public function index($jsId, $id, ProjectRepository $repoProject, SubFolderRepository $repoSubFolder, EntityManagerInterface $manager)
     {
         $project = $repoProject->find($id);
         $subFolder = $repoSubFolder->findOneByJsId($jsId);
 
-        $subFolder->setProject($project);
+        // $subFolder->setProject($project);
+        $subFolder->addProject($project);
 
         $manager->persist($subFolder);
         $manager->flush();

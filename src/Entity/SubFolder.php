@@ -61,7 +61,7 @@ class SubFolder
     private $Modification;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="subFolders")
+     * @ORM\ManyToMany(targetEntity=Project::class, inversedBy="subFolders")
      */
     private $project;
 
@@ -71,6 +71,7 @@ class SubFolder
         $this->onSubFolder = new ArrayCollection();
         $this->subFolders = new ArrayCollection();
         $this->projects = new ArrayCollection();
+        $this->project = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -167,14 +168,28 @@ class SubFolder
         return 'SubFolder';
     }
 
-    public function getProject(): ?Project
+    /**
+     * @return Collection|Project[]
+     */
+    public function getProject(): Collection
     {
         return $this->project;
     }
 
-    public function setProject(?Project $project): self
+    public function addProject(Project $project): self
     {
-        $this->project = $project;
+        if (!$this->project->contains($project)) {
+            $this->project[] = $project;
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): self
+    {
+        if ($this->project->contains($project)) {
+            $this->project->removeElement($project);
+        }
 
         return $this;
     }

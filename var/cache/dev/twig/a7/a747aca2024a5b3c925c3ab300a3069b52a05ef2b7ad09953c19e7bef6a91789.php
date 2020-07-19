@@ -90,7 +90,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 ";
         // line 29
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listSubFolder"]) || array_key_exists("listSubFolder", $context) ? $context["listSubFolder"] : (function () { throw new RuntimeError('Variable "listSubFolder" does not exist.', 29, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["allSubFolder"]) || array_key_exists("allSubFolder", $context) ? $context["allSubFolder"] : (function () { throw new RuntimeError('Variable "allSubFolder" does not exist.', 29, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["subFolder"]) {
             // line 30
             echo "\t<div class=\"col-12 d-flex p-0\">
@@ -120,7 +120,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
             if (0 !== twig_compare((isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new RuntimeError('Variable "project" does not exist.', 39, $this->source); })()), null)) {
                 // line 40
                 echo "\t\t\t";
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["subFolder"], "project_id", [], "any", false, false, false, 40), twig_get_attribute($this->env, $this->source, (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new RuntimeError('Variable "project" does not exist.', 40, $this->source); })()), "id", [], "any", false, false, false, 40))) {
+                if (twig_in_filter(twig_get_attribute($this->env, $this->source, $context["subFolder"], "id", [], "any", false, false, false, 40), (isset($context["listId"]) || array_key_exists("listId", $context) ? $context["listId"] : (function () { throw new RuntimeError('Variable "listId" does not exist.', 40, $this->source); })()))) {
                     // line 41
                     echo "\t\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" id=\"";
                     echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subFolder"], "js_id", [], "any", false, false, false, 41), "html", null, true);
@@ -247,7 +247,7 @@ var form_data = \$(this).serialize(); // Encode form elements for submission
 \t\t</div>
 \t</form>
 </div>
-{% for subFolder in listSubFolder %}
+{% for subFolder in allSubFolder %}
 \t<div class=\"col-12 d-flex p-0\">
 \t\t<a id=\"{{subFolder.js_id}}\" class=\"btn js-close {{subFolder.js_id}}_close p-1\">
 \t\t\t<div>+</div>
@@ -258,7 +258,7 @@ var form_data = \$(this).serialize(); // Encode form elements for submission
 \t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
 \t\t<div>{{ subFolder.name }}</div>
 \t\t{% if project != null %}
-\t\t\t{% if subFolder.project_id == project.id %}
+\t\t\t{% if subFolder.id in listId %}
 \t\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" id=\"{{subFolder.js_id}}\" class=\"removeCheckBox checkBox\">
 \t\t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\" checked>
 \t\t\t\t</form>

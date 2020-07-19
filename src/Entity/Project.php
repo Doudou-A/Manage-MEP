@@ -35,9 +35,10 @@ class Project
     private $users;
 
     /**
-     * @ORM\OneToMany(targetEntity=SubFolder::class, mappedBy="project")
+     * @ORM\ManyToMany(targetEntity=SubFolder::class, mappedBy="project")
      */
     private $subFolders;
+
 
 
     public function __construct()
@@ -113,7 +114,7 @@ class Project
     {
         if (!$this->subFolders->contains($subFolder)) {
             $this->subFolders[] = $subFolder;
-            $subFolder->setProject($this);
+            $subFolder->addProject($this);
         }
 
         return $this;
@@ -123,12 +124,10 @@ class Project
     {
         if ($this->subFolders->contains($subFolder)) {
             $this->subFolders->removeElement($subFolder);
-            // set the owning side to null (unless already changed)
-            if ($subFolder->getProject() === $this) {
-                $subFolder->setProject(null);
-            }
+            $subFolder->removeProject($this);
         }
 
         return $this;
     }
+
 }

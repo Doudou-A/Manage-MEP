@@ -26,7 +26,7 @@
 		</div>
 	</form>
 </div>
-{% for subFolder in listSubFolder %}
+{% for subFolder in allSubFolder %}
 	<div class="col-12 d-flex p-0">
 		<a id="{{subFolder.js_id}}" class="btn js-close {{subFolder.js_id}}_close p-1">
 			<div>+</div>
@@ -37,7 +37,7 @@
 		<img src="picture/folder_win10.png" alt="Folder" width="20px" height="30px"/>
 		<div>{{ subFolder.name }}</div>
 		{% if project != null %}
-			{% if subFolder.project_id == project.id %}
+			{% if subFolder.id in listId %}
 				<form action="SubFolder/removeCheckBox" method="post" id="{{subFolder.js_id}}" class="removeCheckBox checkBox">
 					<input type="checkbox" value="1" class="ml-2" checked>
 				</form>

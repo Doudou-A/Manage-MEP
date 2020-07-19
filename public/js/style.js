@@ -5,11 +5,11 @@ $(function () {
         var divOpen = "." + this.id + "_open";
         var divRequest = "#" + this.id + "_request";
         var project = $("select").children("option:selected").val()
-        var url = '/sub_folder/' + this.id + '/request/' + project;
+        var url = '/Sub-Folder/' + this.id + '/request/' + project;
         console.log(url);
         $.ajax({
             type: 'GET',
-            url: '/sub_folder/' + this.id + '/request/' + project,
+            url: '/Sub-Folder/' + this.id + '/request/' + project,
             timeout: 3000,
             success: function (data) {
                 $(divRequest).html(data.html);
@@ -109,7 +109,7 @@ $(function () {
         event.preventDefault(); // Empêcher le rechargement de la page.
         var project = $("select").children("option:selected").val()
         var jsId = $(this).attr("id");
-        var post_url = "/subFolder/" + jsId + "/addToProject/" + project; // get form action url
+        var post_url = "/Sub-Folder/" + jsId + "/Add-To-Project/" + project; // get form action url
         var request_method = $(this).attr("method"); // get form GET/POST method
         var form_data = $(this).serialize(); // Encode form elements for submission
 

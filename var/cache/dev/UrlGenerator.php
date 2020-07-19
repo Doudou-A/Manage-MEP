@@ -21,7 +21,7 @@ return [
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'server_dashboard' => [[], ['_controller' => 'App\\Controller\\ServerDashboardController::dashboard'], [], [['text', '/dashboard']], [], []],
     'add_subFolder_in_folder' => [['server'], ['_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInFolder'], [], [['text', '/add/sub_folder/folder'], ['variable', '/', '[^/]++', 'server']], [], []],
-    'sub_folder_add_to_project' => [['jsId', 'id'], ['_controller' => 'App\\Controller\\SubFolderAddToProjectController::index'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/addToProject'], ['variable', '/', '[^/]++', 'jsId'], ['text', '/subFolder']], [], []],
+    'sub_folder_add_to_project' => [['jsId', 'id'], ['_controller' => 'App\\Controller\\SubFolderAddToProjectController::index'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/Add-To-Project'], ['variable', '/', '[^/]++', 'jsId'], ['text', '/Sub-Folder']], [], []],
     'sub_folder_remove_from_project' => [['jsId', 'id'], ['_controller' => 'App\\Controller\\SubFolderRemoveFromProjectController::index'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/removeFromProject'], ['variable', '/', '[^/]++', 'jsId'], ['text', '/subFolder']], [], []],
-    'sub_folder_request' => [['id', 'project'], ['project' => null, '_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], [], [['variable', '/', '[^/]++', 'project'], ['text', '/request'], ['variable', '/', '[^/]++', 'id'], ['text', '/sub_folder']], [], []],
+    'sub_folder_request' => [['id', 'project'], ['project' => null, '_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], [], [['variable', '/', '[^/]++', 'project'], ['text', '/request'], ['variable', '/', '[^/]++', 'id'], ['text', '/Sub-Folder']], [], []],
 ];
