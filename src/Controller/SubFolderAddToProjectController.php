@@ -25,6 +25,6 @@ class SubFolderAddToProjectController extends AbstractController
         $manager->persist($subFolder);
         $manager->flush();
 
-        return new JsonResponse($subFolder);
+        return new JsonResponse($subFolder->getOnFolder());
     }
 }

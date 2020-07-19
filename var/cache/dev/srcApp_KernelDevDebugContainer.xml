@@ -391,6 +391,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\SubFolderAddToProjectController"/>
       </call>
     </service>
+    <service id="App\Controller\SubFolderRemoveFromProjectController" class="App\Controller\SubFolderRemoveFromProjectController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\SubFolderRemoveFromProjectController"/>
+      </call>
+    </service>
     <service id="App\Controller\SubFolderRequestController" class="App\Controller\SubFolderRequestController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4938,6 +4945,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SubFolderAddToProjectController" class="App\Controller\SubFolderAddToProjectController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SubFolderAddToProjectController" class="App\Controller\SubFolderAddToProjectController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SubFolderAddToProjectController" class="App\Controller\SubFolderAddToProjectController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SubFolderRemoveFromProjectController" class="App\Controller\SubFolderRemoveFromProjectController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SubFolderRemoveFromProjectController" class="App\Controller\SubFolderRemoveFromProjectController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SubFolderRemoveFromProjectController" class="App\Controller\SubFolderRemoveFromProjectController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SubFolderRequestController" class="App\Controller\SubFolderRequestController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SubFolderRequestController" class="App\Controller\SubFolderRequestController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SubFolderRequestController" class="App\Controller\SubFolderRequestController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5173,10 +5183,11 @@
         <argument key="folderManager" type="service" id="App\Service\FolderManager"/>
       </argument>
     </service>
-    <service id=".service_locator.4yiaqEo" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.O.EcpiS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="controller" type="service" id="App\Controller\ServerDashboardController"/>
+        <argument key="project" type="service" id=".errored..service_locator.O.EcpiS.App\Entity\Project"/>
         <argument key="repoFolder" type="service" id="App\Repository\FolderRepository"/>
         <argument key="repoSubFolder" type="service" id="App\Repository\SubFolderRepository"/>
         <argument key="subFolderManager" type="service" id="App\Service\SubFolderManager"/>
@@ -5212,30 +5223,33 @@
         <argument key="repoSubFolder" type="service" id="App\Repository\SubFolderRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.zNses0N" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UXlOnVV" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="repoFolder" type="service" id="App\Repository\FolderRepository"/>
+        <argument key="repoProject" type="service" id="App\Repository\ProjectRepository"/>
         <argument key="repoSubFolder" type="service" id="App\Repository\SubFolderRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.lhxOA0P" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.s.t_g7m" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\FolderAddController::addFolder" type="service" id=".service_locator.LKev.lg"/>
-        <argument key="App\Controller\ProjectController::index" type="service" id=".service_locator.4yiaqEo"/>
+        <argument key="App\Controller\ProjectController::index" type="service" id=".service_locator.O.EcpiS"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\ServerDashboardController::dashboard" type="service" id=".service_locator.hIPKC1V"/>
         <argument key="App\Controller\SubFolderAddController::addSubFolderInFolder" type="service" id=".service_locator.wiuDEvy"/>
         <argument key="App\Controller\SubFolderAddToProjectController::index" type="service" id=".service_locator.exUZYb."/>
-        <argument key="App\Controller\SubFolderRequestController::subFolderRequest" type="service" id=".service_locator.zNses0N"/>
+        <argument key="App\Controller\SubFolderRemoveFromProjectController::index" type="service" id=".service_locator.exUZYb."/>
+        <argument key="App\Controller\SubFolderRequestController::subFolderRequest" type="service" id=".service_locator.UXlOnVV"/>
         <argument key="App\Controller\FolderAddController:addFolder" type="service" id=".service_locator.LKev.lg"/>
-        <argument key="App\Controller\ProjectController:index" type="service" id=".service_locator.4yiaqEo"/>
+        <argument key="App\Controller\ProjectController:index" type="service" id=".service_locator.O.EcpiS"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\ServerDashboardController:dashboard" type="service" id=".service_locator.hIPKC1V"/>
         <argument key="App\Controller\SubFolderAddController:addSubFolderInFolder" type="service" id=".service_locator.wiuDEvy"/>
         <argument key="App\Controller\SubFolderAddToProjectController:index" type="service" id=".service_locator.exUZYb."/>
-        <argument key="App\Controller\SubFolderRequestController:subFolderRequest" type="service" id=".service_locator.zNses0N"/>
+        <argument key="App\Controller\SubFolderRemoveFromProjectController:index" type="service" id=".service_locator.exUZYb."/>
+        <argument key="App\Controller\SubFolderRequestController:subFolderRequest" type="service" id=".service_locator.UXlOnVV"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5562,6 +5576,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\SubFolderRemoveFromProjectController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\SubFolderRemoveFromProjectController"/>
+      <argument>App\Controller\SubFolderRemoveFromProjectController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\SubFolderRequestController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\SubFolderRequestController"/>
       <argument>App\Controller\SubFolderRequestController</argument>
@@ -5711,12 +5731,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.lhxOA0P"/>
+      <argument type="service" id=".service_locator.s.t_g7m"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.lhxOA0P"/>
+      <argument type="service" id=".service_locator.s.t_g7m"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5726,6 +5746,7 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.O.EcpiS.App\Entity\Project" class="App\Entity\Project"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.lGnXqK4"/>
       <argument type="collection">
@@ -6107,7 +6128,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.lhxOA0P"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.s.t_g7m"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

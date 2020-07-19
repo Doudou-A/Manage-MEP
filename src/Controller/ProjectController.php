@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Project;
 use App\Service\SubFolderManager;
 use App\Repository\FolderRepository;
 use App\Repository\SubFolderRepository;
@@ -13,20 +14,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProjectController extends AbstractController
 {
     /**
-     * @Route("/project", name="project")
+     * @Route("/project/{project}/allSubFolder", name="project")
      */
-    public function index(SubFolderRepository $repoSubFolder, SubFolderManager $subFolderManager, FolderRepository $repoFolder, ServerDashboardController $controller)
+    public function index(Project $project, SubFolderRepository $repoSubFolder, SubFolderManager $subFolderManager, FolderRepository $repoFolder, ServerDashboardController $controller)
     {
-        //Récupération de tous les SubFolder
-        $allSubFolder = $subFolderManager->getAll();
-
+        //Récupération de tous les SubFolder reliés au projet
+        /* $allSubFolder = $subFolderManager->getAll(); */
+        $allSubFolder = $repoSubFolder->findByProject($project); 
+        
         //création du tableau contenant les subFolder modifié du projet
         $aSubFolderModif = [];
         $aSubFolderModif = [];
 
         foreach ($allSubFolder as $subFolder) {
-            $modification = $subFolder->getModification();
-            if ($modification === true) {
+            /* $modification = $subFolder->getModification();
+            if ($modification === true) { */
                 //Si l'attribut Modification=true on créé un tableau
                 $aJsId = [];
                 $aJsId[] = $subFolder->getJsId();
@@ -51,7 +53,7 @@ class ProjectController extends AbstractController
                 //On inverse les index pour avoir le tableau dans l'ordre : Folder->SubFolderModifié 
                 $aJsId = array_reverse($aJsId);
                 $aSubFolderModif [] = $aJsId;
-            }
+            /* } */
         }
 
         if(isset($aSubFolderModif)){
