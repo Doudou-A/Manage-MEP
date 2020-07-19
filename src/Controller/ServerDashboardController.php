@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Server;
 use App\Form\FolderType;
 use App\Form\SubFolderType;
 use App\Service\FolderManager;
@@ -17,9 +18,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ServerDashboardController extends AbstractController
 {
     /**
-     * @Route("/dashboard", name="server_dashboard")
+     * @Route("/dashboard/{id}", name="server_dashboard")
      */
-    public function dashboard(FolderManager $folderManager, SubFolderManager $subFolderManager, ProjectManager $projectManager, Request $request): Response
+    public function dashboard(Server $server, FolderManager $folderManager, SubFolderManager $subFolderManager, ProjectManager $projectManager, Request $request): Response
     {
         $allFolder = $folderManager->getAll();
         $serverAddFolderRequest = new ServerAddFolderRequest;
@@ -42,7 +43,7 @@ class ServerDashboardController extends AbstractController
             'subFolders' => $allSubFolder,
             'form_subFolder' => $form_subFolder->createView(),
             'projects' => $projects,
-            'server' => 'dev',
+            'server' => $server,
         ]);
     }
 }

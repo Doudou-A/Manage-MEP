@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Server;
 use App\Service\FolderManager;
 use App\DOI\AddSubFolderRequest;
 use App\Service\SubFolderManager;
@@ -14,9 +15,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SubFolderAddController extends AbstractController
 {
     /**
-     * @Route("/{server}/add/sub_folder/folder", name="add_subFolder_in_folder")
+     * @Route("/{id}/add/Sub-Folder", name="add_subFolder_in_folder")
      */
-    public function addSubFolderInFolder(FolderRepository $repoFolder, SubFolderManager $subFolderManager, FolderManager $folderManager): Response
+    public function addSubFolderInFolder(Server $server, FolderRepository $repoFolder, SubFolderManager $subFolderManager, FolderManager $folderManager): Response
     {
         $addSubFolderRequest = new AddSubFolderRequest();
 
@@ -37,7 +38,7 @@ class SubFolderAddController extends AbstractController
 
         $addSubFolderRequest->setJsId($jsIdMax);
 
-        $subFolder = $subFolderManager->createInFolder($addSubFolderRequest);
+        $subFolder = $subFolderManager->createInFolder($addSubFolderRequest, $server);
 
         return new JsonResponse([
             'html' => $this->renderView('subFolder/newSubFolder.html.twig', [

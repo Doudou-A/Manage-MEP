@@ -60,10 +60,10 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
         // line 7
         echo twig_escape_filter($this->env, (isset($context["jsId"]) || array_key_exists("jsId", $context) ? $context["jsId"] : (function () { throw new RuntimeError('Variable "jsId" does not exist.', 7, $this->source); })()), "html", null, true);
         echo "_folder_form\" style=\"display:none;\">
-\t<form action=\"https://localhost:8000/";
+\t<form action=\"";
         // line 8
         echo twig_escape_filter($this->env, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 8, $this->source); })()), "html", null, true);
-        echo "/add/sub_folder/folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
+        echo "/add/sub_folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
 \t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
@@ -90,7 +90,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
 ";
         // line 29
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["allSubFolder"]) || array_key_exists("allSubFolder", $context) ? $context["allSubFolder"] : (function () { throw new RuntimeError('Variable "allSubFolder" does not exist.', 29, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["allSubFolderRequest"]) || array_key_exists("allSubFolderRequest", $context) ? $context["allSubFolderRequest"] : (function () { throw new RuntimeError('Variable "allSubFolderRequest" does not exist.', 29, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["subFolder"]) {
             // line 30
             echo "\t<div class=\"col-12 d-flex p-0\">
@@ -117,7 +117,7 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
             echo "</div>
 \t\t";
             // line 39
-            if (0 !== twig_compare((isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new RuntimeError('Variable "project" does not exist.', 39, $this->source); })()), null)) {
+            if (0 !== twig_compare((isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new RuntimeError('Variable "project" does not exist.', 39, $this->source); })()), "null")) {
                 // line 40
                 echo "\t\t\t";
                 if (twig_in_filter(twig_get_attribute($this->env, $this->source, $context["subFolder"], "id", [], "any", false, false, false, 40), (isset($context["listId"]) || array_key_exists("listId", $context) ? $context["listId"] : (function () { throw new RuntimeError('Variable "listId" does not exist.', 40, $this->source); })()))) {
@@ -226,7 +226,7 @@ var form_data = \$(this).serialize(); // Encode form elements for submission
 \tAjouter un Dossier
 </a>
 <div id=\"div_{{jsId}}_folder_form\" style=\"display:none;\">
-\t<form action=\"https://localhost:8000/{{server}}/add/sub_folder/folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
+\t<form action=\"{{server}}/add/sub_folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
 \t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
@@ -247,7 +247,7 @@ var form_data = \$(this).serialize(); // Encode form elements for submission
 \t\t</div>
 \t</form>
 </div>
-{% for subFolder in allSubFolder %}
+{% for subFolder in allSubFolderRequest %}
 \t<div class=\"col-12 d-flex p-0\">
 \t\t<a id=\"{{subFolder.js_id}}\" class=\"btn js-close {{subFolder.js_id}}_close p-1\">
 \t\t\t<div>+</div>
@@ -257,7 +257,7 @@ var form_data = \$(this).serialize(); // Encode form elements for submission
 \t\t</a>
 \t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
 \t\t<div>{{ subFolder.name }}</div>
-\t\t{% if project != null %}
+\t\t{% if project != \"null\" %}
 \t\t\t{% if subFolder.id in listId %}
 \t\t\t\t<form action=\"SubFolder/removeCheckBox\" method=\"post\" id=\"{{subFolder.js_id}}\" class=\"removeCheckBox checkBox\">
 \t\t\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\" checked>

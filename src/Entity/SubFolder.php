@@ -65,6 +65,11 @@ class SubFolder
      */
     private $project;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Server::class, inversedBy="subFolders")
+     */
+    private $server;
+
 
     public function __construct()
     {
@@ -190,6 +195,18 @@ class SubFolder
         if ($this->project->contains($project)) {
             $this->project->removeElement($project);
         }
+
+        return $this;
+    }
+
+    public function getServer(): ?Server
+    {
+        return $this->server;
+    }
+
+    public function setServer(?Server $server): self
+    {
+        $this->server = $server;
 
         return $this;
     }

@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block body %}
+	<div id="server" class="d-none">{{server.id}}</div>
 	<select class="target" id="selector">
 		<option value="null" selected="selected">Choisir un projet</option>
 		{% for project in projects %}
-		<option value="{{project.id}}">{{project.name}}</option>
+			<option value="{{project.id}}">{{project.name}}</option>
 		{% endfor %}
 	</select>
 	<a id="div_0_add" href="javascript:visibiliteAdd('div_0');">
@@ -17,22 +18,23 @@
 		<p>Ajouter un Dossier</p>
 	</a>
 	<div id="div_0_folder_form" style="display:none;">
-		{{ form_start(form, {'action' : path('add_folder', { 'server': server })}) }}
+		{{ form_start(form, {'action' : path('add_folder', { 'id': server.id })}) }}
 		{{ form_row(form.name, {'label':false})}}
 		{{ form_end(form) }}
 	</div>
-	{% for folder in folders %}
-		<div class="col-12 d-flex p-0">
-			<a id="{{folder.jsId}}" class="btn js-close {{folder.jsId}}_close p-1">
-				<div>+</div>
-			</a>
-			<a id="{{folder.jsId}}" class="btn js-open {{folder.jsId}}_open d-none p-1">
-				<div>-</div>
-			</a>
-			<img src="picture/folder_win10.png" alt="Folder" width="20px" height="30px"/>
-			<div>{{folder.name}}</div>
-		</div>
-		<div id="{{folder.jsId}}_request" class="ml-3 border-left"></div>
-	{% endfor %}
+	<div id="allFolders">
+		{% for folder in folders %}
+			<div class="col-12 d-flex p-0">
+				<a id="{{folder.jsId}}" class="btn js-close {{folder.jsId}}_close p-1">
+					<div>+</div>
+				</a>
+				<a id="{{folder.jsId}}" class="btn js-open {{folder.jsId}}_open d-none p-1">
+					<div>-</div>
+				</a>
+				<img src="/picture/folder_win10.png" alt="Folder" width="20px" height="30px"/>
+				<div>{{folder.name}}</div>
+			</div>
+			<div id="{{folder.jsId}}_request" class="ml-3 border-left"></div>
+		{% endfor %}
+	</div>
 {% endblock %}
-

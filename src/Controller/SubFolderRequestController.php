@@ -13,9 +13,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SubFolderRequestController extends AbstractController
 {
     /**
-     * @Route("/Sub-Folder/{id}/request/{project}", name="sub_folder_request")
+     * @Route("/Sub-Folder/{id}/request/{project}/{server}", name="sub_folder_request")
      */
-    public function subFolderRequest($id, $project=null, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder, ProjectRepository $repoProject): Response
+    public function subFolderRequest($id, $project=null, $server, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder, ProjectRepository $repoProject): Response
     {
         /* folder = $repoFolder->findOneByJsId($id);
 
@@ -27,9 +27,10 @@ class SubFolderRequestController extends AbstractController
             $listSubFolder = $repoSubFolder->findList($subFolder->getId());
             $server = 'dev';
         } */
-        $allSubFolder = $repoSubFolder->findList($id);
-        if($project == "null") $listId = null;
+        $allSubFolderRequest = $repoSubFolder->findList($id, $server);
+        $listId = null;
         if($project !== "null"){
+            $project = $repoProject->find($project);
             $projectCollection = $project->getSubFolders();
             $listSubFolder = $projectCollection->getValues();
             $listId = [];
@@ -38,11 +39,9 @@ class SubFolderRequestController extends AbstractController
             }
         } 
 
-        $server = 'dev';
-
         return new JsonResponse([
             'html' => $this->renderView('subFolder/ajaxRequest.html.twig', [
-                'allSubFolder' => $allSubFolder,
+                'allSubFolderRequest' => $allSubFolderRequest,
                 'listId' => $listId,
                 'project' => $project,
                 'server' => $server,

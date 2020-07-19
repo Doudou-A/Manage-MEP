@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ServerRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +26,22 @@ class Server
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity=SubFolder::class, mappedBy="server")
+     */
+    private $subFolders;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Folder::class, mappedBy="server")
+     */
+    private $folders;
+
+    public function __construct()
+    {
+        $this->subFolders = new ArrayCollection();
+        $this->folders = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,6 +55,68 @@ class Server
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SubFolder[]
+     */
+    public function getSubFolders(): Collection
+    {
+        return $this->subFolders;
+    }
+
+    public function addSubFolder(SubFolder $subFolder): self
+    {
+        if (!$this->subFolders->contains($subFolder)) {
+            $this->subFolders[] = $subFolder;
+            $subFolder->setServer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubFolder(SubFolder $subFolder): self
+    {
+        if ($this->subFolders->contains($subFolder)) {
+            $this->subFolders->removeElement($subFolder);
+            // set the owning side to null (unless already changed)
+            if ($subFolder->getServer() === $this) {
+                $subFolder->setServer(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Folder[]
+     */
+    public function getFolders(): Collection
+    {
+        return $this->folders;
+    }
+
+    public function addFolder(Folder $folder): self
+    {
+        if (!$this->folders->contains($folder)) {
+            $this->folders[] = $folder;
+            $folder->setServer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFolder(Folder $folder): self
+    {
+        if ($this->folders->contains($folder)) {
+            $this->folders->removeElement($folder);
+            // set the owning side to null (unless already changed)
+            if ($folder->getServer() === $this) {
+                $folder->setServer(null);
+            }
+        }
 
         return $this;
     }

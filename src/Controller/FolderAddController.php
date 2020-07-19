@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Server;
 use App\Form\FolderType;
 use App\Service\FolderManager;
 use App\DOI\ServerAddFolderRequest;
@@ -13,9 +14,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class FolderAddController extends AbstractController
 {
     /**
-     * @Route("/{server}/add/folder", name="add_folder")
+     * @Route("/{id}/add/folder", name="add_folder")
      */
-    public function addFolder(Request $request, FolderManager $folderManager): Response
+    public function addFolder(Server $server, Request $request, FolderManager $folderManager): Response
     {
         $serverAddFolderRequest = new ServerAddFolderRequest;
 
@@ -34,7 +35,7 @@ class FolderAddController extends AbstractController
                 $jsIdMax = $jsId[0]['MAX(f.js_id)'];
             }
             //Ajoût du folder en bdd
-            $folderManager->createFolder($serverAddFolderRequest, $jsIdMax);
+            $folderManager->createFolder($serverAddFolderRequest, $jsIdMax, $server);
 
             return $this->redirectToRoute('server_dashboard');
         }

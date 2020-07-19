@@ -86,25 +86,28 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "\t<select class=\"target\" id=\"selector\">
+        echo "\t<div id=\"server\" class=\"d-none\">";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 7, $this->source); })()), "id", [], "any", false, false, false, 7), "html", null, true);
+        echo "</div>
+\t<select class=\"target\" id=\"selector\">
 \t\t<option value=\"null\" selected=\"selected\">Choisir un projet</option>
 \t\t";
-        // line 9
+        // line 10
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 9, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 10, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["project"]) {
-            // line 10
-            echo "\t\t<option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["project"], "id", [], "any", false, false, false, 10), "html", null, true);
+            // line 11
+            echo "\t\t\t<option value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["project"], "id", [], "any", false, false, false, 11), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["project"], "name", [], "any", false, false, false, 10), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["project"], "name", [], "any", false, false, false, 11), "html", null, true);
             echo "</option>
 \t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['project'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 12
+        // line 13
         echo "\t</select>
 \t<a id=\"div_0_add\" href=\"javascript:visibiliteAdd('div_0');\">
 \t\t<p>Nouveau</p>
@@ -114,56 +117,60 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t</a>
 \t<div id=\"div_0_folder_form\" style=\"display:none;\">
 \t\t";
-        // line 20
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_folder", ["server" => (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 20, $this->source); })())])]);
-        echo "
-\t\t";
         // line 21
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 21, $this->source); })()), "name", [], "any", false, false, false, 21), 'row', ["label" => false]);
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 21, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_folder", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21)])]);
         echo "
 \t\t";
         // line 22
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), 'form_end');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "name", [], "any", false, false, false, 22), 'row', ["label" => false]);
+        echo "
+\t\t";
+        // line 23
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), 'form_end');
         echo "
 \t</div>
-\t";
-        // line 24
+\t<div id=\"allFolders\">
+\t\t";
+        // line 26
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["folders"]) || array_key_exists("folders", $context) ? $context["folders"] : (function () { throw new RuntimeError('Variable "folders" does not exist.', 24, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["folders"]) || array_key_exists("folders", $context) ? $context["folders"] : (function () { throw new RuntimeError('Variable "folders" does not exist.', 26, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["folder"]) {
-            // line 25
-            echo "\t\t<div class=\"col-12 d-flex p-0\">
-\t\t\t<a id=\"";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 26), "html", null, true);
+            // line 27
+            echo "\t\t\t<div class=\"col-12 d-flex p-0\">
+\t\t\t\t<a id=\"";
+            // line 28
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 28), "html", null, true);
             echo "\" class=\"btn js-close ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 26), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 28), "html", null, true);
             echo "_close p-1\">
-\t\t\t\t<div>+</div>
-\t\t\t</a>
-\t\t\t<a id=\"";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 29), "html", null, true);
+\t\t\t\t\t<div>+</div>
+\t\t\t\t</a>
+\t\t\t\t<a id=\"";
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 31), "html", null, true);
             echo "\" class=\"btn js-open ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 29), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 31), "html", null, true);
             echo "_open d-none p-1\">
-\t\t\t\t<div>-</div>
-\t\t\t</a>
-\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
-\t\t\t<div>";
-            // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 33), "html", null, true);
-            echo "</div>
-\t\t</div>
-\t\t<div id=\"";
+\t\t\t\t\t<div>-</div>
+\t\t\t\t</a>
+\t\t\t\t<img src=\"/picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
+\t\t\t\t<div>";
             // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 35), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 35), "html", null, true);
+            echo "</div>
+\t\t\t</div>
+\t\t\t<div id=\"";
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 37), "html", null, true);
             echo "_request\" class=\"ml-3 border-left\"></div>
-\t";
+\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['folder'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 39
+        echo "\t</div>
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -184,7 +191,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     public function getDebugInfo()
     {
-        return array (  160 => 35,  155 => 33,  146 => 29,  138 => 26,  135 => 25,  131 => 24,  126 => 22,  122 => 21,  118 => 20,  108 => 12,  97 => 10,  93 => 9,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  172 => 39,  164 => 37,  159 => 35,  150 => 31,  142 => 28,  139 => 27,  135 => 26,  129 => 23,  125 => 22,  121 => 21,  111 => 13,  100 => 11,  96 => 10,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -195,10 +202,11 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 {% endblock %}
 
 {% block body %}
+\t<div id=\"server\" class=\"d-none\">{{server.id}}</div>
 \t<select class=\"target\" id=\"selector\">
 \t\t<option value=\"null\" selected=\"selected\">Choisir un projet</option>
 \t\t{% for project in projects %}
-\t\t<option value=\"{{project.id}}\">{{project.name}}</option>
+\t\t\t<option value=\"{{project.id}}\">{{project.name}}</option>
 \t\t{% endfor %}
 \t</select>
 \t<a id=\"div_0_add\" href=\"javascript:visibiliteAdd('div_0');\">
@@ -208,25 +216,26 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t\t<p>Ajouter un Dossier</p>
 \t</a>
 \t<div id=\"div_0_folder_form\" style=\"display:none;\">
-\t\t{{ form_start(form, {'action' : path('add_folder', { 'server': server })}) }}
+\t\t{{ form_start(form, {'action' : path('add_folder', { 'id': server.id })}) }}
 \t\t{{ form_row(form.name, {'label':false})}}
 \t\t{{ form_end(form) }}
 \t</div>
-\t{% for folder in folders %}
-\t\t<div class=\"col-12 d-flex p-0\">
-\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-close {{folder.jsId}}_close p-1\">
-\t\t\t\t<div>+</div>
-\t\t\t</a>
-\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-open {{folder.jsId}}_open d-none p-1\">
-\t\t\t\t<div>-</div>
-\t\t\t</a>
-\t\t\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
-\t\t\t<div>{{folder.name}}</div>
-\t\t</div>
-\t\t<div id=\"{{folder.jsId}}_request\" class=\"ml-3 border-left\"></div>
-\t{% endfor %}
+\t<div id=\"allFolders\">
+\t\t{% for folder in folders %}
+\t\t\t<div class=\"col-12 d-flex p-0\">
+\t\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-close {{folder.jsId}}_close p-1\">
+\t\t\t\t\t<div>+</div>
+\t\t\t\t</a>
+\t\t\t\t<a id=\"{{folder.jsId}}\" class=\"btn js-open {{folder.jsId}}_open d-none p-1\">
+\t\t\t\t\t<div>-</div>
+\t\t\t\t</a>
+\t\t\t\t<img src=\"/picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
+\t\t\t\t<div>{{folder.name}}</div>
+\t\t\t</div>
+\t\t\t<div id=\"{{folder.jsId}}_request\" class=\"ml-3 border-left\"></div>
+\t\t{% endfor %}
+\t</div>
 {% endblock %}
-
 ", "server_dashboard/index.html.twig", "/Users/Adel/Documents/ARTEVA/Manage-MEP/templates/server_dashboard/index.html.twig");
     }
 }

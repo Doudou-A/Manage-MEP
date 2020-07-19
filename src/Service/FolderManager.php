@@ -28,12 +28,13 @@ class FolderManager
         $this->repository = $repository;
     }
 
-    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest, $jsIdMax=null): Folder
+    public function createFolder(ServerAddFolderRequest $serverAddFolderRequest, $jsIdMax=null, $server): Folder
     {
         $folder = new Folder;
         $folder->setName($serverAddFolderRequest->name);
         $folder->setDateCreated(new \DateTime());
         $folder->setJsId($jsIdMax +1);
+        $folder->setServer($server);
 
         $this->persist($folder);
 

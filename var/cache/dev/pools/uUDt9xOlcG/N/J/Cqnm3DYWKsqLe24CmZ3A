@@ -8,7 +8,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/subFolder/{jsId}/removeFromProject/{id}',
+                '/Sub-Folder/{jsId}/Remove-From-Project/{id}',
             ],
             'name' => [
                 'sub_folder_remove_from_project',

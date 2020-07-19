@@ -8,7 +8,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/{server}/add/folder',
+                '/{id}/add/folder',
             ],
             'name' => [
                 'add_folder',

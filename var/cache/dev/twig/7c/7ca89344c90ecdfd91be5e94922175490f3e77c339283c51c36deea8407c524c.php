@@ -56,7 +56,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
         echo "\t\t</title>
 \t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
 \t\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
-\t\t<script language=\"javascript\" src=\"js/style.js\"></script>
+\t\t<script language=\"javascript\" src=\"/js/style.js\"></script>
 
 \t\t";
         // line 13
@@ -180,7 +180,7 @@ class __TwigTemplate_0e3cb873c6603205e688047308c35c10a02892663cece026518ecef654e
 \t\t</title>
 \t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/4/cerulean/bootstrap.min.css\"/>
 \t\t<script language=\"javascript\" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"></script>
-\t\t<script language=\"javascript\" src=\"js/style.js\"></script>
+\t\t<script language=\"javascript\" src=\"/js/style.js\"></script>
 
 \t\t{% block stylesheets %}{% endblock %}
 \t</head>

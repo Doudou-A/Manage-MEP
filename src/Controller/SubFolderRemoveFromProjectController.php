@@ -12,14 +12,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SubFolderRemoveFromProjectController extends AbstractController
 {
     /**
-     * @Route("/subFolder/{jsId}/removeFromProject/{id}", name="sub_folder_remove_from_project")
+     * @Route("/Sub-Folder/{jsId}/Remove-From-Project/{id}", name="sub_folder_remove_from_project")
      */
     public function index($jsId, $id, ProjectRepository $repoProject, SubFolderRepository $repoSubFolder, EntityManagerInterface $manager)
     {
         $project = $repoProject->find($id);
         $subFolder = $repoSubFolder->findOneByJsId($jsId);
 
-        $subFolder->setProject(null);
+        // $subFolder->setProject(null);
+        $subFolder->removeProject($project);
 
         $manager->persist($subFolder);
         $manager->flush();

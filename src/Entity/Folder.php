@@ -43,6 +43,11 @@ class Folder
      */
     private $subFolders;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Server::class, inversedBy="folders")
+     */
+    private $server;
+
     public function __construct()
     {
         $this->subFolders = new ArrayCollection();
@@ -123,6 +128,18 @@ class Folder
     public function getClass()
     {
         return 'Folder';
+    }
+
+    public function getServer(): ?Server
+    {
+        return $this->server;
+    }
+
+    public function setServer(?Server $server): self
+    {
+        $this->server = $server;
+
+        return $this;
     }
     
 }
