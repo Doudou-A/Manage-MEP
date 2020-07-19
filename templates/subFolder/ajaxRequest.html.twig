@@ -5,7 +5,7 @@
 	Ajouter un Dossier
 </a>
 <div id="div_{{jsId}}_folder_form" style="display:none;">
-	<form action="{{server}}/add/sub_folder" enctype="multipart/form-data" class="myForm" method="POST">
+	<form action="/{{server}}/Add/Sub-Folder" enctype="multipart/form-data" class="myForm" method="POST">
 		<div class="row col-12 p-0 m-0">
 			<div class="row p-0 m-0 col-12">
 				<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
@@ -67,8 +67,6 @@ $("#newSubFolder").append(response.html);
 });
 });
 });
-
-
 	</script>
 
 {% endblock %}

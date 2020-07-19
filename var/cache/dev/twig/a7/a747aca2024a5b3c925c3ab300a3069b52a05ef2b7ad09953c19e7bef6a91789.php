@@ -60,10 +60,10 @@ class __TwigTemplate_cdb1d26dd5fdb35fa2ae92cc57215d103b444c09d07158f5ef3af7bcf9e
         // line 7
         echo twig_escape_filter($this->env, (isset($context["jsId"]) || array_key_exists("jsId", $context) ? $context["jsId"] : (function () { throw new RuntimeError('Variable "jsId" does not exist.', 7, $this->source); })()), "html", null, true);
         echo "_folder_form\" style=\"display:none;\">
-\t<form action=\"";
+\t<form action=\"/";
         // line 8
         echo twig_escape_filter($this->env, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 8, $this->source); })()), "html", null, true);
-        echo "/add/sub_folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
+        echo "/Add/Sub-Folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
 \t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
@@ -189,8 +189,6 @@ var form_data = \$(this).serialize(); // Encode form elements for submission
 });
 });
 });
-
-
 \t</script>
 
 ";
@@ -226,7 +224,7 @@ var form_data = \$(this).serialize(); // Encode form elements for submission
 \tAjouter un Dossier
 </a>
 <div id=\"div_{{jsId}}_folder_form\" style=\"display:none;\">
-\t<form action=\"{{server}}/add/sub_folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
+\t<form action=\"/{{server}}/Add/Sub-Folder\" enctype=\"multipart/form-data\" class=\"myForm\" method=\"POST\">
 \t\t<div class=\"row col-12 p-0 m-0\">
 \t\t\t<div class=\"row p-0 m-0 col-12\">
 \t\t\t\t<input class=\"col-lg-12 p-2 animated fadeInLeft border\" type=\"text\" name=\"name\" required=\"required\"/>
@@ -288,8 +286,6 @@ var form_data = \$(this).serialize(); // Encode form elements for submission
 });
 });
 });
-
-
 \t</script>
 
 {% endblock %}

@@ -119,10 +119,10 @@ $(function () {
             url: post_url, data: form_data, type: request_method,
             /* dataType: 'json', */
             success: function (data) { // ... do something with the data...
-                $('.'+data+'_open').trigger('click');
+                $('.' + data + '_open').trigger('click');
                 setTimeout(function () {
-                    $('.'+data+'_close').trigger('click');
-                },100); 
+                    $('.' + data + '_close').trigger('click');
+                }, 100);
             }
         });
     });
@@ -142,11 +142,26 @@ $(function () {
             url: post_url, data: form_data, type: request_method,
             /* dataType: 'json', */
             success: function (data) { // ... do something with the data...
-                $('.'+data+'_open').trigger('click');
+                $('.' + data + '_open').trigger('click');
                 setTimeout(function () {
-                    $('.'+data+'_close').trigger('click');
-                },100); 
+                    $('.' + data + '_close').trigger('click');
+                }, 100);
             }
+        });
+    });
+});
+
+// Requête ajouter un Folder/SubFolder
+$(function () {
+    $(".myForm").submit(function (event) {
+        event.preventDefault(); // Empêcher le rechargement de la page.
+        var post_url = $(this).attr("action"); // get form action url
+        var request_method = $(this).attr("method"); // get form GET/POST method
+        var form_data = $(this).serialize(); // Encode form elements for submission
+
+        $.ajax({ url: post_url, type: request_method, data: form_data }).done(function (response) { //
+            $("#newSubFolder").append(response.html);
+            /* $(this).trigger('click'); */
         });
     });
 });

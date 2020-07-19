@@ -32,7 +32,7 @@ class SubFolderManager
         $this->folderManager = $folderManager;
     }
 
-    public function createInFolder(AddSubFolderRequest $addSubFolderRequest, $jsIdMax = null, $server)
+    public function createInFolder(AddSubFolderRequest $addSubFolderRequest, $server, $jsIdMax = null)
     {
         $subFolder = new SubFolder;
         

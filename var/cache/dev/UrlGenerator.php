@@ -20,7 +20,7 @@ return [
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'server_dashboard' => [['id'], ['_controller' => 'App\\Controller\\ServerDashboardController::dashboard'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/dashboard']], [], []],
-    'add_subFolder_in_folder' => [['id'], ['_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInFolder'], [], [['text', '/add/sub_folder'], ['variable', '/', '[^/]++', 'id']], [], []],
+    'add_subFolder_in_folder' => [['id'], ['_controller' => 'App\\Controller\\SubFolderAddController::addSubFolderInFolder'], [], [['text', '/Add/Sub-Folder'], ['variable', '/', '[^/]++', 'id']], [], []],
     'sub_folder_add_to_project' => [['jsId', 'id'], ['_controller' => 'App\\Controller\\SubFolderAddToProjectController::index'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/Add-To-Project'], ['variable', '/', '[^/]++', 'jsId'], ['text', '/Sub-Folder']], [], []],
     'sub_folder_remove_from_project' => [['jsId', 'id'], ['_controller' => 'App\\Controller\\SubFolderRemoveFromProjectController::index'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/Remove-From-Project'], ['variable', '/', '[^/]++', 'jsId'], ['text', '/Sub-Folder']], [], []],
     'sub_folder_request' => [['id', 'project', 'server'], ['project' => null, '_controller' => 'App\\Controller\\SubFolderRequestController::subFolderRequest'], [], [['variable', '/', '[^/]++', 'server'], ['variable', '/', '[^/]++', 'project'], ['text', '/request'], ['variable', '/', '[^/]++', 'id'], ['text', '/Sub-Folder']], [], []],

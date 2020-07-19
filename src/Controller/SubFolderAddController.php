@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SubFolderAddController extends AbstractController
 {
     /**
-     * @Route("/{id}/add/Sub-Folder", name="add_subFolder_in_folder")
+     * @Route("/{id}/Add/Sub-Folder", name="add_subFolder_in_folder")
      */
     public function addSubFolderInFolder(Server $server, FolderRepository $repoFolder, SubFolderManager $subFolderManager, FolderManager $folderManager): Response
     {
