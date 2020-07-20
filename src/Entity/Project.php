@@ -39,6 +39,11 @@ class Project
      */
     private $subFolders;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $finished;
+
 
 
     public function __construct()
@@ -126,6 +131,18 @@ class Project
             $this->subFolders->removeElement($subFolder);
             $subFolder->removeProject($this);
         }
+
+        return $this;
+    }
+
+    public function getFinished(): ?bool
+    {
+        return $this->finished;
+    }
+
+    public function setFinished(bool $finished): self
+    {
+        $this->finished = $finished;
 
         return $this;
     }

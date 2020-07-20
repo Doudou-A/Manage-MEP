@@ -5,24 +5,59 @@
 	Ajouter un Dossier
 </a>
 <div id="div_{{jsId}}_folder_form" style="display:none;">
-	<form action="/{{server}}/Add/Sub-Folder" enctype="multipart/form-data" class="myForm" method="POST">
-		<div class="row col-12 p-0 m-0">
-			<div class="row p-0 m-0 col-12">
-				<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
+	{% if project != null %}
+		<form action="/{{server}}/Add/Sub-Folder/{{project.id}}" enctype="multipart/form-data" class="myForm" method="POST">
+		{% else %}
+			<form action="/{{server}}/Add/Sub-Folder/null" enctype="multipart/form-data" class="myForm" method="POST">
+			{% endif %}
+			<div class="row col-12 p-0 m-0">
+				<div class="row p-0 m-0 col-12">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name" required="required"/>
+				</div>
+				<div style="display: none;">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{jsId}}" type="text" name="onFolder" required="required"/>
+				</div>
+				<div style="display: none;">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" value="folder" type="text" name="type" required="required"/>
+				</div>
+				<div style="display: none;">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" value='1' type="number" name="level" required="required"/>
+				</div>
+				<div style="display: none;">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" value="ok" type="text" name="subFolder"/>
+				</div>
+				<input style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
 			</div>
-			<div style="display: none;">
-				<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{jsId}}" type="text" name="onFolder" required="required"/>
+		</div>
+	</form>
+</div>
+<a id="div_{{jsId}}_file_add" href="javascript:visibiliteFolder('div_{{jsId}}_file');" style="display:none;">
+	Ajouter un Fichier
+</a>
+<div id="div_{{jsId}}_file_form" style="display:none;">
+	{% if project != null %}
+		<form action="/{{server}}/Add/Sub-Folder/{{project.id}}" enctype="multipart/form-data" class="myForm" method="POST">
+		{% else %}
+			<form action="/{{server}}/Add/Sub-Folder/null" enctype="multipart/form-data" class="myForm" method="POST">
+			{% endif %}
+			<div class="row col-12 p-0 m-0">
+				<div class="row p-0 m-0 col-12">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" type="text" name="name"/>
+				</div>
+				<div style="display: none;">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{jsId}}" type="text" name="onFolder"/>
+				</div>
+				<div style="display: none;">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type"/>
+				</div>
+				<div style="display: none;">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" value='1' type="number" name="level"/>
+				</div>
+				<div style="display: none;">
+					<input class="col-lg-12 p-2 animated fadeInLeft border" value="ok" type="text" name="subFolder"/>
+				</div>
+				<input style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
 			</div>
-			<div style="display: none;">
-				<input class="col-lg-12 p-2 animated fadeInLeft border" value="file" type="text" name="type" required="required"/>
-			</div>
-			<div style="display: none;">
-				<input class="col-lg-12 p-2 animated fadeInLeft border" value='1' type="number" name="level" required="required"/>
-			</div>
-			<div style="display: none;">
-				<input class="col-lg-12 p-2 animated fadeInLeft border" value="ok" type="text" name="subFolder"/>
-			</div>
-			<input style="display: none;" type="submit" name="valide" value="Valider" class="btn border-secondary col-6 offset-3 mt-4 animated fadeInRight rounded text-white"/>
 		</div>
 	</form>
 </div>
@@ -34,9 +69,13 @@
 		<a id="{{subFolder.js_id}}" class="btn js-open {{subFolder.js_id}}_open d-none p-1">
 			<div>-</div>
 		</a>
-		<img src="picture/folder_win10.png" alt="Folder" width="20px" height="30px"/>
+		{% if subFolder.type == "folder" %}
+			<img src="/picture/folder.png" alt="Folder" width="20px" height="30px"/>
+		{% else %}
+			<img src="/picture/file.png" alt="Folder" width="20px" height="30px"/>
+		{% endif %}
 		<div>{{ subFolder.name }}</div>
-		{% if project != "null" %}
+		{% if project != null %}
 			{% if subFolder.id in listId %}
 				<form action="SubFolder/removeCheckBox" method="post" id="{{subFolder.js_id}}" class="removeCheckBox checkBox">
 					<input type="checkbox" value="1" class="ml-2" checked>
@@ -53,7 +92,7 @@
 <div id="newSubFolder"></div>
 {% block javascripts %}
 	<script>
-		// Requête ajouter un Folder/File
+		// Requête ajouter un Folder/SubFolder
 $(function () {
 $(".myForm").submit(function (event) {
 event.preventDefault(); // Empêcher le rechargement de la page.
@@ -68,5 +107,4 @@ $("#newSubFolder").append(response.html);
 });
 });
 	</script>
-
 {% endblock %}

@@ -141,6 +141,10 @@ class ComposerStaticInitd92ae733dff827285ea10dc22e3ac346
         array (
             'JsonSchema\\' => 11,
         ),
+        'G' => 
+        array (
+            'Gedmo\\' => 6,
+        ),
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
@@ -170,6 +174,10 @@ class ComposerStaticInitd92ae733dff827285ea10dc22e3ac346
             'Composer\\Semver\\' => 16,
             'Composer\\CaBundle\\' => 18,
             'Composer\\' => 9,
+        ),
+        'B' => 
+        array (
+            'Behat\\Transliterator\\' => 21,
         ),
         'A' => 
         array (
@@ -545,6 +553,10 @@ class ComposerStaticInitd92ae733dff827285ea10dc22e3ac346
         array (
             0 => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema',
         ),
+        'Gedmo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/lib/Gedmo',
+        ),
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
@@ -631,6 +643,10 @@ class ComposerStaticInitd92ae733dff827285ea10dc22e3ac346
         'Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/composer/src/Composer',
+        ),
+        'Behat\\Transliterator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/transliterator/src/Behat/Transliterator',
         ),
         'App\\Tests\\' => 
         array (

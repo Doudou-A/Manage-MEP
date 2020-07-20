@@ -89,26 +89,36 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
         echo "\t<div id=\"server\" class=\"d-none\">";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 7, $this->source); })()), "id", [], "any", false, false, false, 7), "html", null, true);
         echo "</div>
-\t<select class=\"target\" id=\"selector\">
-\t\t<option value=\"null\" selected=\"selected\">Choisir un projet</option>
-\t\t";
-        // line 10
+\t<div id=\"serverName\" class=\"d-none\">";
+        // line 8
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 8, $this->source); })()), "name", [], "any", false, false, false, 8), "html", null, true);
+        echo "</div>
+\t<div class=\"d-flex\">
+\t\t<select class=\"target\" id=\"selector\">
+\t\t\t<option value=\"null\" selected=\"selected\">Choisir un projet</option>
+\t\t\t";
+        // line 12
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 10, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 12, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["project"]) {
-            // line 11
-            echo "\t\t\t<option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["project"], "id", [], "any", false, false, false, 11), "html", null, true);
+            // line 13
+            echo "\t\t\t\t<option value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["project"], "id", [], "any", false, false, false, 13), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["project"], "name", [], "any", false, false, false, 11), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["project"], "name", [], "any", false, false, false, 13), "html", null, true);
             echo "</option>
-\t\t";
+\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['project'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 13
-        echo "\t</select>
+        // line 15
+        echo "\t\t</select>
+\t\t<a href=\"";
+        // line 16
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("project_create");
+        echo "\">Créer un Projet</a>
+\t</div>
 \t<a id=\"div_0_add\" href=\"javascript:visibiliteAdd('div_0');\">
 \t\t<p>Nouveau</p>
 \t</a>
@@ -117,58 +127,58 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 \t</a>
 \t<div id=\"div_0_folder_form\" style=\"display:none;\">
 \t\t";
-        // line 21
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 21, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_folder", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21)])]);
+        // line 25
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), 'form_start', ["action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_folder", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["server"]) || array_key_exists("server", $context) ? $context["server"] : (function () { throw new RuntimeError('Variable "server" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25)])]);
         echo "
 \t\t";
-        // line 22
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "name", [], "any", false, false, false, 22), 'row', ["label" => false]);
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "name", [], "any", false, false, false, 26), 'row', ["label" => false]);
         echo "
 \t\t";
-        // line 23
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), 'form_end');
+        // line 27
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), 'form_end');
         echo "
 \t</div>
 \t<div id=\"allFolders\">
 \t\t";
-        // line 26
+        // line 30
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["folders"]) || array_key_exists("folders", $context) ? $context["folders"] : (function () { throw new RuntimeError('Variable "folders" does not exist.', 26, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["folders"]) || array_key_exists("folders", $context) ? $context["folders"] : (function () { throw new RuntimeError('Variable "folders" does not exist.', 30, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["folder"]) {
-            // line 27
+            // line 31
             echo "\t\t\t<div class=\"col-12 d-flex p-0\">
 \t\t\t\t<a id=\"";
-            // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 28), "html", null, true);
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 32), "html", null, true);
             echo "\" class=\"btn js-close ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 28), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 32), "html", null, true);
             echo "_close p-1\">
 \t\t\t\t\t<div>+</div>
 \t\t\t\t</a>
 \t\t\t\t<a id=\"";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 31), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 35), "html", null, true);
             echo "\" class=\"btn js-open ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 31), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 35), "html", null, true);
             echo "_open d-none p-1\">
 \t\t\t\t\t<div>-</div>
 \t\t\t\t</a>
 \t\t\t\t<img src=\"/picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
 \t\t\t\t<div>";
-            // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 35), "html", null, true);
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "name", [], "any", false, false, false, 39), "html", null, true);
             echo "</div>
 \t\t\t</div>
 \t\t\t<div id=\"";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 37), "html", null, true);
+            // line 41
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["folder"], "jsId", [], "any", false, false, false, 41), "html", null, true);
             echo "_request\" class=\"ml-3 border-left\"></div>
 \t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['folder'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 43
         echo "\t</div>
 ";
         
@@ -191,7 +201,7 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
     public function getDebugInfo()
     {
-        return array (  172 => 39,  164 => 37,  159 => 35,  150 => 31,  142 => 28,  139 => 27,  135 => 26,  129 => 23,  125 => 22,  121 => 21,  111 => 13,  100 => 11,  96 => 10,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  182 => 43,  174 => 41,  169 => 39,  160 => 35,  152 => 32,  149 => 31,  145 => 30,  139 => 27,  135 => 26,  131 => 25,  119 => 16,  116 => 15,  105 => 13,  101 => 12,  94 => 8,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -203,12 +213,16 @@ class __TwigTemplate_1962187858409a42e773421fc212bab5946b57e7e68e1b2c5e1eecda781
 
 {% block body %}
 \t<div id=\"server\" class=\"d-none\">{{server.id}}</div>
-\t<select class=\"target\" id=\"selector\">
-\t\t<option value=\"null\" selected=\"selected\">Choisir un projet</option>
-\t\t{% for project in projects %}
-\t\t\t<option value=\"{{project.id}}\">{{project.name}}</option>
-\t\t{% endfor %}
-\t</select>
+\t<div id=\"serverName\" class=\"d-none\">{{server.name}}</div>
+\t<div class=\"d-flex\">
+\t\t<select class=\"target\" id=\"selector\">
+\t\t\t<option value=\"null\" selected=\"selected\">Choisir un projet</option>
+\t\t\t{% for project in projects %}
+\t\t\t\t<option value=\"{{project.id}}\">{{project.name}}</option>
+\t\t\t{% endfor %}
+\t\t</select>
+\t\t<a href=\"{{ path('project_create')}}\">Créer un Projet</a>
+\t</div>
 \t<a id=\"div_0_add\" href=\"javascript:visibiliteAdd('div_0');\">
 \t\t<p>Nouveau</p>
 \t</a>

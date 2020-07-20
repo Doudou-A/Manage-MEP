@@ -57,22 +57,28 @@ class __TwigTemplate_87ce91c1be339e121ac31ae2b5512e86b3c42060f4e8bf2d87120c8d63c
         echo "_open d-none p-1\">
 \t\t<div>-</div>
 \t</a>
-\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
-\t<div>";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subFolder"]) || array_key_exists("subFolder", $context) ? $context["subFolder"] : (function () { throw new RuntimeError('Variable "subFolder" does not exist.', 9, $this->source); })()), "name", [], "any", false, false, false, 9), "html", null, true);
-        echo "</div>
 \t";
-        // line 10
-        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["subFolder"]) || array_key_exists("subFolder", $context) ? $context["subFolder"] : (function () { throw new RuntimeError('Variable "subFolder" does not exist.', 10, $this->source); })()), "modification", [], "any", false, false, false, 10), 1)) {
-            // line 11
-            echo "\t\t<form action=\"\" method=\"post\">
-\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\" checked>
-\t\t</form>
+        // line 8
+        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["subFolder"]) || array_key_exists("subFolder", $context) ? $context["subFolder"] : (function () { throw new RuntimeError('Variable "subFolder" does not exist.', 8, $this->source); })()), "type", [], "any", false, false, false, 8), "folder")) {
+            // line 9
+            echo "\t\t<img src=\"/picture/folder.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
 \t";
         } else {
+            // line 11
+            echo "\t\t<img src=\"/picture/file.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
+\t";
+        }
+        // line 13
+        echo "\t<div>";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subFolder"]) || array_key_exists("subFolder", $context) ? $context["subFolder"] : (function () { throw new RuntimeError('Variable "subFolder" does not exist.', 13, $this->source); })()), "name", [], "any", false, false, false, 13), "html", null, true);
+        echo "</div>
+\t";
+        // line 14
+        if (0 !== twig_compare((isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new RuntimeError('Variable "project" does not exist.', 14, $this->source); })()), "null")) {
             // line 15
-            echo "\t\t<form action=\"\" method=\"post\">
+            echo "\t\t<form action=\"SubFolder/addCheckBox\" method=\"post\" id=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subFolder"]) || array_key_exists("subFolder", $context) ? $context["subFolder"] : (function () { throw new RuntimeError('Variable "subFolder" does not exist.', 15, $this->source); })()), "jsId", [], "any", false, false, false, 15), "html", null, true);
+            echo "\" class=\"addCheckBox checkBox\">
 \t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\">
 \t\t</form>
 \t";
@@ -104,7 +110,7 @@ class __TwigTemplate_87ce91c1be339e121ac31ae2b5512e86b3c42060f4e8bf2d87120c8d63c
 
     public function getDebugInfo()
     {
-        return array (  84 => 20,  81 => 19,  75 => 15,  69 => 11,  67 => 10,  63 => 9,  54 => 5,  46 => 2,  43 => 1,);
+        return array (  90 => 20,  87 => 19,  79 => 15,  77 => 14,  72 => 13,  68 => 11,  64 => 9,  62 => 8,  54 => 5,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -116,14 +122,14 @@ class __TwigTemplate_87ce91c1be339e121ac31ae2b5512e86b3c42060f4e8bf2d87120c8d63c
 \t<a id=\"{{subFolder.jsId}}\" class=\"btn js-open {{subFolder.jsId}}_open d-none p-1\">
 \t\t<div>-</div>
 \t</a>
-\t<img src=\"picture/folder_win10.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
-\t<div>{{ subFolder.name }}</div>
-\t{% if subFolder.modification == 1 %}
-\t\t<form action=\"\" method=\"post\">
-\t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\" checked>
-\t\t</form>
+\t{% if subFolder.type == \"folder\" %}
+\t\t<img src=\"/picture/folder.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
 \t{% else %}
-\t\t<form action=\"\" method=\"post\">
+\t\t<img src=\"/picture/file.png\" alt=\"Folder\" width=\"20px\" height=\"30px\"/>
+\t{% endif %}
+\t<div>{{ subFolder.name }}</div>
+\t{% if project != \"null\" %}
+\t\t<form action=\"SubFolder/addCheckBox\" method=\"post\" id=\"{{subFolder.jsId}}\" class=\"addCheckBox checkBox\">
 \t\t\t<input type=\"checkbox\" value=\"1\" class=\"ml-2\">
 \t\t</form>
 \t{% endif %}

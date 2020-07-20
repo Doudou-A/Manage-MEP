@@ -5,14 +5,14 @@
 	<a id="{{subFolder.jsId}}" class="btn js-open {{subFolder.jsId}}_open d-none p-1">
 		<div>-</div>
 	</a>
-	<img src="picture/folder_win10.png" alt="Folder" width="20px" height="30px"/>
-	<div>{{ subFolder.name }}</div>
-	{% if subFolder.modification == 1 %}
-		<form action="" method="post">
-			<input type="checkbox" value="1" class="ml-2" checked>
-		</form>
+	{% if subFolder.type == "folder" %}
+		<img src="/picture/folder.png" alt="Folder" width="20px" height="30px"/>
 	{% else %}
-		<form action="" method="post">
+		<img src="/picture/file.png" alt="Folder" width="20px" height="30px"/>
+	{% endif %}
+	<div>{{ subFolder.name }}</div>
+	{% if project != "null" %}
+		<form action="SubFolder/addCheckBox" method="post" id="{{subFolder.jsId}}" class="addCheckBox checkBox">
 			<input type="checkbox" value="1" class="ml-2">
 		</form>
 	{% endif %}

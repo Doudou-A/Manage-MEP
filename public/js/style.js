@@ -41,17 +41,22 @@ $(function () {
     });
 });
 
-/* Display formulaire */
+/* Afficher formulaire */
 var divPrecedent = document.getElementById('div_0_add');
 function visibiliteAdd(divId) {
     divPresent = document.getElementById(divId + '_folder_add');
+    divPresentBis = document.getElementById(divId + '_file_add');
     divForm = document.getElementById(divId + '_folder_form');
     if (divPresent.style.display == 'none') {
         divPresent.style.display = 'block';
+        divPresentBis.style.display = 'block';
         divForm.style.display = 'none';
-    } else divPresent.style.display = 'none';
+    } else {
+        divPresent.style.display = 'none';
+        divPresentBis.style.display = 'none';
+    }
 }
-var divPrecedent = document.getElementById('div_0_folder_add');
+// var divPrecedent = document.getElementById('div_0_folder_add');
 function visibiliteFolder(divId) {
     divPresent = document.getElementById(divId + '_form');
     divAdd = document.getElementById(divId + '_add');
@@ -61,16 +66,18 @@ function visibiliteFolder(divId) {
     } else divPresent.style.display = 'none';
 }
 
-// Requete pour afficher les file/folder modifiés d'un projet
+// Requete pour afficher les subFolder modifiés d'un projet
 $(function () {
     $("select").change(function () {
         var project = $("select").children("option:selected").val()
+        var server = $("#serverName").text();
+        var href = "/Dashboard/" + server;
         $.ajax({
             type: 'GET',
             url: '/project/' + project + '/allSubFolder',
             timeout: 3000,
             success: function (data) {
-                $("#allFolders").load("dashboard" + " #allFolders>*", "");
+                $("#allFolders").load(href + " #allFolders>*", "");
                 var i = 1; // compteur initialisé à 1 car 0 correspond au nombre d'index
                 function myLoopASubFolderModif(data) { // creation de la boucle function Array contenant aJsId[]
                     setTimeout(function () {
@@ -85,7 +92,7 @@ $(function () {
                                 if (j < data[0]) { // Si le compteur < nombre d'index, appel de la fonction à nouveau
                                     myLoopAJsId(data); // ..  rappel de la fonction
                                 } // ..  setTimeout()
-                            }, 100)
+                            }, 200)
                         }
                         myLoopAJsId(data[i]);
                         i++; // increment the counter
@@ -98,7 +105,8 @@ $(function () {
                 myLoopASubFolderModif(data);
             },
             error: function () {
-                alert('La requête n\'a pas abouti');
+                $("#allFolders").load(href + " #allFolders>*", "");
+                if (project != "null") alert('La requête n\'a pas abouti');
             }
         });
     }
@@ -147,21 +155,6 @@ $(function () {
                     $('.' + data + '_close').trigger('click');
                 }, 100);
             }
-        });
-    });
-});
-
-// Requête ajouter un Folder/SubFolder
-$(function () {
-    $(".myForm").submit(function (event) {
-        event.preventDefault(); // Empêcher le rechargement de la page.
-        var post_url = $(this).attr("action"); // get form action url
-        var request_method = $(this).attr("method"); // get form GET/POST method
-        var form_data = $(this).serialize(); // Encode form elements for submission
-
-        $.ajax({ url: post_url, type: request_method, data: form_data }).done(function (response) { //
-            $("#newSubFolder").append(response.html);
-            /* $(this).trigger('click'); */
         });
     });
 });

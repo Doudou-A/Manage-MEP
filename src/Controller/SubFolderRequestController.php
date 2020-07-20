@@ -15,8 +15,9 @@ class SubFolderRequestController extends AbstractController
     /**
      * @Route("/Sub-Folder/{id}/request/{project}/{server}", name="sub_folder_request")
      */
-    public function subFolderRequest($id, $project=null, $server, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder, ProjectRepository $repoProject): Response
+    public function subFolderRequest($id, $project, $server, FolderRepository $repoFolder, SubFolderRepository $repoSubFolder, ProjectRepository $repoProject): Response
     {
+        if($project === "null") $project = null;
         /* folder = $repoFolder->findOneByJsId($id);
 
         if($folder){
@@ -29,7 +30,8 @@ class SubFolderRequestController extends AbstractController
         } */
         $allSubFolderRequest = $repoSubFolder->findList($id, $server);
         $listId = null;
-        if($project !== "null"){
+
+        if($project !== null){
             $project = $repoProject->find($project);
             $projectCollection = $project->getSubFolders();
             $listSubFolder = $projectCollection->getValues();

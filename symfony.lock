@@ -1,4 +1,7 @@
 {
+    "behat/transliterator": {
+        "version": "v1.3.0"
+    },
     "composer/ca-bundle": {
         "version": "1.2.7"
     },
@@ -107,6 +110,9 @@
         "files": [
             ".php_cs.dist"
         ]
+    },
+    "gedmo/doctrine-extensions": {
+        "version": "v2.4.41"
     },
     "justinrainbow/json-schema": {
         "version": "5.2.10"

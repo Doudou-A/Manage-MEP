@@ -37,7 +37,7 @@ class FolderAddController extends AbstractController
             //Ajoût du folder en bdd
             $folderManager->createFolder($serverAddFolderRequest, $jsIdMax, $server);
 
-            return $this->redirectToRoute('server_dashboard');
+            return $this->redirectToRoute('server_dashboard', ['slug' => $server->getSlug()]);
         }
 
         return $this->render('server_dashboard/index.html.twig', [

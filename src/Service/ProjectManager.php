@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Folder;
 use App\Entity\Project;
+use App\DOI\ProjectCreateRequest;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -31,6 +32,19 @@ class ProjectManager
         $this->folderManager = $folderManager;
     }
     
+    public function createProject(ProjectCreateRequest $projectCreateRequest, $user): Project
+    {
+        $project = new Project;
+        $project->setName($projectCreateRequest->name);
+        $project->setDateCreated(new \DateTime());
+        $project->addUser($user);
+        $project->setFinished(false);
+
+        $this->persist($project);
+
+        return $project;
+    }
+
     /**
      * @return array<Folder>
      */
@@ -39,7 +53,7 @@ class ProjectManager
         return $this->repository->findAll();
     }
     
-    public function getAllByUser($user)
+    public function getByUser($user)
     {
         return $this->repository->findByUser($user);
     }

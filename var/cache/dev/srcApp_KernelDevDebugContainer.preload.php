@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/ContainerYVBzYBJ/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerVYJnqMo/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -31,6 +31,7 @@ $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\FolderAddController';
 $classes[] = 'App\Controller\ProjectController';
+$classes[] = 'App\Controller\ProjectCreateController';
 $classes[] = 'App\Controller\SecurityController';
 $classes[] = 'App\Controller\ServerDashboardController';
 $classes[] = 'App\Controller\SubFolderAddController';
@@ -38,6 +39,8 @@ $classes[] = 'App\Controller\SubFolderAddToProjectController';
 $classes[] = 'App\Controller\SubFolderRemoveFromProjectController';
 $classes[] = 'App\Controller\SubFolderRequestController';
 $classes[] = 'App\Form\FolderType';
+$classes[] = 'App\Form\ProjectType';
+$classes[] = 'App\Form\RegistrationType';
 $classes[] = 'App\Form\SubFolderType';
 $classes[] = 'App\Repository\FolderRepository';
 $classes[] = 'App\Repository\ProjectRepository';

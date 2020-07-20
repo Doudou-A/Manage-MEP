@@ -15,9 +15,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SubFolderAddController extends AbstractController
 {
     /**
-     * @Route("/{id}/Add/Sub-Folder", name="add_subFolder_in_folder")
+     * @Route("/{id}/Add/Sub-Folder/{project}", name="add_subFolder_in_folder")
      */
-    public function addSubFolderInFolder(Server $server, FolderRepository $repoFolder, SubFolderManager $subFolderManager, FolderManager $folderManager): Response
+    public function addSubFolderInFolder(Server $server, $project=null, FolderRepository $repoFolder, SubFolderManager $subFolderManager, FolderManager $folderManager): Response
     {
         $addSubFolderRequest = new AddSubFolderRequest();
 
@@ -43,6 +43,7 @@ class SubFolderAddController extends AbstractController
         return new JsonResponse([
             'html' => $this->renderView('subFolder/newSubFolder.html.twig', [
                 'subFolder' => $subFolder,
+                'project' => $project,
             ])
         ]);
         /* return $this->redirectToRoute('server_dashboard'); */

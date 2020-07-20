@@ -5,12 +5,16 @@
 
 {% block body %}
 	<div id="server" class="d-none">{{server.id}}</div>
-	<select class="target" id="selector">
-		<option value="null" selected="selected">Choisir un projet</option>
-		{% for project in projects %}
-			<option value="{{project.id}}">{{project.name}}</option>
-		{% endfor %}
-	</select>
+	<div id="serverName" class="d-none">{{server.name}}</div>
+	<div class="d-flex">
+		<select class="target" id="selector">
+			<option value="null" selected="selected">Choisir un projet</option>
+			{% for project in projects %}
+				<option value="{{project.id}}">{{project.name}}</option>
+			{% endfor %}
+		</select>
+		<a href="{{ path('project_create')}}">Créer un Projet</a>
+	</div>
 	<a id="div_0_add" href="javascript:visibiliteAdd('div_0');">
 		<p>Nouveau</p>
 	</a>
